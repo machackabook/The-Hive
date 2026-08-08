@@ -1,0 +1,11 @@
+{
+  "name": "Nexus Gaia: Polyglot Command Center",
+  "description": "A sovereign workspace for autonomous quine replication, neural stream diagnostics, and self-sustaining code orchestration via the AE-M4 kernel.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

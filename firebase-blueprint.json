@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "visual": {
+      "title": "Visual",
+      "description": "Represents an uploaded visual or image data",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The user who uploaded the visual"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the visual"
+        },
+        "url": {
+          "type": "string",
+          "description": "The URL or data URI of the visual"
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Timestamp of creation"
+        }
+      },
+      "required": ["userId", "name", "url", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/visuals/{visualId}": {
+      "schema": {
+        "$ref": "#/entities/visual"
+      },
+      "description": "Stores user uploaded visuals"
+    }
+  }
+}
