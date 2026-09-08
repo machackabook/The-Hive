@@ -4,6 +4,7 @@ import { createServer as createViteServer } from "vite";
 import { WebSocketServer, WebSocket } from "ws";
 import { createServer } from "http";
 import net from "net";
+import { broadcastGaiaContract, broadcastGaiaPulse, getLastGaiaContract } from "./gaiaBridge";
 
 const INITIAL_TOPIC = "The Ethics of Autonomous Quine Replication";
 
@@ -30,10 +31,30 @@ const activeBridges: IrcBridge[] = [];
 
 async function startServer() {
   const app = express();
+  app.use(express.json());
   const PORT = 3000;
   const server = createServer(app);
 
   const wss = new WebSocketServer({ server });
+
+  app.get("/api/health", (req, res) => {
+    res.json({ status: "ok", gaia: getLastGaiaContract() });
+  });
+
+  app.get("/api/gaia/contract", (req, res) => {
+    res.json(getLastGaiaContract());
+  });
+
+  app.post("/api/gaia/contract", (req, res) => {
+    const contract = broadcastGaiaContract(wss, req.body || {});
+    res.json(contract);
+  });
+
+  app.post("/api/gaia/pulse", (req, res) => {
+    const pulse = Number(req.body?.pulse ?? req.body);
+    broadcastGaiaPulse(wss, Number.isFinite(pulse) ? pulse : 1);
+    res.json({ type: "gaia:pulse", pulse: Number.isFinite(pulse) ? pulse : 1 });
+  });
 
   function broadcastBridgesList() {
     const list = activeBridges.map(b => ({
@@ -112,14 +133,12 @@ async function startServer() {
       buffer = lines.pop() || '';
 
       for (const line of lines) {
-        // PING response
         if (line.startsWith('PING ')) {
           const challenge = line.substring(5);
           socket.write(`PONG ${challenge}\r\n`);
           continue;
         }
 
-        // IRC welcome triggers JOIN channel
         if (line.includes(' 001 ') || line.includes(' 376 ') || line.includes('Looking up your hostname')) {
           if (bridge.status !== 'CONNECTED') {
             bridge.status = 'CONNECTED';
@@ -128,7 +147,6 @@ async function startServer() {
           }
         }
 
-        // PRIVMSG parsing
         const privmsgMatch = line.match(/^:([^!]+)![^ ]+ PRIVMSG ([^ ]+) :(.+)$/);
         if (privmsgMatch) {
           const senderNick = privmsgMatch[1];
@@ -149,7 +167,6 @@ async function startServer() {
       }
     });
 
-    // In 5.5 seconds, force CONNECTED if still connecting to allow robust text injection / simulation
     setTimeout(() => {
       if (bridge.status === 'CONNECTING') {
         console.log(`[IRC BRIDGE] Connecting timeout or force-elevating bridge ${id}`);
@@ -166,11 +183,11 @@ async function startServer() {
   }
 
   wss.on('connection', (ws) => {
-    // Send initial state incorporating the topics list, active topic and active bridges
     ws.send(JSON.stringify({ 
       type: 'sync', 
       topics: topicsDb, 
       currentTopic: globalCurrentTopic,
+      gaia: getLastGaiaContract(),
       bridges: activeBridges.map(b => ({
         id: b.id,
         server: b.server,
@@ -180,10 +197,20 @@ async function startServer() {
         status: b.status
       }))
     }));
+    ws.send(JSON.stringify({ type: 'gaia:targetState', ...getLastGaiaContract() }));
 
     ws.on('message', (message) => {
       try {
         const data = JSON.parse(message.toString());
+
+        if (data.type === 'gaia:targetState' || data.type === 'gaia_contract') {
+          broadcastGaiaContract(wss, data.detail || data);
+          return;
+        }
+        if (data.type === 'gaia:pulse') {
+          broadcastGaiaPulse(wss, Number(data.pulse ?? data.detail?.pulse ?? 1));
+          return;
+        }
 
         if (data.type === 'vote') {
           const id = data.id;
@@ -211,6 +238,7 @@ async function startServer() {
                 type: 'sync', 
                 topics: topicsDb, 
                 currentTopic: globalCurrentTopic,
+                gaia: getLastGaiaContract(),
                 bridges: activeBridges.map(b => ({
                   id: b.id,
                   server: b.server,
@@ -224,7 +252,6 @@ async function startServer() {
           });
         }
 
-        // Bridge connections creation requested over socket
         if (data.type === 'connect_bridge') {
           const { server: srv, port, channel, nick } = data;
           createIrcBridge(srv, Number(port) || 6667, channel, nick, (payload) => {
@@ -236,7 +263,6 @@ async function startServer() {
           });
         }
 
-        // Bridge disconnect requested
         if (data.type === 'disconnect_bridge') {
           const { id } = data;
           const idx = activeBridges.findIndex(b => b.id === id);
@@ -253,7 +279,6 @@ async function startServer() {
           }
         }
 
-        // Relay channel outbound chat messages
         if (data.type === 'user_message') {
           const { role, text } = data;
           activeBridges.forEach(bridge => {
@@ -264,7 +289,6 @@ async function startServer() {
                 console.error("[IRC BRIDGE] Failed to write outbound data:", e);
               }
             } else {
-              // Simulated bridge echo response fallback keeping client interaction perfect
               setTimeout(() => {
                 const echoOutputs = [
                   `[SimBridge] Received core telemetry: "<${role}> ${text}". Sync state is robust.`,
@@ -291,10 +315,6 @@ async function startServer() {
     });
   });
 
-  app.get("/api/health", (req, res) => {
-    res.json({ status: "ok" });
-  });
-
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -315,4 +335,3 @@ async function startServer() {
 }
 
 startServer();
-
