@@ -22,20 +22,46 @@ export function authorizePulse(provided?: string): boolean {
   return provided === need;
 }
 
+function peerUrls(): string[] {
+  const raw = process.env.GAIA_PEERS || '';
+  return raw
+    .split(',')
+    .map((s) => s.trim())
+    .filter((s) => /^https?:\/\//i.test(s));
+}
+
+function fanOut(payload: unknown) {
+  const token = frameToken();
+  for (const url of peerUrls()) {
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        ...(token ? { 'x-gaia-token': token } : {}),
+      },
+      body: JSON.stringify(payload),
+    }).catch(() => {});
+  }
+}
+
 export function broadcastGaiaContract(wss: WebSocketServer, partial: Partial<GaiaContract>): GaiaContract {
   lastContract = emitGaiaContract({ ...partial, token: frameToken() || partial.token });
-  const frame = JSON.stringify({ type: 'gaia:targetState', ...lastContract });
+  const frameObj = { type: 'gaia:targetState', ...lastContract };
+  const frame = JSON.stringify(frameObj);
   wss.clients.forEach((client) => {
     if (client.readyState === 1 /* OPEN */) client.send(frame);
   });
+  fanOut(frameObj);
   return lastContract;
 }
 
 export function broadcastGaiaPulse(wss: WebSocketServer, pulse: number): void {
-  const frame = JSON.stringify({ type: 'gaia:pulse', pulse, token: frameToken() });
+  const frameObj = { type: 'gaia:pulse', pulse, token: frameToken() };
+  const frame = JSON.stringify(frameObj);
   wss.clients.forEach((client: WebSocket) => {
     if (client.readyState === 1) client.send(frame);
   });
+  fanOut(frameObj);
 }
 
 export function broadcastGaiaPositions(
@@ -52,5 +78,6 @@ export function broadcastGaiaPositions(
   wss.clients.forEach((client) => {
     if (client.readyState === 1) client.send(frame);
   });
+  fanOut(lastPositions);
   return lastPositions;
 }
