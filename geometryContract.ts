@@ -8,7 +8,9 @@ export type GeometryKind =
   | 'hamiltonian'
   | 'triangular'
   | 'helix'
-  | 'mobius';
+  | 'mobius'
+  | 'lissajous'
+  | 'klein';
 
 export const GEOMETRIES: GeometryKind[] = [
   'torus',
@@ -17,6 +19,8 @@ export const GEOMETRIES: GeometryKind[] = [
   'triangular',
   'helix',
   'mobius',
+  'lissajous',
+  'klein',
 ];
 
 export interface WeaveState {
@@ -53,4 +57,20 @@ export function emitGaiaContract(partial: Partial<GaiaContract>): GaiaContract {
     toroidalWeave: Number.isFinite(partial.toroidalWeave as number) ? Number(partial.toroidalWeave) : 1,
     lerp: Number.isFinite(partial.lerp as number) ? Number(partial.lerp) : 0.05,
   };
+}
+
+/** Browser-side helper: push a contract onto the visualizer bus. */
+export function postGaiaContract(partial: Partial<GaiaContract>): GaiaContract {
+  const contract = emitGaiaContract(partial);
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('gaia:targetState', { detail: contract }));
+    try {
+      const bc = new BroadcastChannel('gaia-weave');
+      bc.postMessage({ type: 'gaia:targetState', ...contract });
+      bc.close();
+    } catch {
+      /* ignore */
+    }
+  }
+  return contract;
 }
