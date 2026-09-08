@@ -14,7 +14,9 @@ export type GeometryKind =
   | 'hopf'
   | 'rose'
   | 'seifert'
-  | 'blend';
+  | 'blend'
+  | 'trefoil'
+  | 'stereo';
 
 export const GEOMETRIES: GeometryKind[] = [
   'torus',
@@ -29,6 +31,8 @@ export const GEOMETRIES: GeometryKind[] = [
   'rose',
   'seifert',
   'blend',
+  'trefoil',
+  'stereo',
 ];
 
 export interface WeaveState {
@@ -42,7 +46,9 @@ export interface TargetState {
   geometry: GeometryKind;
 }
 
-export interface GaiaContract extends WeaveState, TargetState {}
+export interface GaiaContract extends WeaveState, TargetState {
+  token?: string;
+}
 
 export const DEFAULT_WEAVE: WeaveState = {
   gravityPull: 1,
@@ -63,13 +69,15 @@ export function parseTargetGeometry(raw: unknown): GeometryKind {
 export function emitGaiaContract(partial: Partial<GaiaContract>): GaiaContract {
   const num = (v: unknown, fallback: number) =>
     Number.isFinite(v as number) ? Number(v) : fallback;
-  return {
+  const contract: GaiaContract = {
     geometry: parseTargetGeometry(partial.geometry),
     gravityPull: num(partial.gravityPull, 1),
     toroidalWeave: num(partial.toroidalWeave, 1),
     lerp: num(partial.lerp, 0.05),
     blend: num(partial.blend, 0.5),
   };
+  if (partial.token) contract.token = String(partial.token);
+  return contract;
 }
 
 /** Browser-side helper: push a contract onto the visualizer bus. */
