@@ -4,7 +4,14 @@ import { createServer as createViteServer } from "vite";
 import { WebSocketServer, WebSocket } from "ws";
 import { createServer } from "http";
 import net from "net";
-import { broadcastGaiaContract, broadcastGaiaPulse, getLastGaiaContract } from "./gaiaBridge";
+import {
+  authorizePulse,
+  broadcastGaiaContract,
+  broadcastGaiaPositions,
+  broadcastGaiaPulse,
+  getLastGaiaContract,
+  getLastGaiaPositions,
+} from "./gaiaBridge";
 
 const INITIAL_TOPIC = "The Ethics of Autonomous Quine Replication";
 
@@ -29,16 +36,22 @@ interface IrcBridge {
 
 const activeBridges: IrcBridge[] = [];
 
+function pulseTokenFromReq(req: express.Request): string | undefined {
+  const header = req.header('x-gaia-token');
+  const body = req.body?.token;
+  return header || body;
+}
+
 async function startServer() {
   const app = express();
-  app.use(express.json());
+  app.use(express.json({ limit: '2mb' }));
   const PORT = 3000;
   const server = createServer(app);
 
   const wss = new WebSocketServer({ server });
 
   app.get("/api/health", (req, res) => {
-    res.json({ status: "ok", gaia: getLastGaiaContract() });
+    res.json({ status: "ok", gaia: getLastGaiaContract(), positions: getLastGaiaPositions() });
   });
 
   app.get("/api/gaia/contract", (req, res) => {
@@ -46,14 +59,32 @@ async function startServer() {
   });
 
   app.post("/api/gaia/contract", (req, res) => {
+    if (!authorizePulse(pulseTokenFromReq(req))) {
+      return res.status(401).json({ error: "invalid gaia token" });
+    }
     const contract = broadcastGaiaContract(wss, req.body || {});
     res.json(contract);
   });
 
   app.post("/api/gaia/pulse", (req, res) => {
+    if (!authorizePulse(pulseTokenFromReq(req))) {
+      return res.status(401).json({ error: "invalid gaia token" });
+    }
     const pulse = Number(req.body?.pulse ?? req.body);
     broadcastGaiaPulse(wss, Number.isFinite(pulse) ? pulse : 1);
     res.json({ type: "gaia:pulse", pulse: Number.isFinite(pulse) ? pulse : 1 });
+  });
+
+  app.get("/api/gaia/positions", (req, res) => {
+    res.json(getLastGaiaPositions() || { type: "gaia:positions", band: "192-network", t: 0, nodes: [] });
+  });
+
+  app.post("/api/gaia/positions", (req, res) => {
+    if (!authorizePulse(pulseTokenFromReq(req))) {
+      return res.status(401).json({ error: "invalid gaia token" });
+    }
+    const stored = broadcastGaiaPositions(wss, req.body || {});
+    res.json(stored);
   });
 
   function broadcastBridgesList() {
@@ -204,11 +235,18 @@ async function startServer() {
         const data = JSON.parse(message.toString());
 
         if (data.type === 'gaia:targetState' || data.type === 'gaia_contract') {
+          if (!authorizePulse(data.token)) return;
           broadcastGaiaContract(wss, data.detail || data);
           return;
         }
         if (data.type === 'gaia:pulse') {
+          if (!authorizePulse(data.token)) return;
           broadcastGaiaPulse(wss, Number(data.pulse ?? data.detail?.pulse ?? 1));
+          return;
+        }
+        if (data.type === 'gaia:positions') {
+          if (!authorizePulse(data.token)) return;
+          broadcastGaiaPositions(wss, data);
           return;
         }
 
