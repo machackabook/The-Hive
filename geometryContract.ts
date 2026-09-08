@@ -17,7 +17,11 @@ export type GeometryKind =
   | 'blend'
   | 'trefoil'
   | 'stereo'
-  | 'clifford';
+  | 'clifford'
+  | 'enneper'
+  | 'gyroid'
+  | 'calabi'
+  | 'figure8';
 
 export const GEOMETRIES: GeometryKind[] = [
   'torus',
@@ -35,6 +39,10 @@ export const GEOMETRIES: GeometryKind[] = [
   'trefoil',
   'stereo',
   'clifford',
+  'enneper',
+  'gyroid',
+  'calabi',
+  'figure8',
 ];
 
 export interface WeaveState {
