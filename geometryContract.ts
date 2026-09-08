@@ -1,7 +1,7 @@
 /**
  * LLM → Gaia visualizer contract (band-137).
  * Keep this the single source of truth for targetState shape inside The-Hive.
- * Stage-7: villarceau, boy, catenoid.
+ * Stage-8: dini, roman, hyperbolic.
  */
 export type GeometryKind =
   | 'torus'
@@ -25,7 +25,10 @@ export type GeometryKind =
   | 'figure8'
   | 'villarceau'
   | 'boy'
-  | 'catenoid';
+  | 'catenoid'
+  | 'dini'
+  | 'roman'
+  | 'hyperbolic';
 
 export const GEOMETRIES: GeometryKind[] = [
   'torus',
@@ -50,6 +53,9 @@ export const GEOMETRIES: GeometryKind[] = [
   'villarceau',
   'boy',
   'catenoid',
+  'dini',
+  'roman',
+  'hyperbolic',
 ];
 
 export interface WeaveState {
