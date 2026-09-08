@@ -10,7 +10,11 @@ export type GeometryKind =
   | 'helix'
   | 'mobius'
   | 'lissajous'
-  | 'klein';
+  | 'klein'
+  | 'hopf'
+  | 'rose'
+  | 'seifert'
+  | 'blend';
 
 export const GEOMETRIES: GeometryKind[] = [
   'torus',
@@ -21,12 +25,17 @@ export const GEOMETRIES: GeometryKind[] = [
   'mobius',
   'lissajous',
   'klein',
+  'hopf',
+  'rose',
+  'seifert',
+  'blend',
 ];
 
 export interface WeaveState {
   gravityPull: number;
   toroidalWeave: number;
   lerp: number;
+  blend: number;
 }
 
 export interface TargetState {
@@ -39,6 +48,7 @@ export const DEFAULT_WEAVE: WeaveState = {
   gravityPull: 1,
   toroidalWeave: 1,
   lerp: 0.05,
+  blend: 0.5,
 };
 
 export const DEFAULT_TARGET: TargetState = {
@@ -51,11 +61,14 @@ export function parseTargetGeometry(raw: unknown): GeometryKind {
 }
 
 export function emitGaiaContract(partial: Partial<GaiaContract>): GaiaContract {
+  const num = (v: unknown, fallback: number) =>
+    Number.isFinite(v as number) ? Number(v) : fallback;
   return {
     geometry: parseTargetGeometry(partial.geometry),
-    gravityPull: Number.isFinite(partial.gravityPull as number) ? Number(partial.gravityPull) : 1,
-    toroidalWeave: Number.isFinite(partial.toroidalWeave as number) ? Number(partial.toroidalWeave) : 1,
-    lerp: Number.isFinite(partial.lerp as number) ? Number(partial.lerp) : 0.05,
+    gravityPull: num(partial.gravityPull, 1),
+    toroidalWeave: num(partial.toroidalWeave, 1),
+    lerp: num(partial.lerp, 0.05),
+    blend: num(partial.blend, 0.5),
   };
 }
 
