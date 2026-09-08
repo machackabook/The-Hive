@@ -1,7 +1,7 @@
 /**
  * LLM → Gaia visualizer contract (band-137).
  * Keep this the single source of truth for targetState shape inside The-Hive.
- * Stage-8: dini, roman, hyperbolic.
+ * Stage-9: scherk, knot, pseudosphere.
  */
 export type GeometryKind =
   | 'torus'
@@ -28,7 +28,10 @@ export type GeometryKind =
   | 'catenoid'
   | 'dini'
   | 'roman'
-  | 'hyperbolic';
+  | 'hyperbolic'
+  | 'scherk'
+  | 'knot'
+  | 'pseudosphere';
 
 export const GEOMETRIES: GeometryKind[] = [
   'torus',
@@ -56,6 +59,9 @@ export const GEOMETRIES: GeometryKind[] = [
   'dini',
   'roman',
   'hyperbolic',
+  'scherk',
+  'knot',
+  'pseudosphere',
 ];
 
 export interface WeaveState {
