@@ -3,6 +3,7 @@
  * Keep this the single source of truth for targetState shape inside The-Hive.
  * Stage-9: scherk, knot, pseudosphere.
  * Stage-11: cassini, lorenz, superformula.
+ * Stage-12: WebGL2 transform-feedback for torus | infinity | hamiltonian | triangular.
  */
 export type GeometryKind =
   | 'torus'
@@ -69,6 +70,14 @@ export const GEOMETRIES: GeometryKind[] = [
   'cassini',
   'lorenz',
   'superformula',
+];
+
+/** Chat-kernel geometries that stage-12 can evaluate on GPU via transform-feedback. */
+export const TF_CHAT_GEOMETRIES: GeometryKind[] = [
+  'torus',
+  'infinity',
+  'hamiltonian',
+  'triangular',
 ];
 
 export interface WeaveState {
