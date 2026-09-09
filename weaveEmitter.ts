@@ -8,6 +8,10 @@ import { postGaiaContract, type GaiaContract, type GeometryKind } from './geomet
 let last: GaiaContract | null = null;
 let timer: ReturnType<typeof setTimeout> | null = null;
 
+export function lastContract(): GaiaContract | null {
+  return last;
+}
+
 export function emitWeaveChange(
   partial: Partial<GaiaContract>,
   opts: { debounceMs?: number } = {}
@@ -34,4 +38,8 @@ export function emitGravity(gravityPull: number) {
 
 export function emitToroidalWeave(toroidalWeave: number) {
   return emitWeaveChange({ toroidalWeave });
+}
+
+export function emitBlend(blend: number) {
+  return emitWeaveChange({ blend });
 }
