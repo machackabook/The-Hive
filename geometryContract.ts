@@ -1,7 +1,7 @@
 /**
  * LLM → Gaia visualizer contract (band-137).
  * Keep this the single source of truth for targetState shape inside The-Hive.
- * Stage-17: chat-kernel source pinned in chatKernel.ts; TF still covers the full GeometryKind set.
+ * Stage-18: chat-kernel source + evaluateChatKernel pinned in chatKernel.ts.
  */
 import { CHAT_KERNEL_LERP } from './chatKernel';
 
