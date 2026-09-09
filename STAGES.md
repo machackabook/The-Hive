@@ -1,13 +1,21 @@
 # The-Hive × gaia-visualizer stages
 
-Stage **18** — dual-path fidelity for torus / infinity / hamiltonian / triangular (`evaluateChatKernel` in `chatKernel.ts`, mirrored in gaia-visualizer `src/fidelity.js`).
+Stage **20** on gaia-visualizer — instanced TF color follows gravity (`chatKernelColor` + `instanceColor`).
+Stage **19** here — `weaveEmitter.ts` wraps `postGaiaContract` for Quine / NexusStudio / Editor weave edits.
+
+Chat kernel (`chatKernel.ts`) remains the verbatim `update(t)` from session: uniforms → theta rates → infinity | hamiltonian | triangular | torus → lerp 0.05.
 
 ## Next
 
 13. Authenticated live ledger pulse → Hive WS (`GAIA_PULSE_TOKEN`, `broadcastGaiaPulse`).
 14. Memory engrams into Drive `CRYPTIC-HEARTBEAT-NEXUS-ROOT`.
-16-public. hamiltoniansingularity.ai public band (`blend` default).
-19. NexusStudio / QuinePanel call `postGaiaContract` on every weave edit.
-20. GPU `uColor` on the TF path.
+16-public. hamiltoniansingularity.ai public band (`blend` default — already host-gated in the visualizer).
+21. Bind TF position buffer as instance translation (skip CPU readback).
 
-See also `geometryContract.ts` and `gaiaBridge.ts`.
+Wire in panels:
+
+```ts
+import { emitWeaveChange, emitGeometry } from './weaveEmitter';
+emitGeometry('blend');
+emitWeaveChange({ gravityPull: 1.4, toroidalWeave: 1.2, blend: 0.6 });
+```
