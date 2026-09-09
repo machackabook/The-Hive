@@ -3,12 +3,13 @@
  * Do not change rates without bumping both repos.
  * Stage 21 on visualizer: TF vPos → instanceOffset, skip CPU readback unless streaming.
  * Stage 22: zero-copy visual path (src/zeroCopy.js on visualizer).
+ * Stage 23: bind instanceOffset to TF currentPosBuffer() each frame.
  */
 export const CHAT_KERNEL_LERP = 0.05;
 export const CHAT_KERNEL_THETA_BASE = 0.01;
 export const CHAT_KERNEL_THETA_IDX = 0.002;
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular'] as const;
-export const STAGE = 22;
+export const STAGE = 23;
 
 export function evaluateChatKernel(input: {
   theta: number;
