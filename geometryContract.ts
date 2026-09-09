@@ -1,8 +1,10 @@
 /**
  * LLM → Gaia visualizer contract (band-137).
  * Keep this the single source of truth for targetState shape inside The-Hive.
- * Stage-16: transform-feedback covers the full GeometryKind set.
+ * Stage-17: chat-kernel source pinned in chatKernel.ts; TF still covers the full GeometryKind set.
  */
+import { CHAT_KERNEL_LERP } from './chatKernel';
+
 export type GeometryKind =
   | 'torus'
   | 'infinity'
@@ -91,7 +93,7 @@ export interface GaiaContract extends WeaveState, TargetState {
 export const DEFAULT_WEAVE: WeaveState = {
   gravityPull: 1,
   toroidalWeave: 1,
-  lerp: 0.05,
+  lerp: CHAT_KERNEL_LERP,
   blend: 0.5,
 };
 
@@ -111,7 +113,7 @@ export function emitGaiaContract(partial: Partial<GaiaContract>): GaiaContract {
     geometry: parseTargetGeometry(partial.geometry),
     gravityPull: num(partial.gravityPull, 1),
     toroidalWeave: num(partial.toroidalWeave, 1),
-    lerp: num(partial.lerp, 0.05),
+    lerp: num(partial.lerp, CHAT_KERNEL_LERP),
     blend: num(partial.blend, 0.5),
   };
   if (partial.token) contract.token = String(partial.token);

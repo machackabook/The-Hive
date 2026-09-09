@@ -1,0 +1,50 @@
+/**
+ * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
+ * Do not change rates without bumping both repos.
+ */
+export const CHAT_KERNEL_LERP = 0.05;
+export const CHAT_KERNEL_THETA_BASE = 0.01;
+export const CHAT_KERNEL_THETA_IDX = 0.002;
+export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular'] as const;
+export const STAGE = 17;
+
+export const CHAT_KERNEL_SOURCE = `update(t) {
+    this.material.uniforms.uTime.value = t;
+    this.material.uniforms.uGravity.value = state.gravityPull;
+
+    this.theta += (0.01 + this.idx * 0.002) * state.gravityPull;
+    
+    let x, y, z;
+    let major = 10 + (this.idx * 2);
+    let minor = 3 + (state.toroidalWeave * 2);
+
+    switch(targetState.geometry) {
+        case 'infinity':
+            const scale = major * 1.5;
+            const denom = 1 + Math.pow(Math.sin(this.theta), 2);
+            x = (scale * Math.cos(this.theta)) / denom;
+            z = (scale * Math.sin(this.theta) * Math.cos(this.theta)) / denom;
+            y = minor * Math.sin(this.phi) * Math.sin(t * 0.5 + this.idx);
+            break;
+        case 'hamiltonian':
+            const hScale = major;
+            x = hScale * Math.cos(this.theta * 3) * Math.cos(this.theta);
+            z = hScale * Math.cos(this.theta * 3) * Math.sin(this.theta);
+            y = hScale * Math.sin(this.theta * 3) + (Math.sin(t) * 2);
+            break;
+        case 'triangular':
+            const tAngle = (Math.floor(this.theta / (Math.PI * 2 / 3)) * (Math.PI * 2 / 3));
+            x = major * Math.cos(tAngle) + minor * Math.cos(this.theta * 5);
+            z = major * Math.sin(tAngle) + minor * Math.sin(this.theta * 5);
+            y = (this.idx % 3 - 1) * major * 0.5 + Math.sin(t) * minor;
+            break;
+        case 'torus':
+        default:
+            x = (major + minor * Math.cos(this.phi)) * Math.cos(this.theta);
+            z = (major + minor * Math.cos(this.phi)) * Math.sin(this.theta);
+            y = minor * Math.sin(this.phi) * Math.sin(t * 0.5 + this.idx);
+            break;
+    }
+
+    this.mesh.position.lerp(new THREE.Vector3(x, y, z), 0.05);
+}`;
