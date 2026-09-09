@@ -1,9 +1,7 @@
 /**
  * LLM → Gaia visualizer contract (band-137).
  * Keep this the single source of truth for targetState shape inside The-Hive.
- * Stage-9: scherk, knot, pseudosphere.
- * Stage-11: cassini, lorenz, superformula.
- * Stage-12: WebGL2 transform-feedback for torus | infinity | hamiltonian | triangular.
+ * Stage-16: transform-feedback covers the full GeometryKind set.
  */
 export type GeometryKind =
   | 'torus'
@@ -72,13 +70,8 @@ export const GEOMETRIES: GeometryKind[] = [
   'superformula',
 ];
 
-/** Chat-kernel geometries that stage-12 can evaluate on GPU via transform-feedback. */
-export const TF_CHAT_GEOMETRIES: GeometryKind[] = [
-  'torus',
-  'infinity',
-  'hamiltonian',
-  'triangular',
-];
+/** Chat-kernel + expansion geometries that stage-16 evaluates on GPU via transform-feedback. */
+export const TF_CHAT_GEOMETRIES: GeometryKind[] = [...GEOMETRIES];
 
 export interface WeaveState {
   gravityPull: number;
