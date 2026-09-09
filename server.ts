@@ -7,10 +7,14 @@ import net from "net";
 import {
   authorizePulse,
   broadcastGaiaContract,
+  broadcastGaiaLedger,
   broadcastGaiaPositions,
   broadcastGaiaPulse,
   getLastGaiaContract,
   getLastGaiaPositions,
+  getLastLedger,
+  getUnsignedRefused,
+  stampLedger,
 } from "./gaiaBridge";
 
 const INITIAL_TOPIC = "The Ethics of Autonomous Quine Replication";
@@ -42,6 +46,15 @@ function pulseTokenFromReq(req: express.Request): string | undefined {
   return header || body;
 }
 
+function liveSheet() {
+  return {
+    topics: topicsDb.length,
+    votes: topicsDb.reduce((sum, t) => sum + (t.votes || 0), 0),
+    bridges: activeBridges.length,
+    nodes: getLastGaiaPositions()?.nodes?.length || 0,
+  };
+}
+
 async function startServer() {
   const app = express();
   app.use(express.json({ limit: '2mb' }));
@@ -51,7 +64,14 @@ async function startServer() {
   const wss = new WebSocketServer({ server });
 
   app.get("/api/health", (req, res) => {
-    res.json({ status: "ok", gaia: getLastGaiaContract(), positions: getLastGaiaPositions() });
+    res.json({
+      status: "ok",
+      stage: 26,
+      gaia: getLastGaiaContract(),
+      positions: getLastGaiaPositions(),
+      ledger: getLastLedger(),
+      unsignedRefused: getUnsignedRefused(),
+    });
   });
 
   app.get("/api/gaia/contract", (req, res) => {
@@ -68,11 +88,24 @@ async function startServer() {
 
   app.post("/api/gaia/pulse", (req, res) => {
     if (!authorizePulse(pulseTokenFromReq(req))) {
-      return res.status(401).json({ error: "invalid gaia token" });
+      return res.status(401).json({ error: "invalid gaia token", unsignedRefused: getUnsignedRefused() });
     }
     const pulse = Number(req.body?.pulse ?? req.body);
-    broadcastGaiaPulse(wss, Number.isFinite(pulse) ? pulse : 1);
-    res.json({ type: "gaia:pulse", pulse: Number.isFinite(pulse) ? pulse : 1 });
+    const ledger = stampLedger({ ...liveSheet(), ...(req.body?.ledger || {}) });
+    broadcastGaiaPulse(wss, Number.isFinite(pulse) ? pulse : 1, ledger);
+    res.json({ type: "gaia:pulse", pulse: Number.isFinite(pulse) ? pulse : 1, ledger });
+  });
+
+  app.get("/api/gaia/ledger", (req, res) => {
+    res.json({ type: "gaia:ledger", ledger: stampLedger(liveSheet()) });
+  });
+
+  app.post("/api/gaia/ledger", (req, res) => {
+    if (!authorizePulse(pulseTokenFromReq(req))) {
+      return res.status(401).json({ error: "invalid gaia token", unsignedRefused: getUnsignedRefused() });
+    }
+    const ledger = broadcastGaiaLedger(wss, { ...liveSheet(), ...(req.body?.ledger || req.body || {}) });
+    res.json({ type: "gaia:ledger", ledger });
   });
 
   app.get("/api/gaia/positions", (req, res) => {
@@ -96,9 +129,11 @@ async function startServer() {
       nick: b.nick,
       status: b.status
     }));
+    stampLedger(liveSheet());
+    broadcastGaiaLedger(wss, liveSheet());
     wss.clients.forEach(client => {
       if (client.readyState === WebSocket.OPEN) {
-        client.send(JSON.stringify({ type: 'bridges_sync', bridges: list }));
+        client.send(JSON.stringify({ type: 'bridges_sync', bridges: list, ledger: getLastLedger() }));
       }
     });
   }
@@ -214,11 +249,13 @@ async function startServer() {
   }
 
   wss.on('connection', (ws) => {
+    stampLedger(liveSheet());
     ws.send(JSON.stringify({ 
       type: 'sync', 
       topics: topicsDb, 
       currentTopic: globalCurrentTopic,
       gaia: getLastGaiaContract(),
+      ledger: getLastLedger(),
       bridges: activeBridges.map(b => ({
         id: b.id,
         server: b.server,
@@ -229,6 +266,7 @@ async function startServer() {
       }))
     }));
     ws.send(JSON.stringify({ type: 'gaia:targetState', ...getLastGaiaContract() }));
+    ws.send(JSON.stringify({ type: 'gaia:ledger', ledger: getLastLedger() }));
 
     ws.on('message', (message) => {
       try {
@@ -241,7 +279,12 @@ async function startServer() {
         }
         if (data.type === 'gaia:pulse') {
           if (!authorizePulse(data.token)) return;
-          broadcastGaiaPulse(wss, Number(data.pulse ?? data.detail?.pulse ?? 1));
+          broadcastGaiaPulse(wss, Number(data.pulse ?? data.detail?.pulse ?? 1), liveSheet());
+          return;
+        }
+        if (data.type === 'gaia:ledger') {
+          if (!authorizePulse(data.token)) return;
+          broadcastGaiaLedger(wss, { ...liveSheet(), ...(data.ledger || data.detail?.ledger || {}) });
           return;
         }
         if (data.type === 'gaia:positions') {
@@ -270,6 +313,9 @@ async function startServer() {
             });
           }
 
+          stampLedger(liveSheet());
+          broadcastGaiaLedger(wss, liveSheet());
+
           wss.clients.forEach(client => {
             if (client.readyState === WebSocket.OPEN) {
               client.send(JSON.stringify({ 
@@ -277,6 +323,7 @@ async function startServer() {
                 topics: topicsDb, 
                 currentTopic: globalCurrentTopic,
                 gaia: getLastGaiaContract(),
+                ledger: getLastLedger(),
                 bridges: activeBridges.map(b => ({
                   id: b.id,
                   server: b.server,
