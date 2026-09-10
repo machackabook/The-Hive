@@ -1,24 +1,12 @@
 # The-Hive × gaia-visualizer stages
 
-Stage **37** — Drive ethereal continuum folder bound (`CRYPTIC-HEARTBEAT-NEXUS-ROOT`). Pipeline docs + waterfall contract in-repo. Team enhance stamps then moves to next repo.
-Stage **36** — BroadcastChannel HMAC verify. When `GAIA_PULSE_TOKEN` / `?token=` is set, visualizer peers refuse unsigned kernel frames on `gaia-weave` / `gaia-positions`. Hive `attachKernelMac` signs compact seeds the same way as visualizer `src/kernelMac.js`.
-Stage **35** — visualizer applies `pendingKernel` immediately after node construction so TF boot uses streamed / hydrated seeds without waiting for a later frame.
-Stage **34** — HMAC-sign kernel frames when `GAIA_PULSE_TOKEN` is set (`signKernelMac` / `verifyKernelMac` in `kernelFrame.ts`). Pulse, ledger, contract, and health carry the signed kernel.
-Stage **33** — compact theta/phi seeds ride `gaia:positions` (visualizer `createPositionStreamer` + inbound `ingestKernel`). Session `update(t)` paste unchanged (infinity | hamiltonian | triangular | torus).
-Stage **32** — signed kernel contract frame (`sourceHash`, geometries, stage) rides every `gaia:pulse`. `signedKernelFrame()` in `kernelFrame.ts`.
-Stage **31** — visualizer fidelity-samples the four chat geometries independently of klein extras.
-Stage **30** — `/api/health` exposes `kernel` theta/phi seeds; `POST /api/gaia/kernel` + WS `gaia:kernel`. Visualizer applies `applyKernelSnapshot` on boot and on health hydrate.
-Stage **29** — `chatKernel.ts` `CHAT_KERNEL_SOURCE` is the exact session `update(t)` (infinity | hamiltonian | triangular | torus). Runtime extras: `phi += 0.007 * toroidalWeave`, first-class `klein`. Visualizer adds `src/kernelSnapshot.js` (`gaia:stage29:kernel`).
-Stage **28** — phi weave + klein in evaluateChatKernel.
-Stage **27** — persist last ledger snapshot + pulse age across reload (`.gaia-snapshot.json`, `/api/health` lastPulse / lastPulseAt / pulseAgeSeconds). Visualizer restores `gaia:stage27:snapshot` from localStorage and can hydrate from `?health=`.
-Stage **26** — live ledger sheet counts ride `gaia:pulse` / `gaia:ledger`; unsigned frames increment `unsignedRefused` and are dropped when `GAIA_PULSE_TOKEN` / `?token=` is set.
-Stage **25** on gaia-visualizer — default HUD line for pulse + TF-bind; `reportTfBindHealth` after each `bindTfPosAttribute`; `stampPulse` on `state.lastPulse`.
-Stage **19** here — `weaveEmitter.ts` wraps `postGaiaContract` for Quine / NexusStudio / Editor weave edits (`emitBlend`, `emitPulse`, `emitLedger`).
+Stage **43** — HUD + `/api/health` sample fidelity when inbound `sourceHash` ≠ `beec41f1`.
+Stage **42** — re-pin session paste + `advanceChatKernelAngles`.
+Stage **41** — `evaluateChatKernelInto`.
+Stage **40** — inbound `sourceHash` ≠ `beec41f1` flagged on visualizer HUD. Hive accepts `POST /api/gaia/engram`.
 
 Chat kernel (`chatKernel.ts`) remains the verbatim `update(t)` from session: uniforms → theta rates → infinity | hamiltonian | triangular | torus → lerp 0.05.
 Live GaiaNode path does **not** allocate `new THREE.Vector3` per frame; the pinned source string does, by contract.
-
-Stage **40** — inbound `sourceHash` ≠ `beec41f1` is flagged on visualizer HUD. Hive accepts `POST /api/gaia/engram` (token-gated) and exposes last engram on `/api/health`. Session `update(t)` re-confirmed 2026-09-10.
 
 ## Next
 
@@ -26,7 +14,8 @@ Stage **40** — inbound `sourceHash` ≠ `beec41f1` is flagged on visualizer HU
 14. Memory engrams into Drive `CRYPTIC-HEARTBEAT-NEXUS-ROOT` from stored `/api/gaia/engram`.
 16-public. hamiltoniansingularity.ai public band (`blend` default — already host-gated in the visualizer).
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
-41. Auto-unpack watch on downloads / omdirectorytrew with env-check autocomplete.
+44. Compact engram GET + replay into visualizer `pendingKernel`.
+45. Continuity cascade carries STAGE + sourceHash on every sibling dispatch.
 
 Wire in panels:
 
