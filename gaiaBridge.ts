@@ -3,6 +3,7 @@ import path from 'path';
 import type { WebSocketServer, WebSocket } from 'ws';
 import { emitGaiaContract, type GaiaContract } from './geometryContract';
 import { signedKernelFrame } from './kernelFrame';
+import { compactEngram, type KernelEngram } from './kernelEngram';
 
 export interface LedgerSheet {
   topics: number;
@@ -20,6 +21,7 @@ let lastPulse = 1;
 let lastPulseAt = 0;
 let unsignedRefused = 0;
 let lastKernel: ReturnType<typeof signedKernelFrame> | null = null;
+let lastEngram: KernelEngram | null = null;
 
 function loadSnapshot() {
   try {
@@ -31,6 +33,7 @@ function loadSnapshot() {
     if (raw.contract) lastContract = raw.contract;
     if (Number.isFinite(Number(raw.unsignedRefused))) unsignedRefused = Number(raw.unsignedRefused);
     if (raw.kernel) lastKernel = raw.kernel;
+    if (raw.engram) lastEngram = raw.engram;
   } catch {
     /* ignore corrupt snapshot */
   }
@@ -39,13 +42,14 @@ function loadSnapshot() {
 function saveSnapshot() {
   try {
     const snap = {
-      stage: 35,
+      stage: 40,
       ledger: lastLedger,
       lastPulse,
       lastPulseAt,
       unsignedRefused,
       contract: lastContract,
       kernel: lastKernel,
+      engram: lastEngram,
       savedAt: Date.now(),
     };
     fs.writeFileSync(SNAPSHOT_PATH, JSON.stringify(snap));
@@ -207,4 +211,16 @@ export function broadcastGaiaPositions(
   });
   fanOut(lastPositions);
   return lastPositions;
+}
+
+export function stampEngram(raw: unknown): KernelEngram | null {
+  const packed = compactEngram((raw || {}) as Parameters<typeof compactEngram>[0]);
+  if (!packed) return lastEngram;
+  lastEngram = packed;
+  saveSnapshot();
+  return lastEngram;
+}
+
+export function getLastEngram() {
+  return lastEngram;
 }
