@@ -10,6 +10,13 @@ export interface LedgerSheet {
   nodes: number;
 }
 
+export interface PulseAuthRequest {
+  token?: string;
+  plusCode?: string;
+  email?: string;
+  ip?: string;
+}
+
 const SNAPSHOT_PATH = process.env.GAIA_SNAPSHOT_PATH || path.join(process.cwd(), '.gaia-snapshot.json');
 
 let lastContract: GaiaContract = emitGaiaContract({});
@@ -36,7 +43,7 @@ function loadSnapshot() {
 function saveSnapshot() {
   try {
     const snap = {
-      stage: 27,
+      stage: 28,
       ledger: lastLedger,
       lastPulse,
       lastPulseAt,
@@ -81,16 +88,117 @@ export function getUnsignedRefused(): number {
 }
 
 function frameToken(): string | undefined {
-  return process.env.GAIA_PULSE_TOKEN || undefined;
+  return process.env.HEARTBEATSCAN_TOKEN || undefined;
 }
 
+function configuredPlusCode(): string | undefined {
+  return process.env.HEARTBEATSCAN_PLUS_CODE || undefined;
+}
+
+function configuredEmails(): Set<string> {
+  return new Set(
+    (process.env.HEARTBEATSCAN_ALLOWED_EMAILS || '')
+      .split(',')
+      .map((email) => email.trim().toLowerCase())
+      .filter(Boolean)
+  );
+}
+
+function configuredCidrs(): string[] {
+  return (process.env.HEARTBEATSCAN_ALLOWED_CIDRS || '')
+    .split(',')
+    .map((cidr) => cidr.trim())
+    .filter(Boolean);
+}
+
+function normalizeIp(ip?: string): string | undefined {
+  if (!ip) return undefined;
+  return ip.startsWith('::ffff:') ? ip.slice(7) : ip;
+}
+
+function ipv4ToInt(ip: string): number | undefined {
+  const parts = ip.split('.');
+  if (parts.length !== 4 || parts.some((part) => !/^\d+$/.test(part))) return undefined;
+  const nums = parts.map(Number);
+  if (nums.some((part) => part < 0 || part > 255)) return undefined;
+  return ((nums[0] << 24) >>> 0) + (nums[1] << 16) + (nums[2] << 8) + nums[3];
+}
+
+function ipMatchesCidr(ip: string, cidr: string): boolean {
+  const [network, prefixText] = cidr.split('/');
+  const ipInt = ipv4ToInt(ip);
+  const networkInt = ipv4ToInt(network);
+  const prefix = Number(prefixText);
+  if (ipInt === undefined || networkInt === undefined || !Number.isInteger(prefix) || prefix < 0 || prefix > 32) {
+    return ip === cidr;
+  }
+  if (prefix === 0) return true;
+  const mask = (0xffffffff << (32 - prefix)) >>> 0;
+  return (ipInt & mask) === (networkInt & mask);
+}
+
+function networkAllowed(ip?: string): boolean {
+  const cidrs = configuredCidrs();
+  if (!cidrs.length) return false;
+  const normalized = normalizeIp(ip);
+  return !!normalized && cidrs.some((cidr) => ipMatchesCidr(normalized, cidr));
+}
+
+function emailAllowed(email?: string): boolean {
+  const allowed = configuredEmails();
+  if (!allowed.size) return false;
+  return !!email && allowed.has(email.trim().toLowerCase());
+}
+
+export function authorizePulseRequest(request: PulseAuthRequest): boolean {
+  const token = frameToken();
+  const plusCode = configuredPlusCode();
+  const emails = configuredEmails();
+  const cidrs = configuredCidrs();
+
+  // Fail closed whenever HeartbeatScan protection is configured incompletely.
+  if (!token || !plusCode || !emails.size || !cidrs.length) {
+    unsignedRefused += 1;
+    saveSnapshot();
+    return false;
+  }
+
+  if (request.token !== token) {
+    unsignedRefused += 1;
+    saveSnapshot();
+    return false;
+  }
+  if (request.plusCode !== plusCode) {
+    unsignedRefused += 1;
+    saveSnapshot();
+    return false;
+  }
+  if (!emailAllowed(request.email)) {
+    unsignedRefused += 1;
+    saveSnapshot();
+    return false;
+  }
+  if (!networkAllowed(request.ip)) {
+    unsignedRefused += 1;
+    saveSnapshot();
+    return false;
+  }
+  return true;
+}
+
+/**
+ * Legacy token-only check retained for internal WebSocket message handling.
+ * HTTP mutation endpoints should use authorizePulseRequest(), which applies
+ * token + Plus Code + email + network gates.
+ */
 export function authorizePulse(provided?: string): boolean {
   const need = frameToken();
-  if (!need) return true;
-  if (provided === need) return true;
-  unsignedRefused += 1;
-  saveSnapshot();
-  return false;
+  if (!need || provided !== need) {
+    unsignedRefused += 1;
+    saveSnapshot();
+    return false;
+  }
+  return true;
 }
 
 export function stampLedger(partial: Partial<LedgerSheet>): LedgerSheet {
@@ -119,7 +227,7 @@ function fanOut(payload: unknown) {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        ...(token ? { 'x-gaia-token': token } : {}),
+        ...(token ? { 'x-heartbeatscan-token': token } : {}),
       },
       body: JSON.stringify(payload),
     }).catch(() => {});
@@ -127,7 +235,8 @@ function fanOut(payload: unknown) {
 }
 
 export function broadcastGaiaContract(wss: WebSocketServer, partial: Partial<GaiaContract>): GaiaContract {
-  lastContract = emitGaiaContract({ ...partial, token: frameToken() || partial.token });
+  // Never put the authentication credential into a broadcast frame.
+  lastContract = emitGaiaContract({ ...partial, token: undefined });
   const frameObj = { type: 'gaia:targetState', ...lastContract };
   const frame = JSON.stringify(frameObj);
   wss.clients.forEach((client) => {
@@ -145,7 +254,6 @@ export function broadcastGaiaPulse(wss: WebSocketServer, pulse: number, ledger?:
   const frameObj = {
     type: 'gaia:pulse',
     pulse: lastPulse,
-    token: frameToken(),
     ledger: lastLedger,
     lastPulseAt,
   };
@@ -162,7 +270,6 @@ export function broadcastGaiaLedger(wss: WebSocketServer, ledger?: Partial<Ledge
   const frameObj = {
     type: 'gaia:ledger',
     ledger: lastLedger,
-    token: frameToken(),
     lastPulse,
     lastPulseAt,
   };
