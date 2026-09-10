@@ -1,5 +1,8 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **32** — signed kernel contract frame (`sourceHash`, geometries, stage) rides every `gaia:pulse`. `signedKernelFrame()` in `chatKernel.ts`.
+Stage **31** — visualizer fidelity-samples the four chat geometries independently of klein extras.
+Stage **30** — `/api/health` exposes `kernel` theta/phi seeds; `POST /api/gaia/kernel` + WS `gaia:kernel`. Visualizer applies `applyKernelSnapshot` on boot and on health hydrate.
 Stage **29** — `chatKernel.ts` `CHAT_KERNEL_SOURCE` is the exact session `update(t)` (infinity | hamiltonian | triangular | torus). Runtime extras: `phi += 0.007 * toroidalWeave`, first-class `klein`. Visualizer adds `src/kernelSnapshot.js` (`gaia:stage29:kernel`).
 Stage **28** — phi weave + klein in evaluateChatKernel.
 Stage **27** — persist last ledger snapshot + pulse age across reload (`.gaia-snapshot.json`, `/api/health` lastPulse / lastPulseAt / pulseAgeSeconds). Visualizer restores `gaia:stage27:snapshot` from localStorage and can hydrate from `?health=`.
@@ -16,9 +19,8 @@ Live GaiaNode path does **not** allocate `new THREE.Vector3` per frame; the pinn
 14. Memory engrams into Drive `CRYPTIC-HEARTBEAT-NEXUS-ROOT`.
 16-public. hamiltoniansingularity.ai public band (`blend` default — already host-gated in the visualizer).
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
-30. Wire `applyKernelSnapshot` in visualizer `main.js` + Hive `/api/health` so TF seed theta/phi restore on boot.
-31. Fidelity-sample the four chat geometries independently of klein extras.
-32. Export a signed kernel contract frame (`stage`, source hash, geometries) on each pulse.
+33. Stream compact kernel seeds with `gaia:positions`.
+34. HMAC-sign kernel frames when `GAIA_PULSE_TOKEN` is set.
 
 Wire in panels:
 
