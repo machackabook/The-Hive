@@ -10,6 +10,7 @@ import {
   broadcastGaiaLedger,
   broadcastGaiaPositions,
   broadcastGaiaPulse,
+  getLastEngram,
   getLastGaiaContract,
   getLastGaiaPositions,
   getLastKernel,
@@ -18,6 +19,7 @@ import {
   getLastPulseAt,
   getPulseAgeSeconds,
   getUnsignedRefused,
+  stampEngram,
   stampLedger,
 } from "./gaiaBridge";
 import { STAGE, sampleFidelityOnHashMismatch } from "./chatKernel";
@@ -81,6 +83,7 @@ async function startServer() {
       pulseAgeSeconds: getPulseAgeSeconds(),
       unsignedRefused: getUnsignedRefused(),
       kernel,
+      engram: getLastEngram(),
       fidelity: sampleFidelityOnHashMismatch(kernel?.sourceHash),
     });
   });
@@ -91,6 +94,18 @@ async function startServer() {
 
   app.get("/api/gaia/kernel", (req, res) => {
     res.json(getLastKernel());
+  });
+
+  app.get("/api/gaia/engram", (req, res) => {
+    res.json(getLastEngram() || { type: "gaia:engram", stage: STAGE, count: 0, theta: [], phi: [] });
+  });
+
+  app.post("/api/gaia/engram", (req, res) => {
+    if (!authorizePulse(pulseTokenFromReq(req))) {
+      return res.status(401).json({ error: "invalid gaia token" });
+    }
+    const stored = stampEngram(req.body || {});
+    res.json(stored || { error: "invalid engram" });
   });
 
   app.post("/api/gaia/contract", (req, res) => {
@@ -274,6 +289,7 @@ async function startServer() {
       lastPulse: getLastPulse(),
       lastPulseAt: getLastPulseAt(),
       kernel: getLastKernel(),
+      engram: getLastEngram(),
       bridges: activeBridges.map(b => ({
         id: b.id,
         server: b.server,
@@ -286,6 +302,8 @@ async function startServer() {
     ws.send(JSON.stringify({ type: 'gaia:targetState', ...getLastGaiaContract() }));
     ws.send(JSON.stringify({ type: 'gaia:ledger', ledger: getLastLedger(), lastPulse: getLastPulse(), lastPulseAt: getLastPulseAt() }));
     ws.send(JSON.stringify(getLastKernel()));
+    const engram = getLastEngram();
+    if (engram) ws.send(JSON.stringify({ type: 'gaia:engram', ...engram }));
 
     ws.on('message', (message) => {
       try {
@@ -309,6 +327,11 @@ async function startServer() {
         if (data.type === 'gaia:positions') {
           if (!authorizePulse(data.token)) return;
           broadcastGaiaPositions(wss, data);
+          return;
+        }
+        if (data.type === 'gaia:engram') {
+          if (!authorizePulse(data.token)) return;
+          stampEngram(data);
           return;
         }
 
@@ -346,6 +369,7 @@ async function startServer() {
                 lastPulse: getLastPulse(),
                 lastPulseAt: getLastPulseAt(),
                 kernel: getLastKernel(),
+                engram: getLastEngram(),
                 bridges: activeBridges.map(b => ({
                   id: b.id,
                   server: b.server,
