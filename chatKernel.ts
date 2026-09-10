@@ -1,6 +1,6 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 41: CHAT_KERNEL_SOURCE matches the current-session paste
+ * Stage 42: CHAT_KERNEL_SOURCE matches the current-session paste
  * (infinity | hamiltonian | triangular | torus, no phi increment in-source).
  * Runtime extras stay in evaluateChatKernel: phi weave + klein.
  */
@@ -10,7 +10,26 @@ export const CHAT_KERNEL_THETA_IDX = 0.002;
 export const CHAT_KERNEL_PHI_WEAVE = 0.007;
 export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangular', 'torus'] as const;
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
-export const STAGE = 41;
+export const CHAT_KERNEL_SOURCE_HASH = 'beec41f1';
+export const STAGE = 42;
+
+export function advanceChatKernelAngles(input: {
+  theta?: number;
+  phi?: number;
+  idx?: number;
+  gravityPull?: number;
+  toroidalWeave?: number;
+}): { theta: number; phi: number } {
+  const theta = input.theta ?? 0;
+  const phi = input.phi ?? 0;
+  const idx = input.idx ?? 0;
+  const gravityPull = input.gravityPull ?? 1;
+  const toroidalWeave = input.toroidalWeave ?? 1;
+  return {
+    theta: theta + (CHAT_KERNEL_THETA_BASE + idx * CHAT_KERNEL_THETA_IDX) * gravityPull,
+    phi: phi + CHAT_KERNEL_PHI_WEAVE * toroidalWeave,
+  };
+}
 
 export function evaluateChatKernel(input: {
   theta: number;
