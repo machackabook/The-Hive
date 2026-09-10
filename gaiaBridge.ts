@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import type { WebSocketServer, WebSocket } from 'ws';
 import { emitGaiaContract, type GaiaContract } from './geometryContract';
+import { signedKernelFrame } from './kernelFrame';
 
 export interface LedgerSheet {
   topics: number;
@@ -13,11 +14,12 @@ export interface LedgerSheet {
 const SNAPSHOT_PATH = process.env.GAIA_SNAPSHOT_PATH || path.join(process.cwd(), '.gaia-snapshot.json');
 
 let lastContract: GaiaContract = emitGaiaContract({});
-let lastPositions: { type: string; band: string; t: number; nodes: unknown[] } | null = null;
+let lastPositions: { type: string; band: string; t: number; nodes: unknown[]; kernel?: unknown } | null = null;
 let lastLedger: LedgerSheet = { topics: 0, votes: 0, bridges: 0, nodes: 0 };
 let lastPulse = 1;
 let lastPulseAt = 0;
 let unsignedRefused = 0;
+let lastKernel: ReturnType<typeof signedKernelFrame> | null = null;
 
 function loadSnapshot() {
   try {
@@ -28,6 +30,7 @@ function loadSnapshot() {
     if (Number.isFinite(Number(raw.lastPulseAt))) lastPulseAt = Number(raw.lastPulseAt);
     if (raw.contract) lastContract = raw.contract;
     if (Number.isFinite(Number(raw.unsignedRefused))) unsignedRefused = Number(raw.unsignedRefused);
+    if (raw.kernel) lastKernel = raw.kernel;
   } catch {
     /* ignore corrupt snapshot */
   }
@@ -36,12 +39,13 @@ function loadSnapshot() {
 function saveSnapshot() {
   try {
     const snap = {
-      stage: 27,
+      stage: 35,
       ledger: lastLedger,
       lastPulse,
       lastPulseAt,
       unsignedRefused,
       contract: lastContract,
+      kernel: lastKernel,
       savedAt: Date.now(),
     };
     fs.writeFileSync(SNAPSHOT_PATH, JSON.stringify(snap));
@@ -82,6 +86,15 @@ export function getUnsignedRefused(): number {
 
 function frameToken(): string | undefined {
   return process.env.GAIA_PULSE_TOKEN || undefined;
+}
+
+export function currentKernelFrame(extra: Record<string, unknown> = {}) {
+  lastKernel = signedKernelFrame({ ...extra }, frameToken());
+  return lastKernel;
+}
+
+export function getLastKernel() {
+  return lastKernel || currentKernelFrame();
 }
 
 export function authorizePulse(provided?: string): boolean {
@@ -128,7 +141,7 @@ function fanOut(payload: unknown) {
 
 export function broadcastGaiaContract(wss: WebSocketServer, partial: Partial<GaiaContract>): GaiaContract {
   lastContract = emitGaiaContract({ ...partial, token: frameToken() || partial.token });
-  const frameObj = { type: 'gaia:targetState', ...lastContract };
+  const frameObj = { type: 'gaia:targetState', ...lastContract, kernel: currentKernelFrame() };
   const frame = JSON.stringify(frameObj);
   wss.clients.forEach((client) => {
     if (client.readyState === 1 /* OPEN */) client.send(frame);
@@ -148,6 +161,7 @@ export function broadcastGaiaPulse(wss: WebSocketServer, pulse: number, ledger?:
     token: frameToken(),
     ledger: lastLedger,
     lastPulseAt,
+    kernel: currentKernelFrame({ pulse: lastPulse }),
   };
   const frame = JSON.stringify(frameObj);
   wss.clients.forEach((client: WebSocket) => {
@@ -165,6 +179,7 @@ export function broadcastGaiaLedger(wss: WebSocketServer, ledger?: Partial<Ledge
     token: frameToken(),
     lastPulse,
     lastPulseAt,
+    kernel: currentKernelFrame(),
   };
   const frame = JSON.stringify(frameObj);
   wss.clients.forEach((client: WebSocket) => {
@@ -176,13 +191,14 @@ export function broadcastGaiaLedger(wss: WebSocketServer, ledger?: Partial<Ledge
 
 export function broadcastGaiaPositions(
   wss: WebSocketServer,
-  payload: { t?: number; nodes?: unknown[]; band?: string }
+  payload: { t?: number; nodes?: unknown[]; band?: string; kernel?: unknown }
 ) {
   lastPositions = {
     type: 'gaia:positions',
     band: payload.band || '192-network',
     t: Number(payload.t) || Date.now() / 1000,
     nodes: Array.isArray(payload.nodes) ? payload.nodes : [],
+    kernel: payload.kernel || currentKernelFrame({ count: Array.isArray(payload.nodes) ? payload.nodes.length : 0 }),
   };
   stampLedger({ nodes: lastPositions.nodes.length });
   const frame = JSON.stringify(lastPositions);
