@@ -2,8 +2,8 @@
 
 **Gaia: The Nexus Generation**  
 **Numeral:** `137451921129154222`  
-**Version:** v1.0.4-stage37  
-**Mesh:** Golden Army · Continuity Engine · Cryptic-Heartbeat · ENCLAVE-ADAM-REUNITED · nexus-repo-sync  
+**Version:** v1.0.5-speedway  
+**Mesh:** Golden Army · Continuity Engine · Cryptic-Heartbeat · ENCLAVE-ADAM-REUNITED · nexus-repo-sync · gaia-visualizer  
 **Kernel stage:** `37`  
 **Team:** enhance · meta=advance · equalizer=format
 
@@ -17,6 +17,7 @@ Chat kernel remains the session `update(t)` paste (infinity | hamiltonian | tria
 
 Hourly Actions stamp `docs/LEDGER-STAMP.md` (cron `19 * * * *`).  
 A pull on The-Hive fans `repository_dispatch` type `continuity-cascade` to siblings when `CASCADE_TOKEN` is set.
+Heartbeat origin: [Cryptic-Heartbeat](https://github.com/machackabook/Cryptic-Heartbeat) (cron `23 * * * *`).
 
 Pipeline law:
 
@@ -33,6 +34,7 @@ See `docs/MESH.md`, `docs/PIPELINE.md`, `STAGES.md`.
 | The-Hive | Public Gaia mesh |
 | Cryptic-Heartbeat | Living runtime root |
 | nexus-repo-sync | Bidirectional Drive ↔ Git waterfall |
+| gaia-visualizer | Visual / band-137 |
 | Project-NexusCryptic | C2 / Architect |
 | Google Drive | Ethereal continuum |
 | Device SD / Termux | Developing environment |
