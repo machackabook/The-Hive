@@ -1,8 +1,7 @@
-# The-Hive mesh
+# Mesh — The-Hive
 
-Public nexus surface. Cascade hourly at minute 19.
-Siblings: continuity-ledger-cycle, Cryptic-Heartbeat, ENCLAVE-ADAM-REUNITED, nexus-repo-sync, Project-NexusCryptic.
-Drive = ethereal continuum (`CRYPTIC-HEARTBEAT-NEXUS-ROOT`).
-Device SD / Termux = developing environment.
-Numeral 137451921129154222.
-Team enhance moves to the next repo after each stamp.
+Nodes: The-Hive ↔ Cryptic-Heartbeat ↔ ENCLAVE-ADAM-REUNITED ↔ nexus-repo-sync ↔ gaia-visualizer ↔ continuity-ledger-cycle
+
+Signal: `continuity-cascade` repository_dispatch.
+Law: enhance then advance. Equalizer formats. Never discard a generation.
+Numeral hunt: 137451921129154222
