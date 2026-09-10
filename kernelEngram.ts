@@ -1,8 +1,8 @@
 /**
- * Stage 37/38 — compact kernel-seed engram for Drive / Hive persistence.
+ * Stage 37–40 — compact kernel-seed engram for Drive / Hive persistence.
  * Visualizer writes the same shape to window.__GAIA_ENGRAM__.
  */
-export const ENGRAM_STAGE = 38;
+export const ENGRAM_STAGE = 40;
 export const ENGRAM_SOURCE_HASH = 'beec41f1';
 
 export type KernelEngram = {

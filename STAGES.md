@@ -18,14 +18,15 @@ Stage **19** here — `weaveEmitter.ts` wraps `postGaiaContract` for Quine / Nex
 Chat kernel (`chatKernel.ts`) remains the verbatim `update(t)` from session: uniforms → theta rates → infinity | hamiltonian | triangular | torus → lerp 0.05.
 Live GaiaNode path does **not** allocate `new THREE.Vector3` per frame; the pinned source string does, by contract.
 
+Stage **40** — inbound `sourceHash` ≠ `beec41f1` is flagged on visualizer HUD. Hive accepts `POST /api/gaia/engram` (token-gated) and exposes last engram on `/api/health`. Session `update(t)` re-confirmed 2026-09-10.
+
 ## Next
 
 13. Authenticated live ledger pulse → Hive WS (`GAIA_PULSE_TOKEN`, `broadcastGaiaPulse`) — token + HMAC gate is live; wire remaining sheet sources.
-14. Memory engrams into Drive `CRYPTIC-HEARTBEAT-NEXUS-ROOT`.
+14. Memory engrams into Drive `CRYPTIC-HEARTBEAT-NEXUS-ROOT` from stored `/api/gaia/engram`.
 16-public. hamiltoniansingularity.ai public band (`blend` default — already host-gated in the visualizer).
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
-38. HUD line for `hmacOk` / `hmacRefused` peer counts.
-39. Auto-unpack watch on downloads / omdirectorytrew with env-check autocomplete.
+41. Auto-unpack watch on downloads / omdirectorytrew with env-check autocomplete.
 
 Wire in panels:
 
