@@ -1,8 +1,8 @@
 /**
- * Stage 37–40 — compact kernel-seed engram for Drive / Hive persistence.
- * Visualizer writes the same shape to window.__GAIA_ENGRAM__.
+ * Stage 37–44 — compact kernel-seed engram for Drive / Hive persistence.
+ * Visualizer writes the same shape to window.__GAIA_ENGRAM__ and replays GET /api/gaia/engram.
  */
-export const ENGRAM_STAGE = 40;
+export const ENGRAM_STAGE = 44;
 export const ENGRAM_SOURCE_HASH = 'beec41f1';
 
 export type KernelEngram = {
@@ -30,8 +30,21 @@ export function compactEngram(kernel: {
     sourceHash: kernel.sourceHash ?? ENGRAM_SOURCE_HASH,
     at: Date.now(),
     count: kernel.count ?? n,
-    theta: kernel.theta.slice(0, n),
-    phi: kernel.phi.slice(0, n),
+    theta: kernel.theta.slice(0, n).map((v) => Number(v) || 0),
+    phi: kernel.phi.slice(0, n).map((v) => Number(v) || 0),
     hmac: kernel.hmac,
+  };
+}
+
+export function engramAsPendingKernel(engram: KernelEngram | null) {
+  if (!engram || !Array.isArray(engram.theta) || !Array.isArray(engram.phi)) return null;
+  return {
+    stage: engram.stage ?? ENGRAM_STAGE,
+    sourceHash: engram.sourceHash ?? ENGRAM_SOURCE_HASH,
+    at: engram.at,
+    count: engram.count ?? Math.min(engram.theta.length, engram.phi.length),
+    theta: engram.theta,
+    phi: engram.phi,
+    hmac: engram.hmac,
   };
 }

@@ -1,9 +1,9 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 43: CHAT_KERNEL_SOURCE matches the current-session paste
+ * Stage 44: compact engram GET + replay. CHAT_KERNEL_SOURCE still matches the session paste
  * (infinity | hamiltonian | triangular | torus, no phi increment in-source).
  * Runtime extras stay in evaluateChatKernel: phi weave + klein.
- * Health + HUD now sample fidelity when inbound sourceHash drifts.
+ * Health + HUD sample fidelity when inbound sourceHash drifts.
  */
 export const CHAT_KERNEL_LERP = 0.05;
 export const CHAT_KERNEL_THETA_BASE = 0.01;
@@ -12,7 +12,7 @@ export const CHAT_KERNEL_PHI_WEAVE = 0.007;
 export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangular', 'torus'] as const;
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
 export const CHAT_KERNEL_SOURCE_HASH = 'beec41f1';
-export const STAGE = 43;
+export const STAGE = 44;
 
 export function advanceChatKernelAngles(input: {
   theta?: number;

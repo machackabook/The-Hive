@@ -1,5 +1,6 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **44** — compact engram GET `/api/gaia/engram` + replay into visualizer `pendingKernel`.
 Stage **43** — HUD + `/api/health` sample fidelity when inbound `sourceHash` ≠ `beec41f1`.
 Stage **42** — re-pin session paste + `advanceChatKernelAngles`.
 Stage **41** — `evaluateChatKernelInto`.
@@ -14,7 +15,6 @@ Live GaiaNode path does **not** allocate `new THREE.Vector3` per frame; the pinn
 14. Memory engrams into Drive `CRYPTIC-HEARTBEAT-NEXUS-ROOT` from stored `/api/gaia/engram`.
 16-public. hamiltoniansingularity.ai public band (`blend` default — already host-gated in the visualizer).
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
-44. Compact engram GET + replay into visualizer `pendingKernel`.
 45. Continuity cascade carries STAGE + sourceHash on every sibling dispatch.
 
 Wire in panels:
