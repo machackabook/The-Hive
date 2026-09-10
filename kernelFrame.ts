@@ -1,5 +1,5 @@
-/** Stage 35 signed + HMAC kernel contract — shared by Hive pulse + visualizer. */
-export const KERNEL_STAGE = 35;
+/** Stage 36 signed + HMAC kernel contract — shared by Hive pulse + visualizer. */
+export const KERNEL_STAGE = 36;
 export const KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangular', 'torus'] as const;
 export const KERNEL_RUNTIME_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
 export const KERNEL_LERP = 0.05;
@@ -40,6 +40,16 @@ export function kernelMacBasis(frame: {
 export function signKernelMac(token: string | undefined, frame: Parameters<typeof kernelMacBasis>[0]): string | undefined {
   if (!token) return undefined;
   return hashKernelSource(`${token}:${kernelMacBasis(frame)}`);
+}
+
+export function attachKernelMac<T extends Parameters<typeof kernelMacBasis>[0]>(token: string | undefined, frame: T): T {
+  if (!frame || !token) return frame;
+  const next = frame as T & { hmac?: string; sourceHash?: string; stage?: number };
+  if (!next.sourceHash) next.sourceHash = KERNEL_SOURCE_HASH;
+  if (next.stage == null) next.stage = KERNEL_STAGE;
+  const hmac = signKernelMac(token, next);
+  if (hmac) next.hmac = hmac;
+  return next;
 }
 
 export function verifyKernelMac(token: string | undefined, frame: Parameters<typeof kernelMacBasis>[0] & { hmac?: string }): boolean {

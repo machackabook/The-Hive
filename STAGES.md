@@ -1,5 +1,6 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **36** — BroadcastChannel HMAC verify. When `GAIA_PULSE_TOKEN` / `?token=` is set, visualizer peers refuse unsigned kernel frames on `gaia-weave` / `gaia-positions`. Hive `attachKernelMac` signs compact seeds the same way as visualizer `src/kernelMac.js`.
 Stage **35** — visualizer applies `pendingKernel` immediately after node construction so TF boot uses streamed / hydrated seeds without waiting for a later frame.
 Stage **34** — HMAC-sign kernel frames when `GAIA_PULSE_TOKEN` is set (`signKernelMac` / `verifyKernelMac` in `kernelFrame.ts`). Pulse, ledger, contract, and health carry the signed kernel.
 Stage **33** — compact theta/phi seeds ride `gaia:positions` (visualizer `createPositionStreamer` + inbound `ingestKernel`). Session `update(t)` paste unchanged (infinity | hamiltonian | triangular | torus).
@@ -22,8 +23,8 @@ Live GaiaNode path does **not** allocate `new THREE.Vector3` per frame; the pinn
 14. Memory engrams into Drive `CRYPTIC-HEARTBEAT-NEXUS-ROOT`.
 16-public. hamiltoniansingularity.ai public band (`blend` default — already host-gated in the visualizer).
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
-36. BroadcastChannel HMAC verify on visualizer peers when `?token=` is set (partially live via `acceptFrame` + `verifyKernelMac`).
 37. Drive-folder engram dump of compact kernel seeds.
+38. HUD line for `hmacOk` / `hmacRefused` peer counts.
 
 Wire in panels:
 
