@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import type { WebSocketServer, WebSocket } from 'ws';
 import { emitGaiaContract, type GaiaContract } from './geometryContract';
 
@@ -8,10 +10,47 @@ export interface LedgerSheet {
   nodes: number;
 }
 
+const SNAPSHOT_PATH = process.env.GAIA_SNAPSHOT_PATH || path.join(process.cwd(), '.gaia-snapshot.json');
+
 let lastContract: GaiaContract = emitGaiaContract({});
 let lastPositions: { type: string; band: string; t: number; nodes: unknown[] } | null = null;
 let lastLedger: LedgerSheet = { topics: 0, votes: 0, bridges: 0, nodes: 0 };
+let lastPulse = 1;
+let lastPulseAt = 0;
 let unsignedRefused = 0;
+
+function loadSnapshot() {
+  try {
+    if (!fs.existsSync(SNAPSHOT_PATH)) return;
+    const raw = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
+    if (raw.ledger) lastLedger = raw.ledger;
+    if (Number.isFinite(Number(raw.lastPulse))) lastPulse = Number(raw.lastPulse);
+    if (Number.isFinite(Number(raw.lastPulseAt))) lastPulseAt = Number(raw.lastPulseAt);
+    if (raw.contract) lastContract = raw.contract;
+    if (Number.isFinite(Number(raw.unsignedRefused))) unsignedRefused = Number(raw.unsignedRefused);
+  } catch {
+    /* ignore corrupt snapshot */
+  }
+}
+
+function saveSnapshot() {
+  try {
+    const snap = {
+      stage: 27,
+      ledger: lastLedger,
+      lastPulse,
+      lastPulseAt,
+      unsignedRefused,
+      contract: lastContract,
+      savedAt: Date.now(),
+    };
+    fs.writeFileSync(SNAPSHOT_PATH, JSON.stringify(snap));
+  } catch {
+    /* disk may be read-only */
+  }
+}
+
+loadSnapshot();
 
 export function getLastGaiaContract(): GaiaContract {
   return lastContract;
@@ -23,6 +62,18 @@ export function getLastGaiaPositions() {
 
 export function getLastLedger(): LedgerSheet {
   return lastLedger;
+}
+
+export function getLastPulse(): number {
+  return lastPulse;
+}
+
+export function getLastPulseAt(): number {
+  return lastPulseAt;
+}
+
+export function getPulseAgeSeconds(): number {
+  return lastPulseAt ? (Date.now() - lastPulseAt) / 1000 : 0;
 }
 
 export function getUnsignedRefused(): number {
@@ -38,6 +89,7 @@ export function authorizePulse(provided?: string): boolean {
   if (!need) return true;
   if (provided === need) return true;
   unsignedRefused += 1;
+  saveSnapshot();
   return false;
 }
 
@@ -48,6 +100,7 @@ export function stampLedger(partial: Partial<LedgerSheet>): LedgerSheet {
     bridges: Number(partial.bridges ?? lastLedger.bridges) || 0,
     nodes: Number(partial.nodes ?? lastLedger.nodes) || 0,
   };
+  saveSnapshot();
   return lastLedger;
 }
 
@@ -81,22 +134,27 @@ export function broadcastGaiaContract(wss: WebSocketServer, partial: Partial<Gai
     if (client.readyState === 1 /* OPEN */) client.send(frame);
   });
   fanOut(frameObj);
+  saveSnapshot();
   return lastContract;
 }
 
 export function broadcastGaiaPulse(wss: WebSocketServer, pulse: number, ledger?: Partial<LedgerSheet>): void {
   if (ledger) stampLedger(ledger);
+  lastPulse = Number.isFinite(pulse) ? pulse : 1;
+  lastPulseAt = Date.now();
   const frameObj = {
     type: 'gaia:pulse',
-    pulse,
+    pulse: lastPulse,
     token: frameToken(),
     ledger: lastLedger,
+    lastPulseAt,
   };
   const frame = JSON.stringify(frameObj);
   wss.clients.forEach((client: WebSocket) => {
     if (client.readyState === 1) client.send(frame);
   });
   fanOut(frameObj);
+  saveSnapshot();
 }
 
 export function broadcastGaiaLedger(wss: WebSocketServer, ledger?: Partial<LedgerSheet>): LedgerSheet {
@@ -105,6 +163,8 @@ export function broadcastGaiaLedger(wss: WebSocketServer, ledger?: Partial<Ledge
     type: 'gaia:ledger',
     ledger: lastLedger,
     token: frameToken(),
+    lastPulse,
+    lastPulseAt,
   };
   const frame = JSON.stringify(frameObj);
   wss.clients.forEach((client: WebSocket) => {
