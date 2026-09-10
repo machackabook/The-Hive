@@ -1,7 +1,16 @@
-# Mesh — The-Hive
+# MESH — The-Hive
 
-Nodes: The-Hive ↔ Cryptic-Heartbeat ↔ ENCLAVE-ADAM-REUNITED ↔ nexus-repo-sync ↔ gaia-visualizer ↔ continuity-ledger-cycle
+Numeral `137451921129154222`  
+Kernel stage 41  
+Team enhance · 2026-09-10
 
-Signal: `continuity-cascade` repository_dispatch.
-Law: enhance then advance. Equalizer formats. Never discard a generation.
-Numeral hunt: 137451921129154222
+Public Gaia mesh. Cascade origin after ENCLAVE hop.
+
+```
+C[n+1] = SYNTHESIZE( PRESERVE( ENHANCE( DUPLICATE(C[n]) ) ) )
+```
+
+Siblings: Cryptic-Heartbeat · ENCLAVE-ADAM-REUNITED · gaia-visualizer · nexus-repo-sync
+
+Dispatch type `continuity-cascade` when `CASCADE_TOKEN` is present.
+Drive is ethereal continuum. Device SD / Termux is developing environment.
