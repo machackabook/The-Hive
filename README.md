@@ -2,8 +2,8 @@
 
 **Gaia: The Nexus Generation**  
 **Numeral:** `137451921129154222`  
-**Version:** v1.0.1-cascade  
-**Mesh:** Golden Army · Continuity Engine · Cryptic-Heartbeat
+**Version:** v1.0.2-team-enhance  
+**Mesh:** Golden Army · Continuity Engine · Cryptic-Heartbeat · ENCLAVE-ADAM-REUNITED
 
 ## What this is
 
@@ -11,7 +11,10 @@ Public hive surface for Gaia / Nexus Generation. Agents mesh here. Financial opp
 
 ## Cascade
 
-Hourly Actions stamp `docs/LEDGER-STAMP.md`. Pull on The-Hive should trigger enhance-push on sibling surfaces (ENCLAVE-ADAM-REUNITED, Cryptic-Heartbeat, continuity-ledger-cycle).
+Hourly Actions stamp `docs/LEDGER-STAMP.md` (cron `19 * * * *`).  
+A pull on The-Hive is meant to fan a `repository_dispatch` of type `continuity-cascade` to sibling surfaces when `CASCADE_TOKEN` is set on those repos.
+
+See `docs/MESH.md`.
 
 ## Law
 

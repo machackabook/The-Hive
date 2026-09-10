@@ -1,15 +1,14 @@
 name: cascade-hourly
-
 on:
   schedule:
-    - cron: "37 * * * *"
+    - cron: "19 * * * *"
   workflow_dispatch:
   push:
     branches: [main]
-
+  repository_dispatch:
+    types: [continuity-cascade, pull-then-push]
 permissions:
   contents: write
-
 jobs:
   enhance:
     runs-on: ubuntu-latest
@@ -25,10 +24,11 @@ jobs:
             echo "- utc: $TS"
             echo "- numeral: 137451921129154222"
             echo "- surface: The-Hive"
+            echo "- team: enhance"
             echo "- sha256: \`$HASH\`"
           } > docs/LEDGER-STAMP.md
           git config user.name "continuity-engine"
           git config user.email "continuity@local"
-          git add docs/LEDGER-STAMP.md README.md .github/workflows/cascade.yml || true
-          git diff --cached --quiet || git commit -m "ledger: hive stamp (137451921129154222)"
+          git add docs/LEDGER-STAMP.md
+          git diff --cached --quiet || git commit -m "hive: team-enhance stamp (137451921129154222)"
           git push || true
