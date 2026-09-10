@@ -1,5 +1,5 @@
-/** Stage 33 signed kernel contract — shared by Hive pulse + visualizer. */
-export const KERNEL_STAGE = 33;
+/** Stage 35 signed + HMAC kernel contract — shared by Hive pulse + visualizer. */
+export const KERNEL_STAGE = 35;
 export const KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangular', 'torus'] as const;
 export const KERNEL_RUNTIME_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
 export const KERNEL_LERP = 0.05;
@@ -20,8 +20,36 @@ export function hashKernelSource(src: string): string {
 /** FNV-1a of the session update(t) paste (CHAT_KERNEL_SOURCE). */
 export const KERNEL_SOURCE_HASH = 'beec41f1';
 
-export function signedKernelFrame(extra: Record<string, unknown> = {}) {
-  return {
+export function kernelMacBasis(frame: {
+  stage?: number;
+  sourceHash?: string;
+  count?: number;
+  theta?: number[];
+  phi?: number[];
+}): string {
+  return [
+    frame.stage ?? KERNEL_STAGE,
+    frame.sourceHash ?? KERNEL_SOURCE_HASH,
+    frame.count ?? 0,
+    Array.isArray(frame.theta) ? frame.theta[0] ?? 0 : 0,
+    Array.isArray(frame.phi) ? frame.phi[0] ?? 0 : 0,
+  ].join('|');
+}
+
+/** Portable keyed MAC (FNV-1a of token:basis). Used when GAIA_PULSE_TOKEN is set. */
+export function signKernelMac(token: string | undefined, frame: Parameters<typeof kernelMacBasis>[0]): string | undefined {
+  if (!token) return undefined;
+  return hashKernelSource(`${token}:${kernelMacBasis(frame)}`);
+}
+
+export function verifyKernelMac(token: string | undefined, frame: Parameters<typeof kernelMacBasis>[0] & { hmac?: string }): boolean {
+  if (!token) return true;
+  const expected = signKernelMac(token, frame);
+  return Boolean(expected && frame.hmac && expected === frame.hmac);
+}
+
+export function signedKernelFrame(extra: Record<string, unknown> = {}, token?: string) {
+  const frame = {
     type: 'gaia:kernel' as const,
     stage: KERNEL_STAGE,
     sourceHash: KERNEL_SOURCE_HASH,
@@ -33,6 +61,9 @@ export function signedKernelFrame(extra: Record<string, unknown> = {}) {
     phiWeave: KERNEL_PHI_WEAVE,
     ...extra,
   };
+  const hmac = signKernelMac(token, frame as Parameters<typeof kernelMacBasis>[0]);
+  if (hmac) (frame as { hmac?: string }).hmac = hmac;
+  return frame;
 }
 
 export const STAGE = KERNEL_STAGE;
