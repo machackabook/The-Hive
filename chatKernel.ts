@@ -1,21 +1,16 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Do not change rates without bumping both repos.
- * Stage 21 on visualizer: TF vPos → instanceOffset, skip CPU readback unless streaming.
- * Stage 22: zero-copy visual path (src/zeroCopy.js on visualizer).
- * Stage 23: bind instanceOffset to TF currentPosBuffer() each frame.
- * Stage 24: TF-bind health HUD (?tfbind=1 / reportTfBindHealth).
- * Stage 25: default HUD pulse + tfbind line; stampPulse on visualizer state.
- * Stage 26: ledger sheet counts ride the same pulse frame; unsigned frames refused when token is set.
- * Stage 27: persist last ledger snapshot + pulse age across reload.
- * Stage 28: phi += 0.007 * toroidalWeave; klein is first-class in evaluateChatKernel.
+ * Stage 29: CHAT_KERNEL_SOURCE matches the current-session paste
+ * (infinity | hamiltonian | triangular | torus, no phi increment in-source).
+ * Runtime extras stay in evaluateChatKernel: phi weave + klein.
  */
 export const CHAT_KERNEL_LERP = 0.05;
 export const CHAT_KERNEL_THETA_BASE = 0.01;
 export const CHAT_KERNEL_THETA_IDX = 0.002;
 export const CHAT_KERNEL_PHI_WEAVE = 0.007;
+export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangular', 'torus'] as const;
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
-export const STAGE = 28;
+export const STAGE = 29;
 
 export function evaluateChatKernel(input: {
   theta: number;
@@ -89,7 +84,6 @@ export const CHAT_KERNEL_SOURCE = `update(t) {
     this.material.uniforms.uGravity.value = state.gravityPull;
 
     this.theta += (0.01 + this.idx * 0.002) * state.gravityPull;
-    this.phi   += 0.007 * state.toroidalWeave;
     
     let x, y, z;
     let major = 10 + (this.idx * 2);
@@ -120,18 +114,6 @@ export const CHAT_KERNEL_SOURCE = `update(t) {
             x = major * Math.cos(tAngle) + minor * Math.cos(this.theta * 5);
             z = major * Math.sin(tAngle) + minor * Math.sin(this.theta * 5);
             y = (this.idx % 3 - 1) * major * 0.5 + Math.sin(t) * minor;
-            break;
-
-        case 'klein':
-            const u = this.theta;
-            const v = this.phi;
-            const r = 4 + state.toroidalWeave;
-            x = (r + Math.cos(u / 2) * Math.sin(v) - Math.sin(u / 2) * Math.sin(2 * v)) * Math.cos(u) * 1.2;
-            z = (r + Math.cos(u / 2) * Math.sin(v) - Math.sin(u / 2) * Math.sin(2 * v)) * Math.sin(u) * 1.2;
-            y = Math.sin(u / 2) * Math.sin(v) + Math.cos(u / 2) * Math.sin(2 * v) + Math.sin(t * 0.2 + this.idx) * 0.3;
-            x *= major * 0.12;
-            y *= major * 0.18;
-            z *= major * 0.12;
             break;
 
         case 'torus':
