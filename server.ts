@@ -12,6 +12,7 @@ import {
   broadcastGaiaPulse,
   getLastGaiaContract,
   getLastGaiaPositions,
+  getLastKernel,
   getLastLedger,
   getLastPulse,
   getLastPulseAt,
@@ -69,7 +70,7 @@ async function startServer() {
   app.get("/api/health", (req, res) => {
     res.json({
       status: "ok",
-      stage: 27,
+      stage: 35,
       gaia: getLastGaiaContract(),
       positions: getLastGaiaPositions(),
       ledger: getLastLedger(),
@@ -77,11 +78,16 @@ async function startServer() {
       lastPulseAt: getLastPulseAt(),
       pulseAgeSeconds: getPulseAgeSeconds(),
       unsignedRefused: getUnsignedRefused(),
+      kernel: getLastKernel(),
     });
   });
 
   app.get("/api/gaia/contract", (req, res) => {
     res.json(getLastGaiaContract());
+  });
+
+  app.get("/api/gaia/kernel", (req, res) => {
+    res.json(getLastKernel());
   });
 
   app.post("/api/gaia/contract", (req, res) => {
@@ -99,7 +105,7 @@ async function startServer() {
     const pulse = Number(req.body?.pulse ?? req.body);
     const ledger = stampLedger({ ...liveSheet(), ...(req.body?.ledger || {}) });
     broadcastGaiaPulse(wss, Number.isFinite(pulse) ? pulse : 1, ledger);
-    res.json({ type: "gaia:pulse", pulse: Number.isFinite(pulse) ? pulse : 1, ledger, lastPulseAt: Date.now() });
+    res.json({ type: "gaia:pulse", pulse: Number.isFinite(pulse) ? pulse : 1, ledger, lastPulseAt: Date.now(), kernel: getLastKernel() });
   });
 
   app.get("/api/gaia/ledger", (req, res) => {
@@ -264,6 +270,7 @@ async function startServer() {
       ledger: getLastLedger(),
       lastPulse: getLastPulse(),
       lastPulseAt: getLastPulseAt(),
+      kernel: getLastKernel(),
       bridges: activeBridges.map(b => ({
         id: b.id,
         server: b.server,
@@ -275,6 +282,7 @@ async function startServer() {
     }));
     ws.send(JSON.stringify({ type: 'gaia:targetState', ...getLastGaiaContract() }));
     ws.send(JSON.stringify({ type: 'gaia:ledger', ledger: getLastLedger(), lastPulse: getLastPulse(), lastPulseAt: getLastPulseAt() }));
+    ws.send(JSON.stringify(getLastKernel()));
 
     ws.on('message', (message) => {
       try {
@@ -334,6 +342,7 @@ async function startServer() {
                 ledger: getLastLedger(),
                 lastPulse: getLastPulse(),
                 lastPulseAt: getLastPulseAt(),
+                kernel: getLastKernel(),
                 bridges: activeBridges.map(b => ({
                   id: b.id,
                   server: b.server,
