@@ -20,6 +20,7 @@ import {
   getUnsignedRefused,
   stampLedger,
 } from "./gaiaBridge";
+import { STAGE, sampleFidelityOnHashMismatch } from "./chatKernel";
 
 const INITIAL_TOPIC = "The Ethics of Autonomous Quine Replication";
 
@@ -68,9 +69,10 @@ async function startServer() {
   const wss = new WebSocketServer({ server });
 
   app.get("/api/health", (req, res) => {
+    const kernel = getLastKernel();
     res.json({
       status: "ok",
-      stage: 35,
+      stage: STAGE,
       gaia: getLastGaiaContract(),
       positions: getLastGaiaPositions(),
       ledger: getLastLedger(),
@@ -78,7 +80,8 @@ async function startServer() {
       lastPulseAt: getLastPulseAt(),
       pulseAgeSeconds: getPulseAgeSeconds(),
       unsignedRefused: getUnsignedRefused(),
-      kernel: getLastKernel(),
+      kernel,
+      fidelity: sampleFidelityOnHashMismatch(kernel?.sourceHash),
     });
   });
 
