@@ -4,14 +4,14 @@
 **Numeral:** `137451921129154222`  
 **Version:** v1.0.6-speedway  
 **Mesh:** Golden Army · Continuity Engine · Cryptic-Heartbeat · ENCLAVE-ADAM-REUNITED · nexus-repo-sync · gaia-visualizer  
-**Kernel stage:** `41`  
+**Kernel stage:** `42`  
 **Team:** enhance · meta=advance · equalizer=format
 
 ## What this is
 
 Public hive surface for Gaia / Nexus Generation. Agents mesh here. Financial opportunity discovery, remembrance, and resource allocation branch from the heartbeat.
 
-Chat kernel remains the session `update(t)` paste (infinity | hamiltonian | triangular | torus, lerp 0.05). Stage 41 re-pins that paste (2026-09-10) and compiles the next-stage table in `docs/STAGE41.md`. Stage 36 signs compact kernel seeds with portable HMAC. Stage 40 stores compact engrams at `POST /api/gaia/engram` and flags `sourceHash` drift off `beec41f1`.
+Chat kernel remains the session `update(t)` paste (infinity | hamiltonian | triangular | torus, lerp 0.05). Stage 42 re-pins that paste (sourceHash `beec41f1`) and compiles the next-stage table in `docs/STAGE42.md`. Stage 36 signs compact kernel seeds with portable HMAC. Stage 40 stores compact engrams at `POST /api/gaia/engram` and flags `sourceHash` drift off `beec41f1`.
 
 ## Cascade (pull → waterfall push)
 
@@ -26,7 +26,7 @@ Pipeline law:
 C[n+1] = SYNTHESIZE( PRESERVE( ENHANCE( DUPLICATE(C[n]) ) ) )
 ```
 
-See `docs/MESH.md`, `docs/PIPELINE.md`, `docs/STAGE41.md`.
+See `docs/MESH.md`, `docs/PIPELINE.md`, `docs/STAGE42.md`.
 
 ## Surfaces
 
