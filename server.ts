@@ -13,6 +13,9 @@ import {
   getLastGaiaContract,
   getLastGaiaPositions,
   getLastLedger,
+  getLastPulse,
+  getLastPulseAt,
+  getPulseAgeSeconds,
   getUnsignedRefused,
   stampLedger,
 } from "./gaiaBridge";
@@ -66,10 +69,13 @@ async function startServer() {
   app.get("/api/health", (req, res) => {
     res.json({
       status: "ok",
-      stage: 26,
+      stage: 27,
       gaia: getLastGaiaContract(),
       positions: getLastGaiaPositions(),
       ledger: getLastLedger(),
+      lastPulse: getLastPulse(),
+      lastPulseAt: getLastPulseAt(),
+      pulseAgeSeconds: getPulseAgeSeconds(),
       unsignedRefused: getUnsignedRefused(),
     });
   });
@@ -93,11 +99,11 @@ async function startServer() {
     const pulse = Number(req.body?.pulse ?? req.body);
     const ledger = stampLedger({ ...liveSheet(), ...(req.body?.ledger || {}) });
     broadcastGaiaPulse(wss, Number.isFinite(pulse) ? pulse : 1, ledger);
-    res.json({ type: "gaia:pulse", pulse: Number.isFinite(pulse) ? pulse : 1, ledger });
+    res.json({ type: "gaia:pulse", pulse: Number.isFinite(pulse) ? pulse : 1, ledger, lastPulseAt: Date.now() });
   });
 
   app.get("/api/gaia/ledger", (req, res) => {
-    res.json({ type: "gaia:ledger", ledger: stampLedger(liveSheet()) });
+    res.json({ type: "gaia:ledger", ledger: stampLedger(liveSheet()), lastPulse: getLastPulse(), lastPulseAt: getLastPulseAt() });
   });
 
   app.post("/api/gaia/ledger", (req, res) => {
@@ -105,7 +111,7 @@ async function startServer() {
       return res.status(401).json({ error: "invalid gaia token", unsignedRefused: getUnsignedRefused() });
     }
     const ledger = broadcastGaiaLedger(wss, { ...liveSheet(), ...(req.body?.ledger || req.body || {}) });
-    res.json({ type: "gaia:ledger", ledger });
+    res.json({ type: "gaia:ledger", ledger, lastPulse: getLastPulse(), lastPulseAt: getLastPulseAt() });
   });
 
   app.get("/api/gaia/positions", (req, res) => {
@@ -256,6 +262,8 @@ async function startServer() {
       currentTopic: globalCurrentTopic,
       gaia: getLastGaiaContract(),
       ledger: getLastLedger(),
+      lastPulse: getLastPulse(),
+      lastPulseAt: getLastPulseAt(),
       bridges: activeBridges.map(b => ({
         id: b.id,
         server: b.server,
@@ -266,7 +274,7 @@ async function startServer() {
       }))
     }));
     ws.send(JSON.stringify({ type: 'gaia:targetState', ...getLastGaiaContract() }));
-    ws.send(JSON.stringify({ type: 'gaia:ledger', ledger: getLastLedger() }));
+    ws.send(JSON.stringify({ type: 'gaia:ledger', ledger: getLastLedger(), lastPulse: getLastPulse(), lastPulseAt: getLastPulseAt() }));
 
     ws.on('message', (message) => {
       try {
@@ -324,6 +332,8 @@ async function startServer() {
                 currentTopic: globalCurrentTopic,
                 gaia: getLastGaiaContract(),
                 ledger: getLastLedger(),
+                lastPulse: getLastPulse(),
+                lastPulseAt: getLastPulseAt(),
                 bridges: activeBridges.map(b => ({
                   id: b.id,
                   server: b.server,
@@ -376,7 +386,7 @@ async function startServer() {
             } else {
               setTimeout(() => {
                 const echoOutputs = [
-                  `[SimBridge] Received core telemetry: "<${role}> ${text}". Sync state is robust.`,
+                  `[SimBridge] Received core telemetry: \"<${role}> ${text}\". Sync state is robust.`,
                   `[SimBridge] Dispatched metadata packet to ${bridge.channel} channel on ${bridge.server}`,
                   `[SimBridge] Echo node acknowledging transmission: coherence is 100% compliant.`
                 ];
