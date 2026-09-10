@@ -1,0 +1,34 @@
+name: cascade-hourly
+
+on:
+  schedule:
+    - cron: "37 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  enhance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: stamp
+        run: |
+          mkdir -p docs
+          TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          HASH=$(printf '%s' "$TS-137451921129154222-hive" | sha256sum | awk '{print $1}')
+          {
+            echo "# LEDGER-STAMP"
+            echo "- utc: $TS"
+            echo "- numeral: 137451921129154222"
+            echo "- surface: The-Hive"
+            echo "- sha256: \`$HASH\`"
+          } > docs/LEDGER-STAMP.md
+          git config user.name "continuity-engine"
+          git config user.email "continuity@local"
+          git add docs/LEDGER-STAMP.md README.md .github/workflows/cascade.yml || true
+          git diff --cached --quiet || git commit -m "ledger: hive stamp (137451921129154222)"
+          git push || true
