@@ -1,10 +1,11 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 36: CHAT_KERNEL_SOURCE matches the current-session paste
+ * Stage 38: CHAT_KERNEL_SOURCE matches the current-session paste
  * (infinity | hamiltonian | triangular | torus, no phi increment in-source).
  * Runtime extras stay in evaluateChatKernel: phi weave + klein.
  * Compact theta/phi seeds ride gaia:positions on the visualizer.
  * BroadcastChannel peers require HMAC when a token is set.
+ * Stage 37 engrams dump compact seeds; stage 38 HUD counts hmacOk/hmacRefused.
  */
 export const CHAT_KERNEL_LERP = 0.05;
 export const CHAT_KERNEL_THETA_BASE = 0.01;
@@ -12,7 +13,7 @@ export const CHAT_KERNEL_THETA_IDX = 0.002;
 export const CHAT_KERNEL_PHI_WEAVE = 0.007;
 export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangular', 'torus'] as const;
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
-export const STAGE = 36;
+export const STAGE = 38;
 
 export function evaluateChatKernel(input: {
   theta: number;

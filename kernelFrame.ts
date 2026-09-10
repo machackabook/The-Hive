@@ -1,5 +1,5 @@
-/** Stage 36 signed + HMAC kernel contract — shared by Hive pulse + visualizer. */
-export const KERNEL_STAGE = 36;
+/** Stage 38 signed + HMAC kernel contract — shared by Hive pulse + visualizer. */
+export const KERNEL_STAGE = 38;
 export const KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangular', 'torus'] as const;
 export const KERNEL_RUNTIME_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
 export const KERNEL_LERP = 0.05;
