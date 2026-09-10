@@ -1,8 +1,7 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 44: compact engram GET + replay. CHAT_KERNEL_SOURCE still matches the session paste
- * (infinity | hamiltonian | triangular | torus, no phi increment in-source).
- * Runtime extras stay in evaluateChatKernel: phi weave + klein.
+ * Stage 45: phi weave + uniform guards + reused lerp target promoted into CHAT_KERNEL_SOURCE.
+ * Runtime extras stay in evaluateChatKernel: klein.
  * Health + HUD sample fidelity when inbound sourceHash drifts.
  */
 export const CHAT_KERNEL_LERP = 0.05;
@@ -11,8 +10,8 @@ export const CHAT_KERNEL_THETA_IDX = 0.002;
 export const CHAT_KERNEL_PHI_WEAVE = 0.007;
 export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangular', 'torus'] as const;
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
-export const CHAT_KERNEL_SOURCE_HASH = 'beec41f1';
-export const STAGE = 44;
+export const CHAT_KERNEL_SOURCE_HASH = '7cd81012';
+export const STAGE = 45;
 
 export function advanceChatKernelAngles(input: {
   theta?: number;
@@ -136,10 +135,13 @@ export function sampleFidelityOnHashMismatch(inboundHash?: string | null) {
 }
 
 export const CHAT_KERNEL_SOURCE = `update(t) {
-    this.material.uniforms.uTime.value = t;
-    this.material.uniforms.uGravity.value = state.gravityPull;
+    if (this.material && this.material.uniforms) {
+        if (this.material.uniforms.uTime) this.material.uniforms.uTime.value = t;
+        if (this.material.uniforms.uGravity) this.material.uniforms.uGravity.value = state.gravityPull;
+    }
 
     this.theta += (0.01 + this.idx * 0.002) * state.gravityPull;
+    this.phi += 0.007 * state.toroidalWeave;
     
     let x, y, z;
     let major = 10 + (this.idx * 2);
@@ -182,5 +184,7 @@ export const CHAT_KERNEL_SOURCE = `update(t) {
     }
 
     // Smoothly interpolate current position to the new geometric state target
-    this.mesh.position.lerp(new THREE.Vector3(x, y, z), 0.05);
+    if (!this._kernelTarget) this._kernelTarget = new THREE.Vector3();
+    this._kernelTarget.set(x, y, z);
+    this.mesh.position.lerp(this._kernelTarget, 0.05);
 }`;
