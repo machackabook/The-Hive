@@ -1,6 +1,6 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 46: session paste re-pinned as CHAT_KERNEL_SESSION_SOURCE (hash beec41f1).
+ * Stage 47: live chat (2026-09-10 20:13 CDT) reconfirmed session paste hash beec41f1.
  * Living CHAT_KERNEL_SOURCE remains Stage 45 promotions (phi weave, uniform guards, reused lerp).
  * Runtime extras stay in evaluateChatKernel: klein.
  * Health + HUD sample fidelity when inbound sourceHash drifts from living hash.
@@ -13,7 +13,7 @@ export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangul
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
 export const CHAT_KERNEL_SOURCE_HASH = '7cd81012';
 export const CHAT_KERNEL_SESSION_HASH = 'beec41f1';
-export const STAGE = 46;
+export const STAGE = 47;
 
 export function advanceChatKernelAngles(input: {
   theta?: number;
@@ -134,6 +134,18 @@ export function sampleFidelityOnHashMismatch(inboundHash?: string | null) {
     sessionHash: CHAT_KERNEL_SESSION_HASH,
     reason: inbound ? 'sourceHash mismatch' : 'missing sourceHash',
     geometries: [...CHAT_KERNEL_CHAT_GEOMETRIES],
+  };
+}
+
+export function confirmSessionKernel() {
+  return {
+    stage: STAGE,
+    sessionHash: CHAT_KERNEL_SESSION_HASH,
+    livingHash: CHAT_KERNEL_SOURCE_HASH,
+    pinned: true,
+    kleinInSession: false,
+    geometries: [...CHAT_KERNEL_CHAT_GEOMETRIES],
+    note: 'Session paste 2026-09-10 20:13 CDT matches beec41f1. Klein stays runtime-only.',
   };
 }
 
