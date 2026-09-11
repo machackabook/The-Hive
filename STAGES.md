@@ -1,5 +1,6 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **47** — live chat (2026-09-10 20:13 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
 Stage **46** — session `update(t)` re-pinned (hash `beec41f1`). Continuity cascade stamps `STAGE` + living `sourceHash` (`7cd81012`) on every sibling dispatch (`gaia:targetState`, `gaia:pulse`, `gaia:ledger`).
 Stage **45** — phi weave + uniform guards + reused lerp target promoted into `CHAT_KERNEL_SOURCE`.
 Stage **44** — compact engram GET `/api/gaia/engram` + replay into visualizer `pendingKernel`.
@@ -18,7 +19,8 @@ Chat kernel (`chatKernel.ts`) keeps two pins:
 14. Memory engrams into Drive `CRYPTIC-HEARTBEAT-NEXUS-ROOT` from stored `/api/gaia/engram`.
 16-public. hamiltoniansingularity.ai public band (`blend` default — already host-gated in the visualizer).
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
-47. Promote klein into the session switch only after a chat paste includes it.
+48. Drive engram write path from compact GET.
+49. Promote klein into the session switch only after a chat paste includes it.
 
 Wire in panels:
 
