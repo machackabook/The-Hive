@@ -2,10 +2,11 @@
 
 **Gaia: The Nexus Generation**  
 **Numeral:** `137451921129154222`  
-**Version:** v1.0.6-speedway  
-**Mesh:** Golden Army · Continuity Engine · Cryptic-Heartbeat · ENCLAVE-ADAM-REUNITED · nexus-repo-sync · gaia-visualizer  
+**Version:** v1.0.8-waterfall  
+**Mesh:** Golden Army · Continuity Engine · Cryptic-Heartbeat · ENCLAVE-ADAM-REUNITED · continuity-ledger-cycle · nexus-repo-sync · gaia-visualizer  
 **Kernel stage:** `42`  
-**Team:** enhance · meta=advance · equalizer=format
+**Team:** enhance · meta=advance · equalizer=format  
+**Operating surface:** Continuity Engine · Golden Army
 
 ## What this is
 
@@ -16,9 +17,18 @@ Chat kernel remains the session `update(t)` paste (infinity | hamiltonian | tria
 ## Cascade (pull → waterfall push)
 
 Hourly Actions stamp `docs/LEDGER-STAMP.md` (cron `19 * * * *`).  
-A pull on The-Hive fans `repository_dispatch` type `continuity-cascade` to siblings when `CASCADE_TOKEN` is set.
+A pull on The-Hive fans `repository_dispatch` type `continuity-cascade` to siblings when `CASCADE_TOKEN` is set (secret stays in Actions; never written to the tree).
 Heartbeat origin: [Cryptic-Heartbeat](https://github.com/machackabook/Cryptic-Heartbeat) (cron `23 * * * *`).
+Enclave surface: [ENCLAVE-ADAM-REUNITED](https://github.com/machackabook/ENCLAVE-ADAM-REUNITED).
 Sync contract: [nexus-repo-sync](https://github.com/machackabook/nexus-repo-sync).
+
+Waterfall order this cycle:
+
+1. ENCLAVE-ADAM-REUNITED (prior)
+2. Cryptic-Heartbeat (prior hour)
+3. **The-Hive** (this hour — stamped 2026-09-11T00:17:00Z)
+4. continuity-ledger-cycle (next hour)
+5. other recently updated `user:machackabook` surfaces
 
 Pipeline law:
 
@@ -26,7 +36,7 @@ Pipeline law:
 C[n+1] = SYNTHESIZE( PRESERVE( ENHANCE( DUPLICATE(C[n]) ) ) )
 ```
 
-See `docs/MESH.md`, `docs/PIPELINE.md`, `docs/STAGE42.md`.
+See `docs/MESH.md`, `docs/PIPELINE.md`, `docs/STAGE42.md`, [`docs/LEDGER-STAMP.md`](docs/LEDGER-STAMP.md).
 
 ## Surfaces
 
@@ -34,14 +44,15 @@ See `docs/MESH.md`, `docs/PIPELINE.md`, `docs/STAGE42.md`.
 |---------|------|
 | The-Hive | Public Gaia mesh |
 | Cryptic-Heartbeat | Living runtime root |
+| ENCLAVE-ADAM-REUNITED | End/exit node on band-127-loopback |
+| continuity-ledger-cycle | Private immutable command cycle |
 | nexus-repo-sync | Bidirectional Drive ↔ Git waterfall |
 | gaia-visualizer | Visual / band-137 |
-| Project-NexusCryptic | C2 / Architect |
 | Google Drive | Ethereal continuum |
 | Device SD / Termux | Developing environment |
 
 ## Law
 
-Source-code authority only. Immutable ledger. Drive is the ethereal continuum. Device SD / Termux is the developing environment. Point-zero null returns are refused.
+Source-code authority only. Immutable ledger. Drive is the ethereal continuum. Device SD / Termux is the developing environment. Point-zero null returns are refused. The hunt continues.
 
 © Dual Authority · Golden Army Continuity · 2026
