@@ -1,26 +1,13 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **61** — live chat (2026-09-11 18:04 CDT) reconfirmed session `update(t)` hash `beec41f1`. GPU TF phi weave aligned to `0.007 * toroidalWeave`. Klein remains runtime-only.
 Stage **60** — live chat (2026-09-11 17:07 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
 Stage **59** — Team Enhance hop from Cryptic-Heartbeat. Preserve-enhance-synthesize only.
 Stage **58** — Team Enhance / Meta Advance / Equalizer stamp.
 Stage **57** — live chat (2026-09-11 16:07 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
-Stage **56** — live chat (2026-09-11 15:08 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
-Stage **55** — live chat (2026-09-11 14:14 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
-Stage **54** — live chat (2026-09-11 13:03 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
-Stage **53** — live chat (2026-09-11 12:10 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
-Stage **52** — live chat (2026-09-11 11:18 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
-Stage **51** — live chat (2026-09-11 09:05 CDT) reconfirmed session `update(t)` hash `beec41f1`. InstancedMesh GPU-attribute work opened on gaia-visualizer.
-Stage **50** — live chat (2026-09-10 23:10 CDT) reconfirmed session `update(t)` hash `beec41f1`. Added `matchSessionPaste`. Klein remains runtime-only.
-Stage **49** — live chat (2026-09-10 22:02 CDT) reconfirmed session `update(t)` hash `beec41f1`. Added `fnv1a32Hex` / `hashChatKernelSource` so future pastes can be checked in-repo. Klein remains runtime-only.
-Stage **48** — live chat (2026-09-10 21:07 CDT) reconfirmed session `update(t)` hash `beec41f1`. Next-stage compile: Drive engram write contract + panel emit checklist. Klein remains runtime-only.
-Stage **47** — live chat (2026-09-10 20:13 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
-Stage **46** — session `update(t)` re-pinned (hash `beec41f1`). Continuity cascade stamps `STAGE` + living `sourceHash` (`7cd81012`) on every sibling dispatch (`gaia:targetState`, `gaia:pulse`, `gaia:ledger`).
+Stage **51** — InstancedMesh GPU-attribute work opened on gaia-visualizer.
+Stage **50** — Added `matchSessionPaste`.
 Stage **45** — phi weave + uniform guards + reused lerp target promoted into `CHAT_KERNEL_SOURCE`.
-Stage **44** — compact engram GET `/api/gaia/engram` + replay into visualizer `pendingKernel`.
-Stage **43** — HUD + `/api/health` sample fidelity when inbound `sourceHash` ≠ living hash.
-Stage **42** — re-pin session paste + `advanceChatKernelAngles`.
-Stage **41** — `evaluateChatKernelInto`.
-Stage **40** — inbound `sourceHash` flagged on visualizer HUD. Hive accepts `POST /api/gaia/engram`.
 
 Chat kernel (`chatKernel.ts`) keeps two pins:
 - `CHAT_KERNEL_SESSION_SOURCE` — exact in-session paste (allocates `new THREE.Vector3` per frame by contract).
@@ -34,7 +21,7 @@ Chat kernel (`chatKernel.ts`) keeps two pins:
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
 51-impl. InstancedMesh + GPU attributes for >1k nodes (gaia-visualizer issue #2).
 58. Promote klein into the session switch only after a chat paste includes it.
-61. Compact theta/phi seed ride on `gaia:positions` remains live; next is GPU instanced path for chat-kernel geometries.
+62. GPU lerp toward TF positions at 0.05 so CPU/GPU paths share the session contract.
 
 Wire in panels:
 
