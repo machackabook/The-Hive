@@ -1,6 +1,6 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 56: live chat (2026-09-11 15:08 CDT) reconfirmed session paste hash beec41f1.
+ * Stage 57: live chat (2026-09-11 16:07 CDT) reconfirmed session paste hash beec41f1.
  * Living CHAT_KERNEL_SOURCE remains Stage 45 promotions (phi weave, uniform guards, reused lerp).
  * Runtime extras stay in evaluateChatKernel: klein.
  * Health + HUD sample fidelity when inbound sourceHash drifts from living hash.
@@ -14,7 +14,7 @@ export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangul
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
 export const CHAT_KERNEL_SOURCE_HASH = '7cd81012';
 export const CHAT_KERNEL_SESSION_HASH = 'beec41f1';
-export const STAGE = 56;
+export const STAGE = 57;
 
 export function fnv1a32Hex(source: string): string {
   let h = 0x811c9dc5;
@@ -170,6 +170,6 @@ export function confirmSessionKernel() {
     pinned: true,
     kleinInSession: false,
     geometries: [...CHAT_KERNEL_CHAT_GEOMETRIES],
-    note: 'Session paste 2026-09-11 15:08 CDT matches beec41f1. Klein stays runtime-only.',
+    note: 'Session paste 2026-09-11 16:07 CDT matches beec41f1. Klein stays runtime-only.',
   };
 }
