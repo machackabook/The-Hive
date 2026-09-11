@@ -1,5 +1,6 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **57** — live chat (2026-09-11 16:07 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
 Stage **56** — live chat (2026-09-11 15:08 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
 Stage **55** — live chat (2026-09-11 14:14 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
 Stage **54** — live chat (2026-09-11 13:03 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
@@ -29,7 +30,7 @@ Chat kernel (`chatKernel.ts`) keeps two pins:
 16-public. hamiltoniansingularity.ai public band (`blend` default — already host-gated in the visualizer).
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
 51-impl. InstancedMesh + GPU attributes for >1k nodes (gaia-visualizer issue #2).
-57. Promote klein into the session switch only after a chat paste includes it.
+58. Promote klein into the session switch only after a chat paste includes it.
 
 Wire in panels:
 
