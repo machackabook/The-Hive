@@ -1,8 +1,6 @@
-# Waterfall Mesh — The-Hive
+# Waterfall mesh
 
-Upstream: `machackabook/ENCLAVE-ADAM-REUNITED`
-Numeral: `137451921129154222`
+`ENCLAVE-ADAM-REUNITED` → `Cryptic-Heartbeat` → `The-Hive` → `gaia-visualizer` → remaining `user:machackabook` by recency.
 
-This repo is a mesh node in the Gaia / Nexus generation.
-Hourly continuity stamps `docs/ledgers/heartbeat.jsonl`.
-Pull events are sensors, not permission to flatten history.
+A pull on one node is a sensor. The next hop receives an append-only stamp, not a flatten.
+Numeral 137451921129154222. Point zero refuses null.
