@@ -1,6 +1,6 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 47: live chat (2026-09-10 20:13 CDT) reconfirmed session paste hash beec41f1.
+ * Stage 48: live chat (2026-09-10 21:07 CDT) reconfirmed session paste hash beec41f1.
  * Living CHAT_KERNEL_SOURCE remains Stage 45 promotions (phi weave, uniform guards, reused lerp).
  * Runtime extras stay in evaluateChatKernel: klein.
  * Health + HUD sample fidelity when inbound sourceHash drifts from living hash.
@@ -13,7 +13,7 @@ export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangul
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
 export const CHAT_KERNEL_SOURCE_HASH = '7cd81012';
 export const CHAT_KERNEL_SESSION_HASH = 'beec41f1';
-export const STAGE = 47;
+export const STAGE = 48;
 
 export function advanceChatKernelAngles(input: {
   theta?: number;
@@ -105,7 +105,7 @@ export function evaluateChatKernelInto(
     case 'torus':
     default: {
       x = (major + minor * Math.cos(phi)) * Math.cos(theta);
-      z = (major + minor * Math.cos(phi)) * Math.sin(theta);
+      z = (major + minor * Math.sin(phi)) * Math.sin(theta);
       y = minor * Math.sin(phi) * Math.sin(t * 0.5 + idx);
       break;
     }
@@ -145,7 +145,7 @@ export function confirmSessionKernel() {
     pinned: true,
     kleinInSession: false,
     geometries: [...CHAT_KERNEL_CHAT_GEOMETRIES],
-    note: 'Session paste 2026-09-10 20:13 CDT matches beec41f1. Klein stays runtime-only.',
+    note: 'Session paste 2026-09-10 21:07 CDT matches beec41f1. Klein stays runtime-only.',
   };
 }
 
