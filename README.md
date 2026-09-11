@@ -2,9 +2,9 @@
 
 **Gaia: The Nexus Generation**  
 **Numeral:** `137451921129154222`  
-**Version:** v1.0.8-waterfall  
+**Version:** v1.0.9-waterfall  
 **Mesh:** Golden Army · Continuity Engine · Cryptic-Heartbeat · ENCLAVE-ADAM-REUNITED · continuity-ledger-cycle · nexus-repo-sync · gaia-visualizer  
-**Kernel stage:** `42`  
+**Kernel stage:** `50`  
 **Team:** enhance · meta=advance · equalizer=format  
 **Operating surface:** Continuity Engine · Golden Army
 
@@ -12,23 +12,23 @@
 
 Public hive surface for Gaia / Nexus Generation. Agents mesh here. Financial opportunity discovery, remembrance, and resource allocation branch from the heartbeat.
 
-Chat kernel remains the session `update(t)` paste (infinity | hamiltonian | triangular | torus, lerp 0.05). Stage 42 re-pins that paste (sourceHash `beec41f1`) and compiles the next-stage table in `docs/STAGE42.md`. Stage 36 signs compact kernel seeds with portable HMAC. Stage 40 stores compact engrams at `POST /api/gaia/engram` and flags `sourceHash` drift off `beec41f1`.
+Chat kernel remains the session `update(t)` paste (infinity | hamiltonian | triangular | torus, lerp 0.05). Stage 42 re-pins that paste (sourceHash `beec41f1`) and compiles the next-stage table in `docs/STAGE42.md`. Stage 50 records this hourly waterfall hop and the Drive ↔ Git mesh contract.
 
 ## Cascade (pull → waterfall push)
 
-Hourly Actions stamp `docs/LEDGER-STAMP.md` (cron `19 * * * *`).  
+Hourly Actions stamp `docs/LEDGER-STAMP.md`.  
 A pull on The-Hive fans `repository_dispatch` type `continuity-cascade` to siblings when `CASCADE_TOKEN` is set (secret stays in Actions; never written to the tree).
-Heartbeat origin: [Cryptic-Heartbeat](https://github.com/machackabook/Cryptic-Heartbeat) (cron `23 * * * *`).
+Heartbeat origin: [Cryptic-Heartbeat](https://github.com/machackabook/Cryptic-Heartbeat).
 Enclave surface: [ENCLAVE-ADAM-REUNITED](https://github.com/machackabook/ENCLAVE-ADAM-REUNITED).
 Sync contract: [nexus-repo-sync](https://github.com/machackabook/nexus-repo-sync).
 
 Waterfall order this cycle:
 
 1. ENCLAVE-ADAM-REUNITED (prior)
-2. Cryptic-Heartbeat (prior hour)
-3. **The-Hive** (this hour — stamped 2026-09-11T00:17:00Z)
+2. Cryptic-Heartbeat (prior)
+3. **The-Hive** (this hour — stamped 2026-09-11T03:12:00Z)
 4. continuity-ledger-cycle (next hour)
-5. other recently updated `user:machackabook` surfaces
+5. gaia-visualizer and other recently updated `user:machackabook` surfaces
 
 Pipeline law:
 
@@ -36,7 +36,7 @@ Pipeline law:
 C[n+1] = SYNTHESIZE( PRESERVE( ENHANCE( DUPLICATE(C[n]) ) ) )
 ```
 
-See `docs/MESH.md`, `docs/PIPELINE.md`, `docs/STAGE42.md`, [`docs/LEDGER-STAMP.md`](docs/LEDGER-STAMP.md).
+See `docs/MESH.md`, `docs/PIPELINE.md`, `docs/STAGE50.md`, [`docs/LEDGER-STAMP.md`](docs/LEDGER-STAMP.md).
 
 ## Surfaces
 
