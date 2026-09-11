@@ -2,8 +2,9 @@
  * LLM → Gaia visualizer contract (band-137).
  * Keep this the single source of truth for targetState shape inside The-Hive.
  * Stage-18: chat-kernel source + evaluateChatKernel pinned in chatKernel.ts.
+ * Stage-46: every postGaiaContract dispatch carries STAGE + living sourceHash.
  */
-import { CHAT_KERNEL_LERP } from './chatKernel';
+import { CHAT_KERNEL_LERP, CHAT_KERNEL_SOURCE_HASH, STAGE } from './chatKernel';
 
 export type GeometryKind =
   | 'torus'
@@ -88,6 +89,8 @@ export interface TargetState {
 
 export interface GaiaContract extends WeaveState, TargetState {
   token?: string;
+  stage?: number;
+  sourceHash?: string;
 }
 
 export const DEFAULT_WEAVE: WeaveState = {
@@ -115,6 +118,8 @@ export function emitGaiaContract(partial: Partial<GaiaContract>): GaiaContract {
     toroidalWeave: num(partial.toroidalWeave, 1),
     lerp: num(partial.lerp, CHAT_KERNEL_LERP),
     blend: num(partial.blend, 0.5),
+    stage: STAGE,
+    sourceHash: CHAT_KERNEL_SOURCE_HASH,
   };
   if (partial.token) contract.token = String(partial.token);
   return contract;
