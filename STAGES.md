@@ -1,5 +1,6 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **50** — live chat (2026-09-10 23:10 CDT) reconfirmed session `update(t)` hash `beec41f1`. Added `matchSessionPaste`. Klein remains runtime-only.
 Stage **49** — live chat (2026-09-10 22:02 CDT) reconfirmed session `update(t)` hash `beec41f1`. Added `fnv1a32Hex` / `hashChatKernelSource` so future pastes can be checked in-repo. Klein remains runtime-only.
 Stage **48** — live chat (2026-09-10 21:07 CDT) reconfirmed session `update(t)` hash `beec41f1`. Next-stage compile: Drive engram write contract + panel emit checklist. Klein remains runtime-only.
 Stage **47** — live chat (2026-09-10 20:13 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
@@ -21,8 +22,8 @@ Chat kernel (`chatKernel.ts`) keeps two pins:
 14. Memory engrams into Drive `CRYPTIC-HEARTBEAT-NEXUS-ROOT` from stored `/api/gaia/engram`.
 16-public. hamiltoniansingularity.ai public band (`blend` default — already host-gated in the visualizer).
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
-50. InstancedMesh + GPU attributes for >1k nodes (gaia-visualizer issue #2).
-51. Promote klein into the session switch only after a chat paste includes it.
+51. InstancedMesh + GPU attributes for >1k nodes (gaia-visualizer issue #2).
+52. Promote klein into the session switch only after a chat paste includes it.
 
 Wire in panels:
 
