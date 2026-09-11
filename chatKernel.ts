@@ -130,7 +130,7 @@ export function evaluateChatKernelInto(
     case 'torus':
     default: {
       x = (major + minor * Math.cos(phi)) * Math.cos(theta);
-      z = (major + minor * Math.sin(phi)) * Math.sin(theta);
+      z = (major + minor * Math.cos(phi)) * Math.sin(theta);
       y = minor * Math.sin(phi) * Math.sin(t * 0.5 + idx);
       break;
     }
