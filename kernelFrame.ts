@@ -1,5 +1,5 @@
-/** Stage 43 signed + HMAC kernel contract — shared by Hive pulse + visualizer. */
-export const KERNEL_STAGE = 43;
+/** Stage 46 signed + HMAC kernel contract — shared by Hive pulse + visualizer. */
+export const KERNEL_STAGE = 46;
 export const KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangular', 'torus'] as const;
 export const KERNEL_RUNTIME_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
 export const KERNEL_LERP = 0.05;
@@ -17,8 +17,10 @@ export function hashKernelSource(src: string): string {
   return ('00000000' + (h >>> 0).toString(16)).slice(-8);
 }
 
-/** FNV-1a of the session update(t) paste (CHAT_KERNEL_SOURCE). */
-export const KERNEL_SOURCE_HASH = 'beec41f1';
+/** FNV-1a of the living CHAT_KERNEL_SOURCE (guards + phi weave + reused target). */
+export const KERNEL_SOURCE_HASH = '7cd81012';
+/** FNV-1a of the exact in-session update(t) paste. */
+export const KERNEL_SESSION_HASH = 'beec41f1';
 
 export function kernelMacBasis(frame: {
   stage?: number;
@@ -63,6 +65,7 @@ export function signedKernelFrame(extra: Record<string, unknown> = {}, token?: s
     type: 'gaia:kernel' as const,
     stage: KERNEL_STAGE,
     sourceHash: KERNEL_SOURCE_HASH,
+    sessionHash: KERNEL_SESSION_HASH,
     geometries: [...KERNEL_CHAT_GEOMETRIES],
     runtimeGeometries: [...KERNEL_RUNTIME_GEOMETRIES],
     lerp: KERNEL_LERP,
