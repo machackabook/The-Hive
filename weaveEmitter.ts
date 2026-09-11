@@ -4,11 +4,17 @@
  * on the same bus the visualizer already listens to.
  * Stage 25 — emitPulse stamps gravity via gaia:pulse so the visualizer HUD can show lastPulse.
  * Stage 26 — emitLedger / emitPulse attach live sheet counts; token rides the frame.
+ * Stage 46 — every sibling dispatch carries STAGE + living sourceHash.
  */
+import { STAGE, CHAT_KERNEL_SOURCE_HASH } from './chatKernel';
 import { postGaiaContract, type GaiaContract, type GeometryKind } from './geometryContract';
 
 let last: GaiaContract | null = null;
 let timer: ReturnType<typeof setTimeout> | null = null;
+
+export function continuityStamp(extra: Record<string, unknown> = {}) {
+  return { stage: STAGE, sourceHash: CHAT_KERNEL_SOURCE_HASH, ...extra };
+}
 
 export function lastContract(): GaiaContract | null {
   return last;
@@ -52,12 +58,12 @@ export function emitLedger(ledger: {
   bridges?: number;
   nodes?: number;
 }, token?: string) {
-  const detail = { ledger, token };
+  const detail = continuityStamp({ ledger, token });
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent('gaia:ledger', { detail }));
     try {
       const bc = new BroadcastChannel('gaia-weave');
-      bc.postMessage({ type: 'gaia:ledger', ledger, token });
+      bc.postMessage({ type: 'gaia:ledger', ...detail });
       bc.close();
     } catch {
       /* BroadcastChannel unavailable */
@@ -71,12 +77,12 @@ export function emitPulse(
   token?: string,
   ledger?: { topics?: number; votes?: number; bridges?: number; nodes?: number }
 ) {
-  const detail = { pulse, token, ledger };
+  const detail = continuityStamp({ pulse, token, ledger });
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent('gaia:pulse', { detail }));
     try {
       const bc = new BroadcastChannel('gaia-weave');
-      bc.postMessage({ type: 'gaia:pulse', pulse, token, ledger });
+      bc.postMessage({ type: 'gaia:pulse', ...detail });
       bc.close();
     } catch {
       /* BroadcastChannel unavailable */
