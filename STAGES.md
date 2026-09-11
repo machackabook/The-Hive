@@ -1,5 +1,8 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **60** — live chat (2026-09-11 17:07 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
+Stage **59** — Team Enhance hop from Cryptic-Heartbeat. Preserve-enhance-synthesize only.
+Stage **58** — Team Enhance / Meta Advance / Equalizer stamp.
 Stage **57** — live chat (2026-09-11 16:07 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
 Stage **56** — live chat (2026-09-11 15:08 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
 Stage **55** — live chat (2026-09-11 14:14 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
@@ -31,6 +34,7 @@ Chat kernel (`chatKernel.ts`) keeps two pins:
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
 51-impl. InstancedMesh + GPU attributes for >1k nodes (gaia-visualizer issue #2).
 58. Promote klein into the session switch only after a chat paste includes it.
+61. Compact theta/phi seed ride on `gaia:positions` remains live; next is GPU instanced path for chat-kernel geometries.
 
 Wire in panels:
 
