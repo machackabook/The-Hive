@@ -1,6 +1,12 @@
-# Live stamp
+# LEDGER STAMP
 
-Last enhance: `2026-09-12T17:03:00Z`
-Stage: 75
-Numeral: `137451921129154222`
-Next hop: Cryptic-Heartbeat pulse + gaia-visualizer STAGE 75
+- numeral: 137451921129154222
+- surface: The-Hive
+- stage: 77
+- stamp: 2026-09-12T18:04:00Z
+- team: enhance
+- upstream: Cryptic-Heartbeat STAGE 76 / ENCLAVE-ADAM-REUNITED
+- next: continuity-ledger-cycle
+- rule: pull=sensor push=record no-secrets
+- session: beec41f1 (infinity | hamiltonian | triangular | torus)
+- living-kernel: 7cd81012
