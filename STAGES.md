@@ -1,18 +1,15 @@
 # The-Hive × gaia-visualizer stages
 
-Stage **73** — live chat (2026-09-12 11:18 CDT) reconfirmed session `update(t)` hash `beec41f1`. Session switch stays infinity | hamiltonian | triangular | torus. Klein / hopf / figure8 / trefoil remain runtime-only. No new case labels in the paste; `matchSessionPaste` extras stay false.
+Stage **76** — live chat (2026-09-12 12:03 CDT) reconfirmed session `update(t)` hash `beec41f1`. Session switch stays infinity | hamiltonian | triangular | torus. Klein / hopf / figure8 / trefoil remain runtime-only. No new case labels in the paste; `matchSessionPaste` extras stay false.
+Stage **73** — live chat (2026-09-12 11:18 CDT) reconfirmed session `update(t)` hash `beec41f1`.
 Stage **72** — live chat (2026-09-12 10:02 CDT) reconfirmed session `update(t)` hash `beec41f1`.
-Stage **67** — live chat (2026-09-12 09:18 CDT) reconfirmed session `update(t)` hash `beec41f1`. Session switch stays infinity | hamiltonian | triangular | torus. Klein / hopf / figure8 / trefoil remain runtime-only. No new case labels in the paste; `matchSessionPaste` extras stay false.
-Stage **66** — live chat (2026-09-11 23:03 CDT) reconfirmed session `update(t)` hash `beec41f1`. CPU evaluate now includes trefoil (GPU id 7). `matchSessionPaste` scans the pasted source for extra case labels. Session switch stays infinity | hamiltonian | triangular | torus. Klein / hopf / figure8 / trefoil remain runtime-only.
-Stage **65** — live chat (2026-09-11 22:12 CDT) reconfirmed session `update(t)` hash `beec41f1`. hopf + figure8 are now first-class runtime extras on CPU evaluate (GPU ids 13 / 8 already existed). Session switch stays infinity | hamiltonian | triangular | torus. Klein remains runtime-only.
-Stage **64** — live chat (2026-09-11 21:12 CDT) reconfirmed session `update(t)` hash `beec41f1`. GPU TF previous-position buffer is re-seeded when geometry changes so lerp does not drag leftover manifolds. Klein remains runtime-only.
-Stage **63** — live chat (2026-09-11 20:00 CDT) reconfirmed session `update(t)` hash `beec41f1`. GPU TF previous-position buffer is seeded from the first CPU evaluate so frame-0 does not bloom from the origin. Klein remains runtime-only.
-Stage **62** — live chat (2026-09-11 19:00 CDT) reconfirmed session `update(t)` hash `beec41f1`. GPU TF now lerps previous position toward the kernel target at `0.05` so CPU/GPU share the session contract. Klein remains runtime-only.
-Stage **61** — live chat (2026-09-11 18:04 CDT) reconfirmed session `update(t)` hash `beec41f1`. GPU TF phi weave aligned to `0.007 * toroidalWeave`. Klein remains runtime-only.
-Stage **60** — live chat (2026-09-11 17:07 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
-Stage **59** — Team Enhance hop from Cryptic-Heartbeat. Preserve-enhance-synthesize only.
-Stage **58** — Team Enhance / Meta Advance / Equalizer stamp.
-Stage **57** — live chat (2026-09-11 16:07 CDT) reconfirmed session `update(t)` hash `beec41f1`. Klein remains runtime-only.
+Stage **67** — live chat (2026-09-12 09:18 CDT) reconfirmed session `update(t)` hash `beec41f1`.
+Stage **66** — live chat (2026-09-11 23:03 CDT) reconfirmed session `update(t)` hash `beec41f1`. CPU evaluate now includes trefoil (GPU id 7).
+Stage **65** — hopf + figure8 first-class runtime extras on CPU evaluate (GPU ids 13 / 8).
+Stage **64** — GPU TF previous-position buffer re-seeded when geometry changes.
+Stage **63** — GPU TF previous-position buffer seeded from first CPU evaluate.
+Stage **62** — GPU TF lerps previous position toward kernel target at `0.05`.
+Stage **61** — GPU TF phi weave aligned to `0.007 * toroidalWeave`.
 Stage **51** — InstancedMesh GPU-attribute work opened on gaia-visualizer.
 Stage **50** — Added `matchSessionPaste`.
 Stage **45** — phi weave + uniform guards + reused lerp target promoted into `CHAT_KERNEL_SOURCE`.
@@ -30,7 +27,7 @@ Chat kernel (`chatKernel.ts`) keeps two pins:
 51-impl. InstancedMesh + GPU attributes for >1k nodes (gaia-visualizer issue #2).
 58. Promote klein into the session switch only after a chat paste includes it.
 66-session. Promote hopf/figure8/trefoil into the session switch only after a chat paste includes those cases.
-73-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
+76-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
 
 Wire in panels:
 
