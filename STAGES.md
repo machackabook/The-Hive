@@ -1,5 +1,6 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **83** — live chat (2026-09-12 17:03 CDT) reconfirmed session `update(t)` hash `beec41f1`. Session switch stays infinity | hamiltonian | triangular | torus. Klein / hopf / figure8 / trefoil remain runtime-only. No new case labels in the paste; `matchSessionPaste` extras stay false.
 Stage **82** — live chat (2026-09-12 16:12 CDT) reconfirmed session `update(t)` hash `beec41f1`. Session switch stays infinity | hamiltonian | triangular | torus. Klein / hopf / figure8 / trefoil remain runtime-only. No new case labels in the paste; `matchSessionPaste` extras stay false.
 Stage **81** — remembral stamp 2026-09-12T21:04:00Z. Session pin held.
 Stage **80** — live chat (2026-09-12 15:06 CDT) reconfirmed session `update(t)` hash `beec41f1`. Session switch stays infinity | hamiltonian | triangular | torus. Klein / hopf / figure8 / trefoil remain runtime-only. No new case labels in the paste; `matchSessionPaste` extras stay false.
@@ -33,7 +34,7 @@ Chat kernel (`chatKernel.ts`) keeps two pins:
 51-impl. InstancedMesh + GPU attributes for >1k nodes (gaia-visualizer issue #2).
 58. Promote klein into the session switch only after a chat paste includes it.
 66-session. Promote hopf/figure8/trefoil into the session switch only after a chat paste includes those cases.
-82-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
+83-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
 
 Wire in panels:
 
