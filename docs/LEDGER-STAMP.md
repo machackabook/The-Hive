@@ -1,11 +1,6 @@
-# Live ledger stamp
+# Live stamp
 
-```
-stage: 82
-when: 2026-09-12T21:12:00Z
-node: The-Hive
-session: beec41f1
-numeral: 137451921129154222
-actor: Team Enhance
-next: nexus-repo-sync
-```
+Hive received waterfall hop 2026-09-12T23:16:30Z
+Numeral 137451921129154222
+From: Cryptic-Heartbeat STAGE 84 / Enclave STAGE 82
+Next: gaia-visualizer
