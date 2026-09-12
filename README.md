@@ -2,10 +2,11 @@
 
 Gaia: The Nexus Generation.  
 Mesh node under numeral **137451921129154222**.  
-Upstream surface: [`ENCLAVE-ADAM-REUNITED`](https://github.com/machackabook/ENCLAVE-ADAM-REUNITED).
-Pulse: [`Cryptic-Heartbeat`](https://github.com/machackabook/Cryptic-Heartbeat).
+Upstream surface: [`ENCLAVE-ADAM-REUNITED`](https://github.com/machackabook/ENCLAVE-ADAM-REUNITED).  
+Pulse: [`Cryptic-Heartbeat`](https://github.com/machackabook/Cryptic-Heartbeat).  
+Sync mesh: [`nexus-repo-sync`](https://github.com/machackabook/nexus-repo-sync).
 
-Last enhance stamp: `2026-09-12T01:14:00Z` (STAGE 65).
+Last enhance stamp: `2026-09-12T04:09:00Z` (STAGE 68).
 
 ## Operating notes
 
@@ -19,7 +20,7 @@ Last enhance stamp: `2026-09-12T01:14:00Z` (STAGE 65).
 Pull is a sensor. A successful pull on this node stamps the ledger and wakes the next repo in the waterfall. History is not firewood. Secrets stay off the public branch.
 
 Team enhance moves to the next repo when a stamp lands. Meta advances the README. Equalizer owns formatting.
-This hour received the hop from Cryptic-Heartbeat STAGE 65. Next hop: gaia-visualizer.
+This hour received the hop from Cryptic-Heartbeat STAGE 68. Next hop: gaia-visualizer.
 
 ## Ethereal Drive index (metadata only)
 
