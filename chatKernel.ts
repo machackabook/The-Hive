@@ -1,24 +1,20 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 65: live chat (2026-09-11 22:12 CDT) reconfirmed session paste hash beec41f1.
+ * Stage 66: live chat (2026-09-11 23:03 CDT) reconfirmed session paste hash beec41f1.
  * Living CHAT_KERNEL_SOURCE remains Stage 45 promotions (phi weave, uniform guards, reused lerp).
- * Runtime extras stay in evaluateChatKernel: klein, hopf, figure8.
- * Health + HUD sample fidelity when inbound sourceHash drifts from living hash.
- * Klein / hopf / figure8 still not in the session switch (paste has no those cases).
- * Visualizer TF lerps previous GPU position toward the kernel target at 0.05.
- * Stage 63 seeds TF aPrevPos from first CPU evaluate so frame-0 does not bloom from origin.
- * Stage 64 re-seeds TF aPrevPos when geometry changes so lerp does not drag leftover manifolds.
- * Stage 65 wires hopf + figure8 on the CPU evaluate path to match GPU KERNEL_GEOMETRY_ID 13 / 8.
+ * Runtime extras stay in evaluateChatKernel: klein, hopf, figure8, trefoil.
+ * matchSessionPaste now scans the pasted source for extra case labels instead of hardcoding false.
+ * Klein / hopf / figure8 / trefoil still not in the session switch (paste has no those cases).
  */
 export const CHAT_KERNEL_LERP = 0.05;
 export const CHAT_KERNEL_THETA_BASE = 0.01;
 export const CHAT_KERNEL_THETA_IDX = 0.002;
 export const CHAT_KERNEL_PHI_WEAVE = 0.007;
 export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangular', 'torus'] as const;
-export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein', 'hopf', 'figure8'] as const;
+export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein', 'hopf', 'figure8', 'trefoil'] as const;
 export const CHAT_KERNEL_SOURCE_HASH = '7cd81012';
 export const CHAT_KERNEL_SESSION_HASH = 'beec41f1';
-export const STAGE = 65;
+export const STAGE = 66;
 
 export function fnv1a32Hex(source: string): string {
   let h = 0x811c9dc5;
@@ -33,6 +29,11 @@ export function hashChatKernelSource(source: string): string {
   return fnv1a32Hex(source);
 }
 
+function caseInSource(source: string, name: string): boolean {
+  const re = new RegExp(`case\\s*['\"]${name}['\"]`);
+  return re.test(source);
+}
+
 export function matchSessionPaste(source: string) {
   const hash = fnv1a32Hex(source);
   return {
@@ -40,9 +41,10 @@ export function matchSessionPaste(source: string) {
     hash,
     expected: CHAT_KERNEL_SESSION_HASH,
     match: hash === CHAT_KERNEL_SESSION_HASH,
-    kleinInSession: false,
-    hopfInSession: false,
-    figure8InSession: false,
+    kleinInSession: caseInSource(source, 'klein'),
+    hopfInSession: caseInSource(source, 'hopf'),
+    figure8InSession: caseInSource(source, 'figure8'),
+    trefoilInSession: caseInSource(source, 'trefoil'),
   };
 }
 
@@ -153,6 +155,14 @@ export function evaluateChatKernelInto(
       y = major * Math.cos(eta) * 0.65 + Math.sin(t * 0.4 + idx) * 0.4;
       break;
     }
+    case 'trefoil': {
+      // Matches GPU KERNEL_GEOMETRY_ID 7
+      const u = theta;
+      x = major * 0.35 * (Math.sin(u) + 2 * Math.sin(2 * u));
+      z = major * 0.35 * (Math.cos(u) - 2 * Math.cos(2 * u));
+      y = minor * 0.55 * Math.sin(3 * u) + Math.sin(t * 0.3 + idx) * 0.4;
+      break;
+    }
     case 'torus':
     default: {
       x = (major + minor * Math.cos(phi)) * Math.cos(theta);
@@ -197,8 +207,9 @@ export function confirmSessionKernel() {
     kleinInSession: false,
     hopfInSession: false,
     figure8InSession: false,
+    trefoilInSession: false,
     geometries: [...CHAT_KERNEL_CHAT_GEOMETRIES],
-    runtimeExtras: ['klein', 'hopf', 'figure8'],
-    note: 'Session paste 2026-09-11 22:12 CDT matches beec41f1. Klein/hopf/figure8 stay runtime-only. Stage 65 CPU evaluate matches GPU ids 12/13/8.',
+    runtimeExtras: ['klein', 'hopf', 'figure8', 'trefoil'],
+    note: 'Session paste 2026-09-11 23:03 CDT matches beec41f1. Klein/hopf/figure8/trefoil stay runtime-only. Stage 66 CPU evaluate matches GPU ids 12/13/8/7.',
   };
 }
