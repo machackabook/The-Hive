@@ -1,5 +1,6 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **65** — live chat (2026-09-11 22:12 CDT) reconfirmed session `update(t)` hash `beec41f1`. hopf + figure8 are now first-class runtime extras on CPU evaluate (GPU ids 13 / 8 already existed). Session switch stays infinity | hamiltonian | triangular | torus. Klein remains runtime-only.
 Stage **64** — live chat (2026-09-11 21:12 CDT) reconfirmed session `update(t)` hash `beec41f1`. GPU TF previous-position buffer is re-seeded when geometry changes so lerp does not drag leftover manifolds. Klein remains runtime-only.
 Stage **63** — live chat (2026-09-11 20:00 CDT) reconfirmed session `update(t)` hash `beec41f1`. GPU TF previous-position buffer is seeded from the first CPU evaluate so frame-0 does not bloom from the origin. Klein remains runtime-only.
 Stage **62** — live chat (2026-09-11 19:00 CDT) reconfirmed session `update(t)` hash `beec41f1`. GPU TF now lerps previous position toward the kernel target at `0.05` so CPU/GPU share the session contract. Klein remains runtime-only.
@@ -24,7 +25,7 @@ Chat kernel (`chatKernel.ts`) keeps two pins:
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
 51-impl. InstancedMesh + GPU attributes for >1k nodes (gaia-visualizer issue #2).
 58. Promote klein into the session switch only after a chat paste includes it.
-65. Optional hopf/figure8 as runtime extras only; keep the session switch pinned to four geometries.
+66. Promote hopf/figure8 into the session switch only after a chat paste includes those cases.
 
 Wire in panels:
 

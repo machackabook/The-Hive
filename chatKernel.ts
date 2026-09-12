@@ -1,23 +1,24 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 64: live chat (2026-09-11 21:12 CDT) reconfirmed session paste hash beec41f1.
+ * Stage 65: live chat (2026-09-11 22:12 CDT) reconfirmed session paste hash beec41f1.
  * Living CHAT_KERNEL_SOURCE remains Stage 45 promotions (phi weave, uniform guards, reused lerp).
- * Runtime extras stay in evaluateChatKernel: klein.
+ * Runtime extras stay in evaluateChatKernel: klein, hopf, figure8.
  * Health + HUD sample fidelity when inbound sourceHash drifts from living hash.
- * Klein still not in the session switch (paste has no klein case).
+ * Klein / hopf / figure8 still not in the session switch (paste has no those cases).
  * Visualizer TF lerps previous GPU position toward the kernel target at 0.05.
  * Stage 63 seeds TF aPrevPos from first CPU evaluate so frame-0 does not bloom from origin.
  * Stage 64 re-seeds TF aPrevPos when geometry changes so lerp does not drag leftover manifolds.
+ * Stage 65 wires hopf + figure8 on the CPU evaluate path to match GPU KERNEL_GEOMETRY_ID 13 / 8.
  */
 export const CHAT_KERNEL_LERP = 0.05;
 export const CHAT_KERNEL_THETA_BASE = 0.01;
 export const CHAT_KERNEL_THETA_IDX = 0.002;
 export const CHAT_KERNEL_PHI_WEAVE = 0.007;
 export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangular', 'torus'] as const;
-export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein'] as const;
+export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein', 'hopf', 'figure8'] as const;
 export const CHAT_KERNEL_SOURCE_HASH = '7cd81012';
 export const CHAT_KERNEL_SESSION_HASH = 'beec41f1';
-export const STAGE = 64;
+export const STAGE = 65;
 
 export function fnv1a32Hex(source: string): string {
   let h = 0x811c9dc5;
@@ -40,6 +41,8 @@ export function matchSessionPaste(source: string) {
     expected: CHAT_KERNEL_SESSION_HASH,
     match: hash === CHAT_KERNEL_SESSION_HASH,
     kleinInSession: false,
+    hopfInSession: false,
+    figure8InSession: false,
   };
 }
 
@@ -130,6 +133,26 @@ export function evaluateChatKernelInto(
       z *= major * 0.12;
       break;
     }
+    case 'figure8': {
+      const scale = major * 1.15;
+      const denom = 1 + Math.sin(theta) * Math.sin(theta);
+      const cx = (scale * Math.cos(theta)) / denom;
+      const cz = (scale * Math.sin(theta) * Math.cos(theta)) / denom;
+      const tube = minor * 0.35;
+      x = cx + tube * Math.cos(phi);
+      y = tube * Math.sin(phi) + Math.sin(t * 0.4) * 0.4;
+      z = cz + tube * Math.sin(phi * 0.5);
+      break;
+    }
+    case 'hopf': {
+      const eta = theta;
+      const xi = phi + t * 0.15;
+      const r = Math.sin(eta);
+      x = major * r * Math.cos(xi);
+      z = major * r * Math.sin(xi);
+      y = major * Math.cos(eta) * 0.65 + Math.sin(t * 0.4 + idx) * 0.4;
+      break;
+    }
     case 'torus':
     default: {
       x = (major + minor * Math.cos(phi)) * Math.cos(theta);
@@ -172,7 +195,10 @@ export function confirmSessionKernel() {
     livingHash: CHAT_KERNEL_SOURCE_HASH,
     pinned: true,
     kleinInSession: false,
+    hopfInSession: false,
+    figure8InSession: false,
     geometries: [...CHAT_KERNEL_CHAT_GEOMETRIES],
-    note: 'Session paste 2026-09-11 21:12 CDT matches beec41f1. Klein stays runtime-only. Stage 64 re-seeds TF aPrevPos on geometry change.',
+    runtimeExtras: ['klein', 'hopf', 'figure8'],
+    note: 'Session paste 2026-09-11 22:12 CDT matches beec41f1. Klein/hopf/figure8 stay runtime-only. Stage 65 CPU evaluate matches GPU ids 12/13/8.',
   };
 }
