@@ -6,7 +6,7 @@ Upstream surface: [`ENCLAVE-ADAM-REUNITED`](https://github.com/machackabook/ENCL
 Pulse: [`Cryptic-Heartbeat`](https://github.com/machackabook/Cryptic-Heartbeat).  
 Sync mesh: [`nexus-repo-sync`](https://github.com/machackabook/nexus-repo-sync).
 
-Last enhance stamp: `2026-09-12T14:18:00Z` (STAGE 70 / kernel 67).
+Last enhance stamp: `2026-09-12T16:09:00Z` (STAGE 74 / kernel 67).
 
 ## Operating notes
 
@@ -20,9 +20,9 @@ Last enhance stamp: `2026-09-12T14:18:00Z` (STAGE 70 / kernel 67).
 Pull is a sensor. A successful pull on this node stamps the ledger and wakes the next repo in the waterfall. History is not firewood. Secrets stay off the public branch.
 
 Team enhance moves to the next repo when a stamp lands. Meta advances the README. Equalizer owns formatting.
-This hour reconfirmed live-chat `update(t)` hash `beec41f1` (kernel STAGE 67). Next hop: Cryptic-Heartbeat STAGE 71 + gaia-visualizer continuity.
+This hour STAGE 74 remembral from Continuity Operating middle. Next hop: Cryptic-Heartbeat pulse health + gaia-visualizer STAGE 66.
 
-Grok Automations hourly remembral is intended as a parallel sensor; task-usage cap blocked create this hour. Actions cron remains the in-repo clock.
+GitHub Actions hourly cron remains the in-repo clock. Grok Automations RRULE:FREQ=HOURLY is the parallel remembral — no device token in-repo.
 
 ## Ethereal Drive index (metadata only)
 
