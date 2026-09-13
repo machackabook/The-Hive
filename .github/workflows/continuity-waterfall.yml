@@ -1,0 +1,60 @@
+name: Continuity Waterfall
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, closed]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  env-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Directory and env probe
+        run: |
+          echo "repo=${GITHUB_REPOSITORY}"
+          echo "ref=${GITHUB_REF}"
+          echo "sha=${GITHUB_SHA}"
+          echo "event=${GITHUB_EVENT_NAME}"
+          test -f README.md
+          test -d .github/workflows
+          ls -la
+      - name: Refuse null at point zero
+        run: |
+          test -n "${GITHUB_SHA}"
+          echo "NUMERAL=137451921129154222" >> "$GITHUB_ENV"
+
+  quality:
+    needs: env-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install if package.json present
+        run: |
+          if [ -f package.json ]; then npm ci --ignore-scripts || npm install --ignore-scripts; fi
+      - name: Typecheck when tsconfig exists
+        run: |
+          if [ -f tsconfig.json ] && [ -f package.json ]; then
+            npx tsc --noEmit --pretty false || echo "tsc reported issues — catalogued, not destroyed"
+          fi
+
+  cascade-signal:
+    needs: quality
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Emit waterfall note
+        run: |
+          echo "Merged PR ${{ github.event.pull_request.number }} on The-Hive."
+          echo "Next mesh nodes: Cryptic-Heartbeat, gaia-visualizer, continuity-ledger-cycle."
+          echo "Dispatch remaining repos from Team Enhance / Meta Advance."

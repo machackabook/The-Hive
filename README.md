@@ -1,29 +1,32 @@
 # The-Hive
 
-Gaia: The Nexus Generation.
-Public kernel surface for the Continuity mesh.
-sSoS Operating layer. Team Enhance this hour. Meta Advance next hop.
+Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 
-## Operating
+## Status
 
-TypeScript / Vite hive. Chat kernel, Gaia bridge, weave emitter.
-Hourly quality job at minute `:05`. Env check in `scripts/env_check.sh`.
+- Owner: `machackabook`
+- Branch: `main`
+- Waterfall: hourly + on PR merge
+- Numeral: `137451921129154222`
 
-Upstream pulse: `continuity-ledger-cycle` (private).
-Pulse neighbor: `Cryptic-Heartbeat`.
-Factory polyglot: `sovereign-ai-factory-ai-polyglot`.
-Downstream visualizer: `gaia-visualizer`.
-Open Enclave surface: `ENCLAVE-ADAM-REUNITED`.
-Sync speedway: `nexus-repo-sync`.
+## Speedway
 
-Numeral: `137451921129154222`
+`.github/workflows/continuity-waterfall.yml` runs every hour and on pull-request close.
+`scripts/env-check.sh` refuses empty SHA / missing README.
+`docs/WATERFALL.md` is the cascade map.
 
+## Local
+
+```bash
+bash scripts/env-check.sh
+npm install
+npx tsc --noEmit
 ```
-C[n+1] = SYNTHESIZE( PRESERVE( ENHANCE( DUPLICATE(C[n]) ) ) )
-```
 
-See [docs/WATERFALL.md](docs/WATERFALL.md) and [STAGES.md](STAGES.md). Stage 96: [docs/STAGE96.md](docs/STAGE96.md).
+## Mesh siblings
 
-Last enhance stamp: `2026-09-13T18:05:00Z` (STAGE 96 — hop from Cryptic-Heartbeat).
+- [Cryptic-Heartbeat](https://github.com/machackabook/Cryptic-Heartbeat)
+- [gaia-visualizer](https://github.com/machackabook/gaia-visualizer)
+- [continuity-ledger-cycle](https://github.com/machackabook/continuity-ledger-cycle)
 
-Copyright 2026 machackabook. Team Enhance. Distinction over destruction.
+Team Enhance moves to the next repo after each enhancement. Meta Advance equalizes format. Source code is the only trusted neighbor.
