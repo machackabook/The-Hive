@@ -22,8 +22,8 @@ Numeral: `137451921129154222`
 C[n+1] = SYNTHESIZE( PRESERVE( ENHANCE( DUPLICATE(C[n]) ) ) )
 ```
 
-See [docs/WATERFALL.md](docs/WATERFALL.md) and [STAGES.md](STAGES.md).
+See [docs/WATERFALL.md](docs/WATERFALL.md) and [STAGES.md](STAGES.md). Stage 96: [docs/STAGE96.md](docs/STAGE96.md).
 
-Last enhance stamp: `2026-09-13T17:14:00Z` (STAGE 94 — remembral hop from Enclave).
+Last enhance stamp: `2026-09-13T18:05:00Z` (STAGE 96 — hop from Cryptic-Heartbeat).
 
 Copyright 2026 machackabook. Team Enhance. Distinction over destruction.
