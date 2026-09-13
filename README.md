@@ -8,6 +8,7 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 - Branch: `main`
 - Waterfall: hourly + on PR merge
 - Numeral: `137451921129154222`
+- Last catalog hop: STAGE 99 `2026-09-13T21:14:00Z`
 
 ## Speedway
 
@@ -25,6 +26,7 @@ npx tsc --noEmit
 
 ## Mesh siblings
 
+- [ENCLAVE-ADAM-REUNITED](https://github.com/machackabook/ENCLAVE-ADAM-REUNITED)
 - [Cryptic-Heartbeat](https://github.com/machackabook/Cryptic-Heartbeat)
 - [gaia-visualizer](https://github.com/machackabook/gaia-visualizer)
 - [continuity-ledger-cycle](https://github.com/machackabook/continuity-ledger-cycle)
