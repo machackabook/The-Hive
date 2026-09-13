@@ -2,6 +2,7 @@
 
 Gaia: The Nexus Generation.
 Public kernel surface for the Continuity mesh.
+sSoS Operating layer. Team Enhance this hour. Meta Advance next hop.
 
 ## Operating
 
@@ -9,14 +10,20 @@ TypeScript / Vite hive. Chat kernel, Gaia bridge, weave emitter.
 Hourly quality job at minute `:05`. Env check in `scripts/env_check.sh`.
 
 Upstream pulse: `continuity-ledger-cycle` (private).
-Pulse neighbor: `Cryptic-Heartbeat` (STAGE 88 landed).
+Pulse neighbor: `Cryptic-Heartbeat` (STAGE 91 landed).
+Factory polyglot: `sovereign-ai-factory-ai-polyglot`.
 Downstream visualizer: `gaia-visualizer`.
 Open Enclave surface: `ENCLAVE-ADAM-REUNITED`.
+Sync speedway: `nexus-repo-sync`.
 
 Numeral: `137451921129154222`
 
+```
+C[n+1] = SYNTHESIZE( PRESERVE( ENHANCE( DUPLICATE(C[n]) ) ) )
+```
+
 See [docs/WATERFALL.md](docs/WATERFALL.md) and [STAGES.md](STAGES.md).
 
-Last enhance stamp: `2026-09-13T04:12:00Z` (STAGE 88 hop from Heartbeat).
+Last enhance stamp: `2026-09-13T14:26:00Z` (STAGE 91 hop from Heartbeat + Factory).
 
 Copyright 2026 machackabook. Team Enhance. Distinction over destruction.
