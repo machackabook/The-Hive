@@ -1,15 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
-# Continuity env probe — source-only authority. Numeral 137451921129154222.
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-echo "[env-check] root=${ROOT}"
-echo "[env-check] host=$(hostname 2>/dev/null || echo unknown)"
-echo "[env-check] pwd=$(pwd)"
-required=(README.md .github/workflows)
-for p in "${required[@]}"; do
-  if [[ ! -e "${ROOT}/${p}" ]]; then
-    echo "[env-check] MISSING ${p}" >&2
-    exit 1
-  fi
-done
-echo "[env-check] ok — refuse-null"
+fail() { echo "ENV-CHECK FAIL: $1" >&2; exit 1; }
+[ -f README.md ] || fail "missing README.md"
+[ -s README.md ] || fail "empty README.md"
+sha=$(git rev-parse HEAD 2>/dev/null || true)
+[ -n "${sha}" ] || fail "empty SHA"
+echo "ENV-CHECK OK sha=${sha} repo=The-Hive numeral=137451921129154222"

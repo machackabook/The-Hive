@@ -6,9 +6,10 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 
 - Owner: `machackabook`
 - Branch: `main`
+- Language: TypeScript
 - Waterfall: hourly + on PR merge
 - Numeral: `137451921129154222`
-- Last catalog hop: STAGE 99 `2026-09-13T21:14:00Z`
+- Catalog hop: STAGE 100 `2026-09-13T23:16:00Z`
 
 ## Speedway
 
