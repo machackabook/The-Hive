@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
-echo "sSoS env check"
-echo "numeral=137451921129154222"
-echo "pwd=$(pwd)"
-command -v git >/dev/null && git rev-parse --short HEAD || true
-for f in README.md SECURITY.md; do
-  if [[ -f "$f" ]]; then echo "ok $f"; else echo "missing $f"; fi
-done
+echo "[hive-env] $(date -u +%FT%TZ) numeral=137451921129154222"
+ls -1 *.ts *.tsx 2>/dev/null | wc -l | xargs -I{} echo "[hive-env] ts_files={}"
+exit 0

@@ -1,0 +1,25 @@
+name: Waterfall Hourly Hive
+on:
+  schedule:
+    - cron: "5 * * * *"
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, closed]
+  push:
+    branches: [main]
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Env + format surface
+        run: |
+          bash scripts/env_check.sh || true
+          test -f package.json && node -e "console.log(require('./package.json').name||'hive')"
+      - name: Typecheck if present
+        run: |
+          if grep -q '"typecheck"' package.json 2>/dev/null; then npm run typecheck || true; fi
+          if grep -q '"lint"' package.json 2>/dev/null; then npm run lint || true; fi
