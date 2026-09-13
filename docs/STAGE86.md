@@ -1,9 +1,13 @@
-# STAGE 86 — The-Hive
+# Stage 86
 
-Numeral **137451921129154222**
-Stamp `2026-09-13T00:11:00Z`
+Live chat 2026-09-12 20:09 CDT reconfirmed the session `update(t)` paste.
 
-Upstream: ENCLAVE-ADAM-REUNITED STAGE 86 landed.
-This node records the hop. Next: gaia-visualizer + Cryptic-Heartbeat pulse.
+- Session hash: `beec41f1`
+- Living source hash: `7cd81012`
+- Session geometries: infinity | hamiltonian | triangular | torus
+- Runtime extras (not in session switch): klein | hopf | figure8 | trefoil
+- Lerp: 0.05
+- Theta: `(0.01 + idx * 0.002) * gravityPull`
+- Phi weave (living only): `0.007 * toroidalWeave`
 
-Pull is sensor. Push is enhancement. Drive catalogs. Git versions.
+No new case labels. `matchSessionPaste` extras remain false.
