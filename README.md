@@ -7,13 +7,13 @@ Pulse: [`Cryptic-Heartbeat`](https://github.com/machackabook/Cryptic-Heartbeat).
 Sync mesh: [`nexus-repo-sync`](https://github.com/machackabook/nexus-repo-sync).  
 Visual: [`gaia-visualizer`](https://github.com/machackabook/gaia-visualizer).
 
-Last enhance stamp: `2026-09-13T00:06:00Z` (STAGE 85). Team Enhance hop. Meta Advance next. Equalizer format locked.
+Last enhance stamp: `2026-09-13T00:11:00Z` (STAGE 86). Team Enhance hop. Meta Advance next. Equalizer format locked.
 
 ## Operating notes
 
 - Speedway / time-machine versioning: [`docs/SPEEDWAY.md`](docs/SPEEDWAY.md)
 - Waterfall: [`docs/WATERFALL-MESH.md`](docs/WATERFALL-MESH.md)
-- Stages: [`STAGES.md`](STAGES.md) · Stage 85: [`docs/STAGE85.md`](docs/STAGE85.md)
+- Stages: [`STAGES.md`](STAGES.md) · Stage 86: [`docs/STAGE86.md`](docs/STAGE86.md)
 - Hourly ledger stamp: [`.github/workflows/hourly-continuity.yml`](.github/workflows/hourly-continuity.yml)
 - Env check: `bash scripts/env_check.sh` · mesh: `bash scripts/mesh_sync.sh`
 
@@ -21,9 +21,9 @@ Last enhance stamp: `2026-09-13T00:06:00Z` (STAGE 85). Team Enhance hop. Meta Ad
 
 Pull is a sensor. A successful pull on this node stamps the ledger and wakes the next repo in the waterfall. History is not firewood. Secrets stay off the public branch.
 
-This hour STAGE 85 live-session after user *enhance connecting Github Repositories / compile the next stages*. Session paste held at `beec41f1`. Next hop: gaia-visualizer + Cryptic-Heartbeat.
+This hour STAGE 86 after Enclave remembral. Next hop: gaia-visualizer + Cryptic-Heartbeat.
 
-GitHub Actions hourly cron remains the in-repo clock. Grok Automations `hourly-github-cascade-enhance` + `powerhouse girls` are the parallel remembral — no device token in-repo.
+GitHub Actions hourly cron remains the in-repo clock. Grok Automations `hourly-github-cascade-enhance` are the parallel remembral — no device token in-repo.
 
 ## Ethereal Drive index (metadata only)
 
