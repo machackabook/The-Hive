@@ -24,6 +24,6 @@ C[n+1] = SYNTHESIZE( PRESERVE( ENHANCE( DUPLICATE(C[n]) ) ) )
 
 See [docs/WATERFALL.md](docs/WATERFALL.md) and [STAGES.md](STAGES.md).
 
-Last enhance stamp: `2026-09-13T15:01:00Z` (STAGE 93 — session `beec41f1` held).
+Last enhance stamp: `2026-09-13T17:14:00Z` (STAGE 94 — remembral hop from Enclave).
 
 Copyright 2026 machackabook. Team Enhance. Distinction over destruction.
