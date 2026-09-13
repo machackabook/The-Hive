@@ -1,4 +1,4 @@
-/** Pinned session paste (beec41f1) and living runtime source (7cd81012). Stage 88. */
+/** Pinned session paste (beec41f1) and living runtime source (7cd81012). Stage 91. */
 export const CHAT_KERNEL_SESSION_SOURCE = `update(t) {
     this.material.uniforms.uTime.value = t;
     this.material.uniforms.uGravity.value = state.gravityPull;
