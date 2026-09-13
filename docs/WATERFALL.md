@@ -1,5 +1,5 @@
-# Hive Waterfall
+# Waterfall
 
-Gaia Nexus Generation UI kernel.
-Offset cron minute :05 so ledger pulse (:00) lands first.
-Next hop: gaia-visualizer then Cryptic-Heartbeat.
+ENCLAVE-ADAM-REUNITED -> Cryptic-Heartbeat -> The-Hive -> continuity-ledger-cycle -> gaia-visualizer
+This hop: The-Hive STAGE 88 inbound from Cryptic-Heartbeat
+UTC 2026-09-13T04:12:00Z

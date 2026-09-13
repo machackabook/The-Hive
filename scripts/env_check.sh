@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
-echo "[hive-env] $(date -u +%FT%TZ) numeral=137451921129154222"
-ls -1 *.ts *.tsx 2>/dev/null | wc -l | xargs -I{} echo "[hive-env] ts_files={}"
+echo "The-Hive env check"
+echo "numeral=137451921129154222"
+echo "date_utc=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+command -v node >/dev/null && node --version || echo "node: missing"
+command -v npm >/dev/null && npm --version || echo "npm: missing"
+test -f package.json && echo "package.json: present" || echo "package.json: missing"
+test -d .github/workflows && echo "workflows: present" || echo "workflows: missing"
+echo "status=ok"
 exit 0
