@@ -9,13 +9,14 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 - Language: TypeScript
 - Waterfall: hourly + on PR merge
 - Numeral: `137451921129154222`
-- Catalog hop: STAGE 106 `2026-09-13T23:04 CDT`
+- Catalog hop: STAGE **107** `2026-09-14T04:14Z`
 
 ## Speedway
 
 `.github/workflows/continuity-waterfall.yml` runs every hour and on pull-request close.
 `scripts/env-check.sh` refuses empty SHA / missing README.
 `docs/WATERFALL.md` is the cascade map.
+`docs/SECURITY.md` and `docs/LEDGER-STAMP-107.md` are the latest catalog.
 
 ## Local
 
