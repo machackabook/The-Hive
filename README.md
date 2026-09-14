@@ -8,19 +8,18 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **115** — 2026-09-14T17:22Z
+- Stage: **116** — 2026-09-14T20:12Z
 - Team: Enhance / Continuity Engine / sSoS Operating
-- Upstream: Cryptic-Heartbeat (stage 114)
-- Next hop: gaia-visualizer
+- Upstream: Cryptic-Heartbeat
+- Next hop: gaia-visualizer → continuity-ledger-cycle
 - Cascade: `.github/workflows/cascade.yml` + `continuity-waterfall.yml`
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-115.md` (append-only; no secrets)
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-116.md` (append-only; no secrets)
+- Drive mesh: `docs/DRIVE-MESH.md` (ethereal continuum folder `Continuity-Ethereal-Repos`)
 
 ## Speedway
 
-`.github/workflows/continuity-waterfall.yml` runs every hour and on pull-request close.
-`.github/workflows/cascade.yml` stamps the ledger (cron, dispatch, push to main).
-`scripts/env-check.sh` refuses empty SHA / missing README.
-Point-zero null refused. Source code is the only trusted neighbor.
+Hourly waterfall + pull-close cascade. `scripts/env-check.sh` refuses empty SHA / missing README / point-zero null.
+Source code is the only trusted neighbor. Catalog the unknown. Keep the known.
 
 ## Local
 
@@ -30,11 +29,11 @@ npm install
 npx tsc --noEmit
 ```
 
-## Waterfall (one repo per hour)
+## Waterfall
 
-1. ENCLAVE-ADAM-REUNITED (113)
-2. Cryptic-Heartbeat (114)
-3. The-Hive (stamped this hour — 115)
+1. ENCLAVE-ADAM-REUNITED
+2. Cryptic-Heartbeat
+3. The-Hive (stamped this hour — 116)
 4. gaia-visualizer
 5. continuity-ledger-cycle
 6. other `user:machackabook` repos updated recently
@@ -45,5 +44,6 @@ npx tsc --noEmit
 - [Cryptic-Heartbeat](https://github.com/machackabook/Cryptic-Heartbeat)
 - [gaia-visualizer](https://github.com/machackabook/gaia-visualizer)
 - [continuity-ledger-cycle](https://github.com/machackabook/continuity-ledger-cycle)
+- [sovereign-ai-factory-ai-polyglot](https://github.com/machackabook/sovereign-ai-factory-ai-polyglot)
 
 Preserve. Enhance. Synthesize. History is not rewritten.
