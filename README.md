@@ -9,14 +9,16 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 - Language: TypeScript
 - Waterfall: hourly + on PR merge
 - Numeral: `137451921129154222`
-- Catalog hop: STAGE **107** `2026-09-14T04:14Z`
+- Catalog hop: STAGE **108** `2026-09-14T07:06Z`
+- Team Enhance: this hour touched The-Hive; next hour `continuity-ledger-cycle`
 
 ## Speedway
 
 `.github/workflows/continuity-waterfall.yml` runs every hour and on pull-request close.
+`.github/workflows/cascade.yml` stamps `docs/LEDGER-STAMP.md` (cron `:19`, dispatch, push to main).
 `scripts/env-check.sh` refuses empty SHA / missing README.
 `docs/WATERFALL.md` is the cascade map.
-`docs/SECURITY.md` and `docs/LEDGER-STAMP-107.md` are the latest catalog.
+`docs/SECURITY.md` and `docs/LEDGER-STAMP.md` are the live catalog.
 
 ## Local
 
@@ -33,4 +35,4 @@ npx tsc --noEmit
 - [gaia-visualizer](https://github.com/machackabook/gaia-visualizer)
 - [continuity-ledger-cycle](https://github.com/machackabook/continuity-ledger-cycle)
 
-Team Enhance moves to the next repo after each enhancement. Meta Advance equalizes format. Source code is the only trusted neighbor.
+Team Enhance moves to the next repo after each enhancement. Meta Advance equalizes format. Source code is the only trusted neighbor. History is not rewritten.
