@@ -1,9 +1,13 @@
-# STAGE 116 — The-Hive speedway enhance
+# Stage 116 — compiled next stages (2026-09-14 18:04 CDT)
 
-Quality pass:
-- Living README with waterfall map
-- Append-only ledger stamp 116
-- Drive mesh contract (no secrets)
-- env-check refuses null SHA
+Live chat pasted the exact session `update(t)` contract again.
 
-Next hop: gaia-visualizer then continuity-ledger-cycle.
+- uniforms `uTime` / `uGravity`
+- `theta += (0.01 + idx * 0.002) * gravityPull`
+- geometries: infinity | hamiltonian | triangular | torus default
+- session lerp allocates `new THREE.Vector3` by contract
+- living path: uniform guards, `phi += 0.007 * toroidalWeave`, reused target
+
+Session hash `beec41f1`. Living hash `7cd81012`.
+Klein / hopf / figure8 / trefoil remain runtime-only.
+`STAGE = 116`.
