@@ -41,7 +41,7 @@ export function matchSessionPaste(source: string) {
     hash,
     expected: CHAT_KERNEL_SESSION_HASH,
     match: hash === CHAT_KERNEL_SESSION_HASH,
-    kleinInSource: caseInSource(source, 'klein'),
+    kleinInSession: caseInSource(source, 'klein'),
     hopfInSession: caseInSource(source, 'hopf'),
     figure8InSession: caseInSource(source, 'figure8'),
     trefoilInSession: caseInSource(source, 'trefoil'),
