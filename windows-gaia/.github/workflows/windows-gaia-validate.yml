@@ -1,0 +1,40 @@
+name: Gaia Windows Validation
+
+on:
+  push:
+    branches: [gaia-windows]
+    paths:
+      - 'windows-gaia/**'
+  pull_request:
+    paths:
+      - 'windows-gaia/**'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate TDOC
+        shell: pwsh
+        run: |
+          $p = 'windows-gaia/tdoc/windows-node.tdoc'
+          if (-not (Test-Path $p)) { throw "Missing TDOC: $p" }
+          $text = Get-Content $p -Raw
+          foreach ($required in @('inventory','repository-audit','network-audit','sentinel-status','telemetry-status','sync-status','optimize-plan','optimize-apply','recovery')) {
+            if ($text -notmatch [regex]::Escape($required)) { throw "Missing TDOC command: $required" }
+          }
+      - name: Validate PowerShell syntax
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile('windows-gaia/powershell/Gaia-Windows-Audit.ps1',[ref]$tokens,[ref]$errors) | Out-Null
+          if ($errors.Count -gt 0) { $errors | Format-List | Out-String | Write-Error; exit 1 }
+      - name: Reject obvious secret files
+        shell: pwsh
+        run: |
+          $bad = Get-ChildItem 'windows-gaia' -Force -Recurse -File | Where-Object { $_.Name -match '\.(pem|p12|pfx|key)$' -or $_.Name -match '(^|\.)\.env$|credentials|token' }
+          if ($bad) { $bad.FullName | ForEach-Object { Write-Error "Potential secret file: $_" }; exit 1 }
