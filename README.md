@@ -8,13 +8,13 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **125** — 2026-09-15T14:14Z
+- Stage: **126** — 2026-09-15T18:04Z
 - Team: Enhance / Continuity Engine / sSoS Operating
-- Upstream: Cryptic-Heartbeat
+- Upstream: ENCLAVE-ADAM-REUNITED (stage 127)
 - Next hop: gaia-visualizer (then continuity-ledger-cycle)
 - Cascade: `.github/workflows/cascade.yml` (cron `19 * * * *` + dispatch; sibling hops require operator-injected token — catalogued, never invented, never committed)
-- Ledger: `docs/LEDGER-STAMP.md` (append-only; no secrets in tree)
-- Drive mesh: `docs/DRIVE-MESH.md` (ethereal continuum folder `Continuity-Ethereal-Repos`; GitHub remains the versioned singularity)
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-126.md`
+- Drive mesh: ethereal continuum folder `Continuity-Ethereal-Repos`; GitHub remains the versioned singularity
 
 ## Speedway
 
@@ -33,7 +33,7 @@ npx tsc --noEmit
 
 1. ENCLAVE-ADAM-REUNITED
 2. Cryptic-Heartbeat
-3. The-Hive (stamped this hop — stage 125)
+3. The-Hive (stamped this hop — stage 126)
 4. gaia-visualizer
 5. continuity-ledger-cycle
 
