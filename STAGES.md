@@ -1,5 +1,6 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **121** — live chat (2026-09-14 23:08 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch.
 Stage **120** — live chat (2026-09-14 22:11 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch.
 Stage **119** — live chat (2026-09-14 21:12 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch.
 Stage **118** — live chat (2026-09-14 20:05 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch.
@@ -21,7 +22,7 @@ Chat kernel (`chatKernel.ts`) keeps two pins:
 51-impl. InstancedMesh + GPU attributes for >1k nodes (gaia-visualizer issue #2).
 58. Promote klein into the session switch only after a chat paste includes it.
 66-session. Promote hopf/figure8/trefoil into the session switch only after a chat paste includes those cases.
-120-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
+121-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
 4-gov. HeartbeatScan authorization on HTTP mutation + WS (The-Hive issue #4).
 
 Wire in panels:
