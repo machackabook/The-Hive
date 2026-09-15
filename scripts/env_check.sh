@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
-echo "[hive-env] node=The-Hive"
-command -v node >/dev/null && echo "[hive-env] node=$(node --version)" || echo "[hive-env] node missing (soft)"
-command -v git >/dev/null && echo "[hive-env] git ok" || { echo missing git; exit 2; }
-echo "[hive-env] PASS"
+echo "[env-check] The-Hive numeral=137451921129154222"
+echo "[env-check] time=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+for p in README.md package.json App.tsx server.ts SECURITY.md; do
+  if [[ -e "$p" ]]; then echo "[ok] $p"; else echo "[miss] $p"; fi
+done
