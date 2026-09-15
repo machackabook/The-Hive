@@ -1,13 +1,10 @@
-# LEDGER-STAMP
-- utc: 2026-09-15T15:16:00Z
-- numeral: 137451921129154222
-- surface: The-Hive
-- team: enhance / Continuity Engine / sSoS Operating
-- stage: 126
-- version: v1.3.26-enhance
-- upstream: Cryptic-Heartbeat
-- next: gaia-visualizer
-- waterfall: ENCLAVE-ADAM-REUNITED → Cryptic-Heartbeat → The-Hive → gaia-visualizer → continuity-ledger-cycle
-- posture: preserve-enhance-synthesize; point-zero null refused; secrets not committed; history preserved
-- cascade: .github/workflows/cascade.yml healthy (cron 19 * * * *; dispatch continuity-cascade; no invented tokens)
-- sha256-seed: 2026-09-15T15:16:00Z-137451921129154222-hive-126
+# Continuity ledger stamp
+
+- Engine: Team Enhance / sSoS Operating
+- Numeral: 137451921129154222
+- Repo: The-Hive
+- Cycle: 2026-09-15T16:07Z
+- Role: Gaia Nexus Generation surface
+- Next waterfall: ENCLAVE-ADAM-REUNITED
+
+Append-only. Source-code trust only. No secret material.
