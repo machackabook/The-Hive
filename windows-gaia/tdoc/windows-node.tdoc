@@ -1,0 +1,56 @@
+TDOC: GAIA-WINDOWS-NODE
+VERSION: 1.0.0
+MODE: AUDIT-FIRST
+
+PURPOSE
+Define the stable command contract for the Gaia Windows worker.
+
+COMMANDS
+
+inventory
+  Read-only hardware, OS, network, services, scheduled-task, startup, Git, and storage inventory.
+
+repository-audit
+  Read-only scan for tracked binaries, dotfiles, oversized objects, suspicious filenames, credential patterns, and repository drift.
+
+network-audit
+  Read-only interface, DNS, gateway, route, proxy, firewall, latency, and packet-loss assessment.
+
+sentinel-status
+  Read-only health status for Sentinel-managed processes and queues.
+
+telemetry-status
+  Read-only local queue depth, oldest event, last successful push, and last error.
+
+optimize-plan
+  Produce a proposed optimization plan. No changes are made.
+
+optimize-apply
+  Apply only explicitly approved optimization actions and emit before/after telemetry.
+
+sync-status
+  Report Git branch, commit, working-tree state, and upstream relationship.
+
+recovery
+  Validate rollback/recovery prerequisites without modifying protected data.
+
+CAPABILITY RULES
+- Default capability is read-only.
+- Destructive operations require explicit operator authorization.
+- Secrets are never printed to stdout or telemetry.
+- Telemetry contains metadata, not arbitrary file contents.
+- Every state-changing command emits a correlation ID.
+- Failed commands return non-zero status and preserve diagnostic context locally.
+
+TELEMETRY EVENT
+{
+  "event_id": "uuid",
+  "timestamp": "RFC3339",
+  "node": "windows-gaia",
+  "command": "tdoc-command",
+  "mode": "audit|change|recovery",
+  "result": "ok|warning|error",
+  "correlation_id": "uuid",
+  "previous_hash": "sha256",
+  "event_hash": "sha256"
+}
