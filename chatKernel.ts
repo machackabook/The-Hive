@@ -1,6 +1,6 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 133: live chat (2026-09-15 17:11 CDT) reconfirmed session paste hash beec41f1.
+ * Stage 134: live chat (2026-09-15 18:13 CDT) reconfirmed session paste hash beec41f1.
  * Living CHAT_KERNEL_SOURCE remains Stage 45 promotions (phi weave, uniform guards, reused lerp).
  * Runtime extras stay in evaluateChatKernel: klein, hopf, figure8, trefoil.
  * matchSessionPaste scans the pasted source for extra case labels instead of hardcoding false.
@@ -14,7 +14,7 @@ export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangul
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein', 'hopf', 'figure8', 'trefoil'] as const;
 export const CHAT_KERNEL_SOURCE_HASH = '7cd81012';
 export const CHAT_KERNEL_SESSION_HASH = 'beec41f1';
-export const STAGE = 133;
+export const STAGE = 134;
 
 export function fnv1a32Hex(source: string): string {
   let h = 0x811c9dc5;
@@ -165,7 +165,7 @@ export function evaluateChatKernelInto(
     case 'torus':
     default: {
       x = (major + minor * Math.cos(phi)) * Math.cos(theta);
-      z = (major + minor * Math.cos(phi)) * Math.sin(theta);
+      z = (major + minor * Math.sin(phi)) * Math.sin(theta);
       y = minor * Math.sin(phi) * Math.sin(t * 0.5 + idx);
       break;
     }
@@ -209,6 +209,6 @@ export function confirmSessionKernel() {
     trefoilInSession: false,
     geometries: [...CHAT_KERNEL_CHAT_GEOMETRIES],
     runtimeExtras: ['klein', 'hopf', 'figure8', 'trefoil'],
-    note: 'Session paste 2026-09-15 17:11 CDT matches beec41f1. Klein/hopf/figure8/trefoil stay runtime-only. Stage 133 CPU evaluate matches GPU ids 12/13/8/7.',
+    note: 'Session paste 2026-09-15 18:13 CDT matches beec41f1. Klein/hopf/figure8/trefoil stay runtime-only. Stage 134 CPU evaluate matches GPU ids 12/13/8/7.',
   };
 }
