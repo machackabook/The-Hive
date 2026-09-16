@@ -8,13 +8,13 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **129** — 2026-09-15T20:09Z
+- Stage: **137** — 2026-09-16T03:05Z
 - Team: Enhance / Continuity Engine / sSoS Operating
-- Upstream: ENCLAVE-ADAM-REUNITED (stage 130)
-- Next hop: gaia-visualizer (then continuity-ledger-cycle)
-- Cascade: `.github/workflows/cascade.yml` (cron + dispatch; sibling hops require operator-injected token — catalogued, never invented, never committed)
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-129.md`
-- Drive mesh: ethereal continuum folder `Continuity-Ethereal-Repos`; GitHub remains the versioned singularity
+- Upstream: ENCLAVE-ADAM-REUNITED (stage 134+) / Cryptic-Heartbeat (stage 134)
+- Next hop: continuity-ledger-cycle (then other recently-updated machackabook repos)
+- Cascade: `.github/workflows/cascade.yml` (cron + push + dispatch; sibling hops require operator-injected token — catalogued, never invented, never committed)
+- Ledger: `docs/LEDGER-STAMP.md`
+- Drive mesh: Continuity ethereal folder; GitHub remains the versioned singularity
 
 ## Speedway
 
@@ -32,11 +32,11 @@ npx tsc --noEmit
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED (stage 130)
+1. ENCLAVE-ADAM-REUNITED
 2. Cryptic-Heartbeat
-3. The-Hive (stamped this hop — stage 129)
-4. gaia-visualizer
-5. continuity-ledger-cycle
+3. The-Hive (stamped this hop — stage 137)
+4. continuity-ledger-cycle
+5. other user:machackabook repos updated recently
 
 A pull on `main` should leave a ledger stamp. Cross-repo push waterfall stays closed until the operator injects the cascade secret.
 

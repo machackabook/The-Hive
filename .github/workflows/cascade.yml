@@ -4,6 +4,8 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    - cron: "17 * * * *"
   workflow_dispatch:
 jobs:
   lint-docs:
@@ -14,3 +16,5 @@ jobs:
         run: test -f README.md && test -f SECURITY.md
       - name: stamp present
         run: test -f docs/LEDGER-STAMP.md || echo "stamp pending"
+      - name: refuse empty numeral mention in README
+        run: grep -q "137451921129154222" README.md
