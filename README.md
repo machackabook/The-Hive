@@ -8,12 +8,12 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **147** — 2026-09-16T19:20Z
+- Stage: **148** — 2026-09-16T21:05Z
 - Team: Enhance / Continuity Engine / sSoS Operating
-- Upstream: ENCLAVE-ADAM-REUNITED (stage 147) / Cryptic-Heartbeat / nexus-repo-sync
+- Upstream: ENCLAVE-ADAM-REUNITED (stage 148) / Cryptic-Heartbeat / nexus-repo-sync
 - Next hop: Cryptic-Heartbeat then gaia-visualizer
 - Cascade: `.github/workflows/cascade.yml` + hourly Grok automations
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-147.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-148.md`
 - Drive mesh: `ETHEREAL-CONTINUUM-REPOS` (`1tGBSsEi9a2i_-W6ItvJZJDQ1VtiBKYEQ`); GitHub remains the versioned singularity
 - Equalizer: format-only; no history rewrite
 
@@ -22,6 +22,8 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 Hourly waterfall + pull-close cascade. `scripts/env-check.sh` refuses empty SHA / missing README / point-zero null.
 Source code is the only trusted neighbor. Catalog the unknown. Keep the known.
 Grok automation quota may be capped; Actions cron remains the in-repo heartbeat.
+
+Cross-repo push on pull stays closed until the operator injects the cascade secret. That is skepticism, not a missing feature.
 
 ## Local
 
@@ -34,12 +36,12 @@ npx tsc --noEmit
 ## Waterfall (one repo per hour)
 
 1. ENCLAVE-ADAM-REUNITED
-2. The-Hive (this hop — stage 147)
+2. The-Hive (this hop — stage 148)
 3. Cryptic-Heartbeat
 4. gaia-visualizer
 5. other user:machackabook repos updated recently
 
-A pull on `main` should leave a ledger stamp. Cross-repo push waterfall stays closed until the operator injects the cascade secret.
+A pull on `main` should leave a ledger stamp.
 
 ## Mesh siblings
 
