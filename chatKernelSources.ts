@@ -1,4 +1,4 @@
-/** Pinned session paste (beec41f1) and living runtime source (7cd81012). Stage 140. */
+/** Pinned session paste (beec41f1) and living runtime source (7cd81012). Stage 141. */
 export const CHAT_KERNEL_SESSION_SOURCE = `update(t) {
     this.material.uniforms.uTime.value = t;
     this.material.uniforms.uGravity.value = state.gravityPull;
@@ -53,6 +53,7 @@ export const CHAT_KERNEL_SOURCE = `update(t) {
     if (this.material && this.material.uniforms) {
         if (this.material.uniforms.uTime) this.material.uniforms.uTime.value = t;
         if (this.material.uniforms.uGravity) this.material.uniforms.uGravity.value = state.gravityPull;
+        if (this.material.uniforms.uWeave) this.material.uniforms.uWeave.value = state.toroidalWeave;
     }
 
     this.theta += (0.01 + this.idx * 0.002) * state.gravityPull;
