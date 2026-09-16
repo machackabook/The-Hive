@@ -1,0 +1,21 @@
+name: cascade-receive
+on:
+  repository_dispatch:
+    types: [continuity-cascade]
+  workflow_dispatch:
+jobs:
+  stamp:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: append pulse
+        run: |
+          mkdir -p docs
+          echo "received ${GITHUB_EVENT_NAME} at $(date -u +%FT%TZ)" >> docs/CASCADE_PULSE.log
+          git config user.name continuity-engine
+          git config user.email continuity@users.noreply.github.com
+          git add docs/CASCADE_PULSE.log
+          git diff --cached --quiet && echo no-delta || git commit -m "cascade pulse $(date -u +%Y%m%dT%H%M)"
+          git push || true
