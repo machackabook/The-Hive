@@ -4,17 +4,18 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 
 ## Status
 
-- Owner: `machackabook`
+- Owner: `machackabook` (id 219579651)
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **138** — 2026-09-16T04:04Z
+- Stage: **146** — 2026-09-16T18:13Z
 - Team: Enhance / Continuity Engine / sSoS Operating
-- Upstream: nexus-repo-sync (hub cycle 138) / ENCLAVE-ADAM-REUNITED / Cryptic-Heartbeat
-- Next hop: ENCLAVE-ADAM-REUNITED then gaia-visualizer
-- Cascade: `.github/workflows/cascade.yml` (cron + push + dispatch; sibling hops require operator-injected token — catalogued, never invented, never committed)
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-138.md`
-- Drive mesh: Continuity ethereal folder; GitHub remains the versioned singularity
+- Upstream: ENCLAVE-ADAM-REUNITED (stage 146) / Cryptic-Heartbeat / nexus-repo-sync
+- Next hop: Cryptic-Heartbeat then gaia-visualizer
+- Cascade: `.github/workflows/cascade.yml` + hourly Grok automations
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-146.md`
+- Drive mesh: Continuity-Ethereal-Repos; GitHub remains the versioned singularity
+- Equalizer: format-only; no history rewrite
 
 ## Speedway
 
@@ -32,9 +33,9 @@ npx tsc --noEmit
 
 ## Waterfall (one repo per hour)
 
-1. nexus-repo-sync (hub stamped 138)
-2. The-Hive (this hop — stage 138)
-3. ENCLAVE-ADAM-REUNITED
+1. ENCLAVE-ADAM-REUNITED (prior hop — 146)
+2. The-Hive (this hop — stage 146)
+3. Cryptic-Heartbeat
 4. gaia-visualizer
 5. other user:machackabook repos updated recently
 
@@ -42,10 +43,10 @@ A pull on `main` should leave a ledger stamp. Cross-repo push waterfall stays cl
 
 ## Mesh siblings
 
-- [nexus-repo-sync](https://github.com/machackabook/nexus-repo-sync)
 - [ENCLAVE-ADAM-REUNITED](https://github.com/machackabook/ENCLAVE-ADAM-REUNITED)
 - [Cryptic-Heartbeat](https://github.com/machackabook/Cryptic-Heartbeat)
 - [gaia-visualizer](https://github.com/machackabook/gaia-visualizer)
+- [nexus-repo-sync](https://github.com/machackabook/nexus-repo-sync)
 - [continuity-ledger-cycle](https://github.com/machackabook/continuity-ledger-cycle)
 - [sovereign-ai-factory-ai-polyglot](https://github.com/machackabook/sovereign-ai-factory-ai-polyglot)
 
