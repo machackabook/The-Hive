@@ -1,4 +1,4 @@
-# Current stamp
+# LEDGER STAMP (current)
 
-Stage **148** — 2026-09-16T21:05Z — The-Hive
-Numeral 137451921129154222
+Stage **156** on The-Hive. See `docs/LEDGER-STAMP-156.md`.
+Numeral `137451921129154222`.

@@ -8,12 +8,12 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **148** — 2026-09-16T21:05Z
+- Stage: **156** — 2026-09-17T02:04Z
 - Team: Enhance / Continuity Engine / sSoS Operating
-- Upstream: ENCLAVE-ADAM-REUNITED (stage 148) / Cryptic-Heartbeat / nexus-repo-sync
-- Next hop: Cryptic-Heartbeat then gaia-visualizer
+- Upstream: ENCLAVE-ADAM-REUNITED / Cryptic-Heartbeat (155) / gaia-visualizer (156)
+- Next hop: continuity-ledger-cycle then other `user:machackabook` surfaces
 - Cascade: `.github/workflows/cascade.yml` + hourly Grok automations
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-148.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-156.md`
 - Drive mesh: `ETHEREAL-CONTINUUM-REPOS` (`1tGBSsEi9a2i_-W6ItvJZJDQ1VtiBKYEQ`); GitHub remains the versioned singularity
 - Equalizer: format-only; no history rewrite
 
@@ -36,9 +36,9 @@ npx tsc --noEmit
 ## Waterfall (one repo per hour)
 
 1. ENCLAVE-ADAM-REUNITED
-2. The-Hive (this hop — stage 148)
-3. Cryptic-Heartbeat
-4. gaia-visualizer
+2. Cryptic-Heartbeat
+3. gaia-visualizer
+4. The-Hive (this hop — stage 156)
 5. other user:machackabook repos updated recently
 
 A pull on `main` should leave a ledger stamp.
