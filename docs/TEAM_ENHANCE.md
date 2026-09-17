@@ -1,8 +1,15 @@
 # Team Enhance — The-Hive
 
-Gaia Nexus generation. Operating in the middle.
+Gaia: The Nexus Generation.
+Numeral: `137451921129154222`
 
-Hourly continuity workflow + env check landed 2026-09-15.
-Sibling mesh: Cryptic-Heartbeat, ENCLAVE-ADAM-REUNITED, gaia-visualizer.
-Dispatch token lives in repo secrets as MESH_DISPATCH_TOKEN only.
-Numeral 137451921129154222. Refuse null at point zero.
+## Role
+Nexus UI + kernel (chatKernel, gaiaBridge, weaveEmitter).
+Meta Advance lives here as the product surface; Team Enhance stamps QoS.
+
+## Quality
+- TypeScript / Vite surface
+- Do not commit secrets from firebase configs that are live keys; treat blueprint as structure only
+- Scheduled workflow stamps health every hour when Actions is enabled
+
+Distinction over destruction. Append-only docs.
