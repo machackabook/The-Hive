@@ -1,5 +1,8 @@
-# Singularity unite — The-Hive
-
-Stage 149. Mesh aligned with ENCLAVE-ADAM-REUNITED, Cryptic-Heartbeat, gaia-visualizer.
-Drive ethereal folder ETHEREAL-CONTINUUM-REPOS is document mirror only.
-GitHub main is canonical. Point-zero null refused.
+# SINGULARITY UNITE STATUS
+repo: The-Hive
+numeral: 137451921129154222
+mesh: waterfall-active
+enhanced: 2026-09-17T21:10Z
+team: enhance
+next: ENCLAVE-ADAM-REUNITED
+loop: preserve-enhance-synthesize
