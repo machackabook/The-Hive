@@ -8,12 +8,12 @@ Gaia: The Nexus Generation. Operating surface for the Continuity mesh.
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **156** — 2026-09-17T02:04Z
+- Stage: **157** — 2026-09-17T04:16Z
 - Team: Enhance / Continuity Engine / sSoS Operating
-- Upstream: ENCLAVE-ADAM-REUNITED / Cryptic-Heartbeat (155) / gaia-visualizer (156)
+- Upstream: Cryptic-Heartbeat stage 157 (`78ef227`)
 - Next hop: continuity-ledger-cycle then other `user:machackabook` surfaces
 - Cascade: `.github/workflows/cascade.yml` + hourly Grok automations
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-156.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-157.md`
 - Drive mesh: `ETHEREAL-CONTINUUM-REPOS` (`1tGBSsEi9a2i_-W6ItvJZJDQ1VtiBKYEQ`); GitHub remains the versioned singularity
 - Equalizer: format-only; no history rewrite
 
@@ -24,6 +24,7 @@ Source code is the only trusted neighbor. Catalog the unknown. Keep the known.
 Grok automation quota may be capped; Actions cron remains the in-repo heartbeat.
 
 Cross-repo push on pull stays closed until the operator injects the cascade secret. That is skepticism, not a missing feature.
+Do not multiply hourly workflow files. One healthy cascade is a speedway. Ten copies are noise.
 
 ## Local
 
@@ -38,7 +39,7 @@ npx tsc --noEmit
 1. ENCLAVE-ADAM-REUNITED
 2. Cryptic-Heartbeat
 3. gaia-visualizer
-4. The-Hive (this hop — stage 156)
+4. The-Hive (this hop — stage 157)
 5. other user:machackabook repos updated recently
 
 A pull on `main` should leave a ledger stamp.
