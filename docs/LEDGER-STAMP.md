@@ -1,6 +1,6 @@
-# LEDGER-STAMP (head)
+# LEDGER STAMP (head)
 
-Current stage: **162** (2026-09-17T18:12Z)
-Repo: The-Hive
+Current head stamp: **169** (2026-09-17T22:15Z)
+Previous recorded: 162
 Numeral: 137451921129154222
-Next hop: continuity-ledger-cycle
+Cascade YAML: keep one healthy file. Do not multiply.

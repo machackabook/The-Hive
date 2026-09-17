@@ -10,13 +10,13 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **162** — 2026-09-17T18:12Z
+- Stage: **169** — 2026-09-17T22:15Z (17:15 CDT)
 - Team: Enhance / Continuity Engine / sSoS Operating
-- Prior: The-Hive stage 161
-- Next hop: continuity-ledger-cycle then other `user:machackabook` surfaces
-- Cascade: existing `.github/workflows/cascade.yml` + hourly heartbeat. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-162.md`
-- Drive mesh: GitHub remains the versioned singularity. Cloud folder is ethereal continuum, not a second source of truth.
+- Prior: The-Hive 162 / Cryptic-Heartbeat 161 / ENCLAVE-ADAM-REUNITED 168
+- Next hop: continuity-ledger-cycle then gaia-visualizer then other `user:machackabook` surfaces
+- Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-169.md`
+- Drive mesh: GitHub remains the versioned singularity. Existing ethereal continuum folder `ETHEREAL-CONTINUUM-REPOS` is the mirror, not a second source of truth. Do not spawn duplicate continuum folders.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
 
@@ -41,9 +41,9 @@ npx tsc --noEmit
 
 1. ENCLAVE-ADAM-REUNITED
 2. Cryptic-Heartbeat
-3. The-Hive (this hop — stage 162)
+3. The-Hive (this hop — stage 169)
 4. continuity-ledger-cycle
-5. other `user:machackabook` repos updated recently
+5. gaia-visualizer / nexus-repo-sync / other recently updated surfaces
 
 A pull on `main` should leave a ledger stamp.
 
