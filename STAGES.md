@@ -1,5 +1,6 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **160** — live chat (2026-09-17 16:08 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. gaia-visualizer now auto-enables GPU buffers + transform feedback when `?nodes=` > 1024 (`GPU_AUTO_THRESHOLD`).
 Stage **159** — live chat (2026-09-17 15:05 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z.
 Stage **158** — live chat (2026-09-17 14:01 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z.
 Stage **157** — live chat (2026-09-17 13:12 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z.
@@ -16,11 +17,11 @@ Chat kernel (`chatKernel.ts` / `chatKernelSources.ts`) keeps two pins:
 14. Memory engrams into Drive `CRYPTIC-HEARTBEAT-NEXUS-ROOT` from stored `/api/gaia/engram`.
 16-public. hamiltoniansingularity.ai public band (`blend` default — already host-gated in the visualizer).
 19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
-51-impl. InstancedMesh + GPU attributes for >1k nodes (gaia-visualizer issue #2).
+51-impl. InstancedMesh + GPU attributes for >1k nodes — Stage 160 auto path is live (`GPU_AUTO_THRESHOLD = 1024`). Remaining: tighter instanceOffset shader path at 4k–16k without CPU matrix writes.
 4-gov. HeartbeatScan authorization on HTTP mutation + WS (The-Hive issue #4).
 58. Promote klein into the session switch only after a chat paste includes it.
 66-session. Promote hopf/figure8/trefoil into the session switch only after a chat paste includes those cases.
-159-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
+160-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
 
 Wire in panels:
 
