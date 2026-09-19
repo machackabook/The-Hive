@@ -1,9 +1,9 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **184** — live chat (2026-09-18 20:07 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
+Stage **183** — README/ledger hop (2026-09-18 19:21 CDT). Kernel pin unchanged from 178.
 Stage **178** — live chat (2026-09-18 19:13 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
-Stage **177** — live chat (2026-09-18 18:04 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
-Stage **176** — live chat (2026-09-18 17:09 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
-Stage **175** — live chat (2026-09-18 16:04 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
+Stage **177** — live chat (2026-09-18 18:04 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`.
 
 Chat kernel (`chatKernel.ts` / `chatKernelSources.ts`) keeps two pins:
 - `CHAT_KERNEL_SESSION_SOURCE` — exact in-session paste (allocates `new THREE.Vector3` per frame by contract).
@@ -19,7 +19,7 @@ Chat kernel (`chatKernel.ts` / `chatKernelSources.ts`) keeps two pins:
 4-gov. HeartbeatScan authorization on HTTP mutation + WS (The-Hive issue #4).
 58. Promote klein into the session switch only after a chat paste includes it.
 66-session. Promote hopf/figure8/trefoil into the session switch only after a chat paste includes those cases.
-178-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
+184-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
 
 Wire in panels:
 
