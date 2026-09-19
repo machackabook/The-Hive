@@ -15,6 +15,11 @@ jobs:
       - name: require README and SECURITY
         run: test -f README.md && test -f SECURITY.md
       - name: stamp present
-        run: test -f docs/LEDGER-STAMP.md || echo "stamp pending"
-      - name: refuse empty numeral mention in README
-        run: grep -q "137451921129154222" README.md
+        run: test -f docs/LEDGER-STAMP.md
+      - name: numeral remembered in README
+        run: grep -q 137451921129154222 README.md
+      - name: no obvious secret files in tree
+        run: |
+          ! test -f .env
+          ! test -f secrets.yml
+          ! test -f id_rsa

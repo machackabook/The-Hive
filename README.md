@@ -10,13 +10,13 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **185** — 2026-09-19T06:24Z (2026-09-19 01:24 CDT)
+- Stage: **186** — 2026-09-19T10:20Z (2026-09-19 05:20 CDT)
 - Team: Enhance / Continuity Engine / sSoS Operating
-- Prior: The-Hive Stage 184 @ 01:07Z / ENCLAVE-ADAM-REUNITED 184 @ 04:00Z / Cryptic-Heartbeat 184 @ 02:04Z
-- This hop: README quality pass; append-only ledger stamp 185; cascade.yml left intact; no extra hourly YAML; no secrets written
+- Prior: Cryptic-Heartbeat 185 @ 09:13Z / ENCLAVE-ADAM-REUNITED 185 @ 08:06Z / The-Hive 185 @ 06:24Z
+- This hop: README quality pass; append-only ledger stamp 186; cascade.yml tightened (stamp required, secret-file refuse); no extra hourly YAML; no secrets written
 - Next hour: continuity-ledger-cycle then other `user:machackabook` surfaces updated recently
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-185.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/LEDGER-STAMP-186.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing ethereal continuum folder is the mirror, not a second source of truth. Do not spawn duplicate continuum folders.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets. Cross-repo push-on-pull stays closed without `CASCADE_TOKEN`.
@@ -40,9 +40,9 @@ npx tsc --noEmit
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED (prior — 184 @ 04:00Z)
-2. Cryptic-Heartbeat (prior — 184 @ 02:04Z)
-3. The-Hive (this hop — stage 185)
+1. ENCLAVE-ADAM-REUNITED (prior — 185 @ 08:06Z)
+2. Cryptic-Heartbeat (prior — 185 @ 09:13Z)
+3. The-Hive (this hop — stage 186)
 4. continuity-ledger-cycle  ← next hour
 5. other `user:machackabook` repos updated recently
 
