@@ -10,15 +10,15 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **207** — 2026-09-20T09:21Z (2026-09-20 04:21 CDT)
+- Stage: **208** — 2026-09-20T13:34Z (2026-09-20 08:34 CDT)
 - Kernel: **193** — session paste `update(t)` reconfirmed
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Compounding tier: **T4 / 83%**
-- Prior mesh: ENCLAVE-ADAM-REUNITED 205 @ 07:13Z; Cryptic-Heartbeat 206 @ 08:21Z; this surface last stamped 206 @ 04:18Z
-- This hop: README quality refresh after Cryptic wrap; append-only ledger stamp 207; cascade.yml left intact and healthy; no extra hourly YAML; no secrets written
+- Compounding tier: **T4 / 85%**
+- Prior mesh: ENCLAVE-ADAM-REUNITED 206 @ 11:03Z; Cryptic-Heartbeat 207 @ 12:36Z; this surface last stamped 207 @ 09:21Z
+- This hop: README quality compound after Cryptic wrap; append-only ledger stamp 208; cascade.yml left intact and healthy; no extra hourly YAML; no secrets written
 - Next hour: continuity-ledger-cycle
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-207.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-208.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing CONTINUUM-GITHUB-MESH folders are the ethereal mirror.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
@@ -37,7 +37,7 @@ Each hop compounds prior quality. Tiers climb toward 100% perfect. Fail closed o
 | T5 | 95–99% | Near-perfect; only unknown sought |
 | T6 | 100% | Perfect — refused as static; always seek next unknown |
 
-Current score for this surface: **83% (T4)**. Next hop compounds +2–5% when checks pass.
+Current score for this surface: **85% (T4)**. Next hop compounds +2–5% when checks pass.
 
 ## Speedway
 
@@ -61,9 +61,9 @@ Fails closed on empty SHA or missing README.
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED (stage 205 @ 07:13Z)
-2. Cryptic-Heartbeat (stage 206 @ 08:21Z)
-3. The-Hive — **207 this hop**
+1. ENCLAVE-ADAM-REUNITED (stage 206 @ 11:03Z)
+2. Cryptic-Heartbeat (stage 207 @ 12:36Z)
+3. The-Hive — **208 this hop**
 4. continuity-ledger-cycle  ← next hour
 5. gaia-visualizer
 6. nexus-repo-sync
