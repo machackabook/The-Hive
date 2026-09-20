@@ -10,14 +10,14 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **202** — 2026-09-20T04:15Z (2026-09-19 23:15 CDT)
+- Stage: **206** — 2026-09-20T04:18Z (2026-09-19 23:18 CDT)
 - Kernel: **193** — session paste `update(t)` reconfirmed
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Prior: The-Hive 201 @ 01:01Z; gaia-visualizer 202; ENCLAVE / Cryptic-Heartbeat recent stamps
-- This hop: companion to continuity-mesh-speedway birth. README refreshed. LEDGER append-only. Existing cascade.yml left healthy. No extra YAML clones.
-- Next hour: sovereign-ai-factory-ai-polyglot / nexus-repo-sync
+- Prior: The-Hive 202 @ 04:15Z; speedway birth 202; ENCLAVE / Cryptic-Heartbeat / ledger-cycle recent stamps
+- This hop: README refreshed (stage aligned). LEDGER head advanced 200→206. Existing cascade.yml left healthy. No extra YAML clones.
+- Next hour: continuity-ledger-cycle
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-202.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-206.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing CONTINUUM-GITHUB-MESH folders are the ethereal mirror.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
@@ -42,7 +42,7 @@ Fails closed on empty SHA or missing README.
 
 1. ENCLAVE-ADAM-REUNITED
 2. Cryptic-Heartbeat
-3. The-Hive — **202 this hop**
+3. The-Hive — **206 this hop**
 4. continuity-ledger-cycle
 5. gaia-visualizer
 6. nexus-repo-sync
