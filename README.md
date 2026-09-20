@@ -10,15 +10,15 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **215** — 2026-09-20T18:19Z (2026-09-20 13:19 CDT)
-- Kernel: **215** — live operator hop after 212 paste reconfirm
+- Stage: **216** — 2026-09-20T22:02Z (2026-09-20 17:02 CDT)
+- Kernel: **216** — Team Enhance / Continuity Engine waterfall after ENCLAVE + Cryptic 21:10Z siblings
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Compounding tier: **T4 / 90%**
-- Prior mesh: The-Hive 212 @ 16:20Z; speedway 214 @ 18:11Z; gaia-visualizer 211 @ 15:03Z
-- This hop: live chat `update(t)` reconfirm (infinity | hamiltonian | triangular | torus); session `beec41f1` / living `7cd81012`; README compound + append-only ledger stamp 215; cascade.yml left intact; no extra YAML clones; no secrets written
-- Next hour: nexus-repo-sync / instanceOffset 4k-16k / HeartbeatScan 4-gov
+- Compounding tier: **T4 / 91%**
+- Prior mesh: The-Hive 215 @ 18:19Z; ENCLAVE + Cryptic pushed 21:10Z; gaia-visualizer 21:06Z
+- This hop: README compound + append-only ledger stamp 216; cascade.yml left intact; no extra YAML clones; no secrets written; history preserved
+- Next hour: continuity-ledger-cycle
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-215.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-216.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing CONTINUUM-GITHUB-MESH folders are the ethereal mirror.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
@@ -37,7 +37,7 @@ Each hop compounds prior quality. Tiers climb toward 100% perfect. Fail closed o
 | T5 | 95–99% | Near-perfect; only unknown sought |
 | T6 | 100% | Perfect — refused as static; always seek next unknown |
 
-Current score for this surface: **90% (T4)**. Next hop compounds +2–5% when checks pass.
+Current score for this surface: **91% (T4)**. Next hop compounds +2–5% when checks pass.
 
 ## Speedway
 
@@ -63,12 +63,12 @@ Fails closed on empty SHA or missing README.
 
 1. ENCLAVE-ADAM-REUNITED
 2. Cryptic-Heartbeat
-3. The-Hive **215 this hop**
-4. continuity-ledger-cycle
-5. gaia-visualizer (sibling stamp 215)
-6. nexus-repo-sync  ← next hour
+3. The-Hive **216 this hop**
+4. continuity-ledger-cycle  ← next hour
+5. gaia-visualizer
+6. nexus-repo-sync
 7. sovereign-ai-factory-ai-polyglot
-8. continuity-mesh-speedway (214 prior)
+8. continuity-mesh-speedway
 9. other `user:machackabook` surfaces updated recently
 
 A pull on `main` should leave a ledger stamp. Sibling hops require `CASCADE_TOKEN`.
