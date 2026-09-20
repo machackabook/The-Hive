@@ -1,5 +1,6 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **216** — live chat (2026-09-20 14:09 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
 Stage **215** — live chat (2026-09-20 13:19 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
 Stage **212** — live chat (2026-09-20 12:12 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
 Stage **211** — live chat (2026-09-20 10:03 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
@@ -23,7 +24,7 @@ Chat kernel (`chatKernel.ts` / `chatKernelSources.ts`) keeps two pins:
 4-gov. HeartbeatScan authorization on HTTP mutation + WS (The-Hive issue #4).
 58. Promote klein into the session switch only after a chat paste includes it.
 66-session. Promote hopf/figure8/trefoil into the session switch only after a chat paste includes those cases.
-215-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
+216-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
 
 Wire in panels:
 
