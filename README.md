@@ -10,14 +10,14 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **200** — 2026-09-19T21:17Z (2026-09-19 16:17 CDT)
-- Kernel: **193** — session paste `update(t)` reconfirmed (`beec41f1` / living `7cd81012`)
+- Stage: **201** — 2026-09-20T01:01Z (2026-09-19 20:01 CDT)
+- Kernel: **193** — session paste `update(t)` reconfirmed
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Prior: The-Hive 199 @ 18:18Z; Cryptic-Heartbeat 199 @ 20:15Z; gaia-visualizer 196 @ 20:15Z; ENCLAVE-ADAM-REUNITED 196 @ 19:18Z
-- This hop: waterfall slot 3 of named rotation. README refreshed. LEDGER-STAMP append-only. Existing cascade.yml left healthy. No extra YAML clones.
-- Next hour: continuity-ledger-cycle
+- Prior: The-Hive 200 @ 21:17Z; Cryptic-Heartbeat 200 @ 23:20Z; continuity-ledger-cycle 201 @ 00:08Z; gaia-visualizer 202 this same cycle
+- This hop: waterfall companion stamp. README refreshed. LEDGER append-only. Existing cascade.yml left healthy. No extra YAML clones.
+- Next hour: sovereign-ai-factory-ai-polyglot / nexus-repo-sync
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-200.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-201.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing CONTINUUM-GITHUB-MESH folders are the ethereal mirror.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
@@ -41,8 +41,8 @@ Fails closed on empty SHA or missing README.
 
 1. ENCLAVE-ADAM-REUNITED
 2. Cryptic-Heartbeat
-3. The-Hive — **200 this hop**
-4. continuity-ledger-cycle  ← next
+3. The-Hive — **201 this hop**
+4. continuity-ledger-cycle
 5. gaia-visualizer
 6. nexus-repo-sync
 7. sovereign-ai-factory-ai-polyglot
