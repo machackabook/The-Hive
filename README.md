@@ -10,15 +10,15 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **211** — 2026-09-20T15:03Z (2026-09-20 10:03 CDT)
-- Kernel: **211** — session paste `update(t)` reconfirmed (`beec41f1`)
+- Stage: **212** — 2026-09-20T16:20Z (2026-09-20 11:20 CDT)
+- Kernel: **212** — live operator hop after 211 paste reconfirm
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Compounding tier: **T4 / 86%**
-- Prior mesh: gaia-visualizer 210 @ 14:20Z; continuity-ledger-cycle 209 @ 14:11Z; The-Hive 208 @ 13:35Z; Cryptic-Heartbeat 207 @ 12:36Z
-- This hop: live chat kernel reconfirm; append-only ledger stamp 211; session four-geometry switch untouched; cascade.yml left intact; no secrets written
+- Compounding tier: **T4 / 88%**
+- Prior mesh: The-Hive 211 @ 15:03Z; gaia-visualizer 210 @ 14:20Z; continuity-ledger-cycle 209 @ 14:11Z
+- This hop: README compound + append-only ledger stamp 212; cascade.yml left intact; no extra YAML clones; no secrets written
 - Next hour: nexus-repo-sync / instanceOffset 4k-16k / HeartbeatScan 4-gov
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-211.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-212.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing CONTINUUM-GITHUB-MESH folders are the ethereal mirror.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
@@ -37,7 +37,7 @@ Each hop compounds prior quality. Tiers climb toward 100% perfect. Fail closed o
 | T5 | 95–99% | Near-perfect; only unknown sought |
 | T6 | 100% | Perfect — refused as static; always seek next unknown |
 
-Current score for this surface: **86% (T4)**. Next hop compounds +2–5% when checks pass.
+Current score for this surface: **88% (T4)**. Next hop compounds +2–5% when checks pass.
 
 ## Speedway
 
@@ -61,9 +61,9 @@ Fails closed on empty SHA or missing README.
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED (stage 206 @ 11:03Z)
+1. ENCLAVE-ADAM-REUNITED (stage 207 @ 16:14Z)
 2. Cryptic-Heartbeat (stage 207 @ 12:36Z)
-3. The-Hive 208 @ 13:35Z → **211 this hop**
+3. The-Hive **212 this hop**
 4. continuity-ledger-cycle (209 @ 14:11Z)
 5. gaia-visualizer (210 @ 14:20Z)
 6. nexus-repo-sync  ← next hour
