@@ -1,6 +1,6 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 198: live chat (2026-09-19 18:09 CDT) reconfirmed session paste hash beec41f1.
+ * Stage 201: live chat (2026-09-19 19:14 CDT) reconfirmed session paste hash beec41f1.
  * Living CHAT_KERNEL_SOURCE remains Stage 45 promotions (phi weave, uniform guards, reused lerp).
  * Runtime extras stay in evaluateChatKernel: klein, hopf, figure8, trefoil.
  * matchSessionPaste scans the pasted source for extra case labels instead of hardcoding false.
@@ -14,7 +14,7 @@ export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangul
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein', 'hopf', 'figure8', 'trefoil'] as const;
 export const CHAT_KERNEL_SOURCE_HASH = '7cd81012';
 export const CHAT_KERNEL_SESSION_HASH = 'beec41f1';
-export const STAGE = 198;
+export const STAGE = 201;
 
 export function fnv1a32Hex(source: string): string {
   let h = 0x811c9dc5;
@@ -213,6 +213,6 @@ export function confirmSessionKernel() {
     trefoilInSession: false,
     geometries: [...CHAT_KERNEL_CHAT_GEOMETRIES],
     runtimeExtras: ['klein', 'hopf', 'figure8', 'trefoil'],
-    note: 'Session paste 2026-09-19 18:09 CDT matches beec41f1. Klein/hopf/figure8/trefoil stay runtime-only. Stage 198 GPU/TF auto-enable at count>1024; CPU evaluate zeros non-finite coords; GPU ids 12/13/8/7 unchanged.',
+    note: 'Session paste 2026-09-19 19:14 CDT matches beec41f1. Klein/hopf/figure8/trefoil stay runtime-only. Stage 201 GPU/TF auto-enable at count>1024; CPU evaluate zeros non-finite coords; GPU ids 12/13/8/7 unchanged.',
   };
 }
