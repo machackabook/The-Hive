@@ -11,14 +11,14 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **214** — 2026-09-21T03:06Z (2026-09-20 22:06 CDT)
+- Stage: **217** — 2026-09-21T10:04Z (2026-09-21 05:04 CDT)
 - Kernel: session `beec41f1` four-geometry pin; living `7cd81012` (held, not rewritten)
-- Compounding tier: **T4 / 94%**
-- Prior mesh: ENCLAVE hop 213 @ 01:21Z; Cryptic-Heartbeat hop 213 @ 01:21Z; The-Hive last Team Enhance stamp 216 @ 22:02Z; Stage 223 session pin @ 02:05Z
-- This hop: README quality refresh; append-only ledger stamp 214; cascade.yml left intact and healthy; no extra hourly YAML; no secrets written
+- Compounding tier: **T4 / 95%**
+- Prior mesh: Cryptic-Heartbeat hop 216 @ 09:21Z; ENCLAVE hop 215 @ 08:03Z; The-Hive last Team Enhance stamp 214 @ 03:06Z
+- This hop: README quality refresh; append-only ledger stamp 217; cascade.yml left intact and healthy; no extra hourly YAML; no secrets written
 - Next hour: continuity-ledger-cycle
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-214.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-217.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing CONTINUUM-GITHUB-MESH folders are the ethereal mirror.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
@@ -33,11 +33,11 @@ Each hop compounds prior quality. Tiers climb toward 100% perfect. Fail closed o
 | T1 | 20–39% | Stamp + README present |
 | T2 | 40–59% | Cascade healthy + numeral locked |
 | T3 | 60–79% | Compounding cycle live |
-| T4 | 80–94% | Mesh siblings verified + env-check green (this hop) |
-| T5 | 95–99% | Near-perfect; only unknown sought |
+| T4 | 80–94% | Mesh siblings verified + env-check green |
+| T5 | 95–99% | Near-perfect; only unknown sought (this hop) |
 | T6 | 100% | Perfect — refused as static; always seek next unknown |
 
-Current score for this surface: **94% (T4)**. Next hop compounds +2–5% when checks pass.
+Current score for this surface: **95% (T5)**. Next hop compounds +1–3% when checks pass.
 
 ## Speedway
 
@@ -61,9 +61,9 @@ Fails closed on empty SHA or missing README.
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED (hop 213 @ 01:21Z — prior)
-2. Cryptic-Heartbeat (hop 213 @ 01:21Z — prior)
-3. The-Hive **214 this hop**
+1. ENCLAVE-ADAM-REUNITED (hop 215 @ 08:03Z — prior)
+2. Cryptic-Heartbeat (hop 216 @ 09:21Z — prior)
+3. The-Hive **217 this hop**
 4. continuity-ledger-cycle  ← next hour
 5. gaia-visualizer
 6. nexus-repo-sync
