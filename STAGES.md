@@ -1,7 +1,7 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **232** — live chat (2026-09-21 16:13 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
 Stage **231** — live chat (2026-09-21 15:04 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
-Stage **230** — live chat (2026-09-21 13:14 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
 
 Chat kernel (`chatKernel.ts` / `chatKernelSources.ts`) keeps two pins:
 - `CHAT_KERNEL_SESSION_SOURCE` — exact in-session paste (allocates `new THREE.Vector3` per frame by contract).
@@ -17,7 +17,7 @@ Chat kernel (`chatKernel.ts` / `chatKernelSources.ts`) keeps two pins:
 4-gov. HeartbeatScan authorization on HTTP mutation + WS (The-Hive issue #4).
 58. Promote klein into the session switch only after a chat paste includes it.
 66-session. Promote hopf/figure8/trefoil into the session switch only after a chat paste includes those cases.
-231-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
+232-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
 
 Wire in panels:
 
