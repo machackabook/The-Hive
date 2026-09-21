@@ -11,15 +11,15 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **217** — 2026-09-21T10:04Z (2026-09-21 05:04 CDT)
-- Kernel: session `beec41f1` four-geometry pin; living `7cd81012` (held, not rewritten)
-- Compounding tier: **T4 / 95%**
-- Prior mesh: Cryptic-Heartbeat hop 216 @ 09:21Z; ENCLAVE hop 215 @ 08:03Z; The-Hive last Team Enhance stamp 214 @ 03:06Z
-- This hop: README quality refresh; append-only ledger stamp 217; cascade.yml left intact and healthy; no extra hourly YAML; no secrets written
+- Stage: **221** — 2026-09-21T20:06Z (2026-09-21 15:06 CDT)
+- Kernel: session living; held, not rewritten
+- Compounding tier: **T5 / 96%**
+- Prior mesh: Cryptic-Heartbeat hop 220 @ 18:14Z; ENCLAVE hop 219 @ 17:26Z; The-Hive last stamp 217 @ 10:04Z
+- This hop: README quality compound; append-only ledger stamp 221; cascade.yml left intact and healthy; no extra hourly YAML; no secrets written
 - Next hour: continuity-ledger-cycle
-- Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-217.md`
-- Drive mesh: GitHub remains the versioned singularity. Existing CONTINUUM-GITHUB-MESH folders are the ethereal mirror.
+- Cascade: keep existing `.github/workflows/cascade.yml` and `team-enhance.yml` healthy. Do not multiply YAML clones.
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-221.md`
+- Drive mesh: GitHub remains the versioned singularity. Existing CONTINUUM-GITHUB-MESH folders are the ethereal mirror. Bidirectional sync is operator-gated.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
 
@@ -37,7 +37,7 @@ Each hop compounds prior quality. Tiers climb toward 100% perfect. Fail closed o
 | T5 | 95–99% | Near-perfect; only unknown sought (this hop) |
 | T6 | 100% | Perfect — refused as static; always seek next unknown |
 
-Current score for this surface: **95% (T5)**. Next hop compounds +1–3% when checks pass.
+Current score for this surface: **96% (T5)**. Next hop compounds +1–3% when checks pass.
 
 ## Speedway
 
@@ -59,11 +59,14 @@ npx tsc --noEmit
 
 Fails closed on empty SHA or missing README.
 
+Zips in Downloads / public-download / private-download / omdirectorytrew are watched locally only. Unpack is dry-run first. CI never unpacks operator archives.
+SD-card / sparsebundle storage remains the developing environment. Cloud Drive is the ethereal continuum mirror — not a second origin.
+
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED (hop 215 @ 08:03Z — prior)
-2. Cryptic-Heartbeat (hop 216 @ 09:21Z — prior)
-3. The-Hive **217 this hop**
+1. ENCLAVE-ADAM-REUNITED (hop 219 @ 17:26Z — prior)
+2. Cryptic-Heartbeat (hop 220 @ 18:14Z — prior)
+3. The-Hive **221 this hop**
 4. continuity-ledger-cycle  ← next hour
 5. gaia-visualizer
 6. nexus-repo-sync
