@@ -10,15 +10,15 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Branch: `main`
 - Language: TypeScript
 - Numeral: `137451921129154222`
-- Stage: **221** — 2026-09-21T00:13Z (2026-09-20 19:13 CDT)
-- Kernel: **221** — session `beec41f1` four-geometry pin; living `7cd81012`
+- Stage: **222** — 2026-09-21T01:06Z (2026-09-20 20:06 CDT)
+- Kernel: **222** — session `beec41f1` four-geometry pin; living `7cd81012`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Compounding tier: **T4 / 92%**
-- Prior mesh: The-Hive STAGES 220; gaia-visualizer STAGE 220 sibling hop
-- This hop: live chat reconfirm; STAGE=221; HOP-221; session switch unchanged; no secrets written
+- Compounding tier: **T4 / 93%**
+- Prior mesh: The-Hive STAGES 221; gaia-visualizer STAGE 222 sibling hop
+- This hop: live chat reconfirm; STAGE=222; HOP-222; session switch unchanged; no secrets written
 - Next: ledger pulse sheet sources; HeartbeatScan 4-gov; instanceOffset sibling on gaia-visualizer
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/HOP-221.md`
+- Ledger: `docs/HOP-222.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing CONTINUUM-GITHUB-MESH folders are the ethereal mirror.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
@@ -37,7 +37,7 @@ Each hop compounds prior quality. Tiers climb toward 100% perfect. Fail closed o
 | T5 | 95–99% | Near-perfect; only unknown sought |
 | T6 | 100% | Perfect — refused as static; always seek next unknown |
 
-Current score for this surface: **92% (T4)**. Next hop compounds +2–5% when checks pass.
+Current score for this surface: **93% (T4)**. Next hop compounds +2–5% when checks pass.
 
 ## Speedway
 
@@ -63,7 +63,7 @@ Fails closed on empty SHA or missing README.
 
 1. ENCLAVE-ADAM-REUNITED
 2. Cryptic-Heartbeat
-3. The-Hive **221 this hop**
+3. The-Hive **222 this hop**
 4. continuity-ledger-cycle  ← next hour
 5. gaia-visualizer
 6. nexus-repo-sync
