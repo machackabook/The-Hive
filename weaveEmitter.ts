@@ -1,4 +1,4 @@
-/** Stage 239 panel → visualizer weave bus (item 19-panels). */
+/** Stage 240 panel → visualizer weave bus (item 19-panels). Dual-dispatch gaia-weave + gaia:targetState. */
 export type GeometryName =
   | 'infinity'
   | 'hamiltonian'
@@ -24,12 +24,16 @@ export type PulsePayload = {
 };
 
 const CHANNEL = 'gaia-weave';
+const TARGET_CHANNEL = 'gaia:targetState';
 
 function dispatch(type: string, detail: Record<string, unknown>) {
   if (typeof window === 'undefined') return;
-  window.dispatchEvent(new CustomEvent(CHANNEL, { detail: { type, ...detail, ts: Date.now() } }));
+  const payload = { type, ...detail, ts: Date.now() };
+  window.dispatchEvent(new CustomEvent(CHANNEL, { detail: payload }));
+  window.dispatchEvent(new CustomEvent(TARGET_CHANNEL, { detail: payload }));
   try {
-    window.parent?.postMessage({ channel: CHANNEL, type, ...detail }, '*');
+    window.parent?.postMessage({ channel: CHANNEL, ...payload }, '*');
+    window.parent?.postMessage({ channel: TARGET_CHANNEL, ...payload }, '*');
   } catch {
     /* framed preview may reject */
   }
@@ -62,12 +66,14 @@ export function subscribeWeave(handler: (event: { type: string } & Record<string
     if (ce.detail) handler(ce.detail);
   };
   const onMessage = (e: MessageEvent) => {
-    if (e.data?.channel === CHANNEL) handler(e.data);
+    if (e.data?.channel === CHANNEL || e.data?.channel === TARGET_CHANNEL) handler(e.data);
   };
   window.addEventListener(CHANNEL, onEvent as EventListener);
+  window.addEventListener(TARGET_CHANNEL, onEvent as EventListener);
   window.addEventListener('message', onMessage);
   return () => {
     window.removeEventListener(CHANNEL, onEvent as EventListener);
+    window.removeEventListener(TARGET_CHANNEL, onEvent as EventListener);
     window.removeEventListener('message', onMessage);
   };
 }
