@@ -1,8 +1,8 @@
 # The-Hive × gaia-visualizer stages
 
+Stage **237** — live chat (2026-09-21 21:14 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160. New: `weaveEmitter.ts` (19-panels) dispatches CustomEvent + postMessage on `gaia-weave`.
+Stage **236** — live chat (2026-09-21 20:28 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
 Stage **235** — live chat (2026-09-21 19:24 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
-Stage **234** — live chat (2026-09-21 18:09 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
-Stage **233** — live chat (2026-09-21 17:14 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160.
 
 Chat kernel (`chatKernel.ts` / `chatKernelSources.ts`) keeps two pins:
 - `CHAT_KERNEL_SESSION_SOURCE` — exact in-session paste (allocates `new THREE.Vector3` per frame by contract).
@@ -13,12 +13,12 @@ Chat kernel (`chatKernel.ts` / `chatKernelSources.ts`) keeps two pins:
 13. Authenticated live ledger pulse → Hive WS (`GAIA_PULSE_TOKEN`, `broadcastGaiaPulse`) — token + HMAC gate is live; wire remaining sheet sources.
 14. Memory engrams into Drive `CRYPTIC-HEARTBEAT-NEXUS-ROOT` from stored `/api/gaia/engram`.
 16-public. hamiltoniansingularity.ai public band (`blend` default — already host-gated in the visualizer).
-19-panels. Hook remaining Quine / NexusStudio editors to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
+19-panels. `weaveEmitter.ts` is live. Remaining: hook Quine / NexusStudio / Stream / Editor sliders to `emitWeaveChange` / `emitGeometry` / `emitBlend` / `emitPulse` / `emitLedger`.
 51-impl. InstancedMesh + GPU attributes for >1k nodes — Stage 160 auto path is live (`GPU_AUTO_THRESHOLD = 1024`). Remaining: tighter instanceOffset shader path at 4k–16k without CPU matrix writes.
 4-gov. HeartbeatScan authorization on HTTP mutation + WS (The-Hive issue #4).
 58. Promote klein into the session switch only after a chat paste includes it.
 66-session. Promote hopf/figure8/trefoil into the session switch only after a chat paste includes those cases.
-235-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
+237-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
 
 Wire in panels:
 

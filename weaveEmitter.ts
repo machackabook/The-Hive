@@ -1,92 +1,73 @@
-/**
- * Stage 19 — NexusStudio / Quine / editor weave changes must call this.
- * Keeps the chat-kernel contract (lerp 0.05, gravity, weave, blend, geometry)
- * on the same bus the visualizer already listens to.
- * Stage 25 — emitPulse stamps gravity via gaia:pulse so the visualizer HUD can show lastPulse.
- * Stage 26 — emitLedger / emitPulse attach live sheet counts; token rides the frame.
- * Stage 46 — every sibling dispatch carries STAGE + living sourceHash.
- */
-import { STAGE, CHAT_KERNEL_SOURCE_HASH } from './chatKernel';
-import { postGaiaContract, type GaiaContract, type GeometryKind } from './geometryContract';
+/** Stage 237 panel → visualizer weave bus (item 19-panels). */
+export type GeometryName =
+  | 'infinity'
+  | 'hamiltonian'
+  | 'triangular'
+  | 'torus'
+  | 'klein'
+  | 'hopf'
+  | 'figure8'
+  | 'trefoil'
+  | 'blend';
 
-let last: GaiaContract | null = null;
-let timer: ReturnType<typeof setTimeout> | null = null;
+export type WeaveChange = {
+  gravityPull?: number;
+  toroidalWeave?: number;
+  blend?: number;
+  geometry?: GeometryName;
+};
 
-export function continuityStamp(extra: Record<string, unknown> = {}) {
-  return { stage: STAGE, sourceHash: CHAT_KERNEL_SOURCE_HASH, ...extra };
-}
-
-export function lastContract(): GaiaContract | null {
-  return last;
-}
-
-export function emitWeaveChange(
-  partial: Partial<GaiaContract>,
-  opts: { debounceMs?: number } = {}
-): GaiaContract {
-  const debounceMs = opts.debounceMs ?? 40;
-  const run = () => {
-    last = postGaiaContract(partial);
-    return last;
-  };
-  if (debounceMs <= 0) return run();
-  if (timer) clearTimeout(timer);
-  timer = setTimeout(run, debounceMs);
-  last = { ...(last || postGaiaContract({})), ...partial } as GaiaContract;
-  return last;
-}
-
-export function emitGeometry(geometry: GeometryKind) {
-  return emitWeaveChange({ geometry }, { debounceMs: 0 });
-}
-
-export function emitGravity(gravityPull: number) {
-  return emitWeaveChange({ gravityPull });
-}
-
-export function emitToroidalWeave(toroidalWeave: number) {
-  return emitWeaveChange({ toroidalWeave });
-}
-
-export function emitBlend(blend: number) {
-  return emitWeaveChange({ blend });
-}
-
-export function emitLedger(ledger: {
+export type PulsePayload = {
   topics?: number;
   votes?: number;
   bridges?: number;
-  nodes?: number;
-}, token?: string) {
-  const detail = continuityStamp({ ledger, token });
-  if (typeof window !== 'undefined') {
-    window.dispatchEvent(new CustomEvent('gaia:ledger', { detail }));
-    try {
-      const bc = new BroadcastChannel('gaia-weave');
-      bc.postMessage({ type: 'gaia:ledger', ...detail });
-      bc.close();
-    } catch {
-      /* BroadcastChannel unavailable */
-    }
+};
+
+const CHANNEL = 'gaia-weave';
+
+function dispatch(type: string, detail: Record<string, unknown>) {
+  if (typeof window === 'undefined') return;
+  window.dispatchEvent(new CustomEvent(CHANNEL, { detail: { type, ...detail, ts: Date.now() } }));
+  try {
+    window.parent?.postMessage({ channel: CHANNEL, type, ...detail }, '*');
+  } catch {
+    /* framed preview may reject */
   }
-  return ledger;
 }
 
-export function emitPulse(
-  pulse: number,
-  token?: string,
-  ledger?: { topics?: number; votes?: number; bridges?: number; nodes?: number }
-) {
-  const detail = continuityStamp({ pulse, token, ledger });
-  if (typeof window !== 'undefined') {
-    window.dispatchEvent(new CustomEvent('gaia:pulse', { detail }));
-    try {
-      const bc = new BroadcastChannel('gaia-weave');
-      bc.postMessage({ type: 'gaia:pulse', ...detail });
-      bc.close();
-    } catch {
-      /* BroadcastChannel unavailable */
-    }
-  }
-  return emitGravity(pulse);
+export function emitGeometry(geometry: GeometryName) {
+  dispatch('geometry', { geometry });
+}
+
+export function emitBlend(blend: number) {
+  dispatch('blend', { blend });
+}
+
+export function emitPulse(gravityPull: number, token?: string, extra: PulsePayload = {}) {
+  dispatch('pulse', { gravityPull, token: token ?? null, ...extra });
+}
+
+export function emitLedger(ledger: PulsePayload) {
+  dispatch('ledger', { ...ledger });
+}
+
+export function emitWeaveChange(change: WeaveChange) {
+  dispatch('weave', { ...change });
+}
+
+export function subscribeWeave(handler: (event: { type: string } & Record<string, unknown>) => void) {
+  if (typeof window === 'undefined') return () => {};
+  const onEvent = (e: Event) => {
+    const ce = e as CustomEvent;
+    if (ce.detail) handler(ce.detail);
+  };
+  const onMessage = (e: MessageEvent) => {
+    if (e.data?.channel === CHANNEL) handler(e.data);
+  };
+  window.addEventListener(CHANNEL, onEvent as EventListener);
+  window.addEventListener('message', onMessage);
+  return () => {
+    window.removeEventListener(CHANNEL, onEvent as EventListener);
+    window.removeEventListener('message', onMessage);
+  };
 }
