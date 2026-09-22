@@ -11,14 +11,14 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **221** — 2026-09-21T20:06Z (2026-09-21 15:06 CDT)
+- Stage: **235** — 2026-09-22T01:35Z (2026-09-21 20:35 CDT)
 - Kernel: session living; held, not rewritten
-- Compounding tier: **T5 / 96%**
-- Prior mesh: Cryptic-Heartbeat hop 220 @ 18:14Z; ENCLAVE hop 219 @ 17:26Z; The-Hive last stamp 217 @ 10:04Z
-- This hop: README quality compound; append-only ledger stamp 221; cascade.yml left intact and healthy; no extra hourly YAML; no secrets written
-- Next hour: continuity-ledger-cycle
+- Compounding tier: **T5 / 97%**
+- Prior mesh: Cryptic-Heartbeat hop 233 @ 01:28Z; ENCLAVE hop 234 @ 00:32Z; The-Hive last stamp 221 @ 20:06Z
+- This hop: README quality compound; append-only ledger stamp 235; cascade.yml left intact and healthy; no extra hourly YAML; no secrets written
+- Next hour: gaia-visualizer then continuity-ledger-cycle then nexus-repo-sync
 - Cascade: keep existing `.github/workflows/cascade.yml` and `team-enhance.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-221.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-235.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing CONTINUUM-GITHUB-MESH folders are the ethereal mirror. Bidirectional sync is operator-gated.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
@@ -37,7 +37,7 @@ Each hop compounds prior quality. Tiers climb toward 100% perfect. Fail closed o
 | T5 | 95–99% | Near-perfect; only unknown sought (this hop) |
 | T6 | 100% | Perfect — refused as static; always seek next unknown |
 
-Current score for this surface: **96% (T5)**. Next hop compounds +1–3% when checks pass.
+Current score for this surface: **97% (T5)**. Next hop compounds +1–3% when checks pass.
 
 ## Speedway
 
@@ -64,11 +64,11 @@ SD-card / sparsebundle storage remains the developing environment. Cloud Drive i
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED (hop 219 @ 17:26Z — prior)
-2. Cryptic-Heartbeat (hop 220 @ 18:14Z — prior)
-3. The-Hive **221 this hop**
-4. continuity-ledger-cycle  ← next hour
-5. gaia-visualizer
+1. ENCLAVE-ADAM-REUNITED (hop 234 @ 00:32Z — prior)
+2. Cryptic-Heartbeat (hop 233 @ 01:28Z — prior)
+3. The-Hive **235 this hop**
+4. gaia-visualizer  ← next hour
+5. continuity-ledger-cycle
 6. nexus-repo-sync
 7. sovereign-ai-factory-ai-polyglot
 8. continuity-mesh-speedway
