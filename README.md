@@ -11,15 +11,15 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **235** — 2026-09-22T01:35Z (2026-09-21 20:35 CDT)
+- Stage: **237** — 2026-09-22T04:14Z (2026-09-21 23:14 CDT)
 - Kernel: session living; held, not rewritten
-- Compounding tier: **T5 / 97%**
-- Prior mesh: Cryptic-Heartbeat hop 233 @ 01:28Z; ENCLAVE hop 234 @ 00:32Z; The-Hive last stamp 221 @ 20:06Z
-- This hop: README quality compound; append-only ledger stamp 235; cascade.yml left intact and healthy; no extra hourly YAML; no secrets written
+- Compounding tier: **T5 / 98%**
+- Prior mesh: Cryptic-Heartbeat hop 236 @ 04:11Z; ENCLAVE hop 236 @ 03:19Z; The-Hive last stamp 235 @ 01:35Z
+- This hop: README quality compound; append-only ledger stamp 237; cascade.yml left intact; no extra hourly YAML; no secrets written
 - Next hour: gaia-visualizer then continuity-ledger-cycle then nexus-repo-sync
 - Cascade: keep existing `.github/workflows/cascade.yml` and `team-enhance.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-235.md`
-- Drive mesh: GitHub remains the versioned singularity. Existing CONTINUUM-GITHUB-MESH folders are the ethereal mirror. Bidirectional sync is operator-gated.
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-237.md`
+- Drive mesh: GitHub remains the versioned singularity. Existing folder `Continuity-Cloud-Repos` is the ethereal mirror. Do not spawn duplicate Drive folders. Bidirectional sync is operator-gated.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
 
@@ -37,7 +37,7 @@ Each hop compounds prior quality. Tiers climb toward 100% perfect. Fail closed o
 | T5 | 95–99% | Near-perfect; only unknown sought (this hop) |
 | T6 | 100% | Perfect — refused as static; always seek next unknown |
 
-Current score for this surface: **97% (T5)**. Next hop compounds +1–3% when checks pass.
+Current score for this surface: **98% (T5)**. Next hop compounds +1% when checks pass. 100% refused as static.
 
 ## Speedway
 
@@ -64,9 +64,9 @@ SD-card / sparsebundle storage remains the developing environment. Cloud Drive i
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED (hop 234 @ 00:32Z — prior)
-2. Cryptic-Heartbeat (hop 233 @ 01:28Z — prior)
-3. The-Hive **235 this hop**
+1. ENCLAVE-ADAM-REUNITED (hop 236 @ 03:19Z — prior)
+2. Cryptic-Heartbeat (hop 236 @ 04:11Z — prior)
+3. The-Hive **237 this hop**
 4. gaia-visualizer  ← next hour
 5. continuity-ledger-cycle
 6. nexus-repo-sync
