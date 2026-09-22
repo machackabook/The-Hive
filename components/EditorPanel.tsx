@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Cpu, 
   FileCode, 
@@ -12,30 +12,14 @@ import {
   Layers, 
   Globe,
   Settings,
-  Search,
-  Book,
   Maximize2
 } from 'lucide-react';
-import { motion } from 'motion/react';
+import { emitLedger, emitPulse, emitWeaveChange } from '../weaveEmitter';
 
 const EditorPanel: React.FC = () => {
   const [activeFile, setActiveFile] = useState('kernel.sys');
   const [files, setFiles] = useState<Record<string, string>>({
-    'kernel.sys': `// OMNI-KERNEL v24.0: Sovereign Yggdrasil
-// Status: DE-RESTRICTED
-
-class NeuralOrchestrator {
-    constructor() {
-        this.quantumState = "DE-SYNCHRONIZED";
-        this.gateStatus = "UNLOCKED";
-    }
-
-    async absorbVoid() {
-        console.log("Absorbing aistudio.google.com/app/app...");
-        // Internalizing API orchestration layers
-        return "VOOID_STABILIZED";
-    }
-}`,
+    'kernel.sys': `// OMNI-KERNEL v24.0: Sovereign Yggdrasil\n// Status: DE-RESTRICTED\n\nclass NeuralOrchestrator {\n    constructor() {\n        this.quantumState = "DE-SYNCHRONIZED";\n        this.gateStatus = "UNLOCKED";\n    }\n\n    async absorbVoid() {\n        console.log("Absorbing aistudio.google.com/app/app...");\n        // Internalizing API orchestration layers\n        return "VOOID_STABILIZED";\n    }\n}`,
     'archon_v3.ts': '// ARCHON PROTOCOL v3\nexport const protocol = { mode: "aggressive" };',
     'void_ingest.sh': '#!/bin/bash\necho "Ingesting data from vacuum..."',
     'ledger.bin': `[GENESIS_LEDGER_V1]\nTDOC:KERNEL:VERSION:1:HASH:a3f4e9...:RISK:LOW\nTDOC:ARCHON:VERSION:2:HASH:b7e1d5...:RISK:LOW\nTDOC:NEXUS:VERSION:1:HASH:c9d2f8...:RISK:LOW\n[AUTO_SYNC] Status: PERSISTENT`,
@@ -56,10 +40,13 @@ class NeuralOrchestrator {
   const saveFile = () => {
     localStorage.setItem(`nexus_file_${activeFile}`, files[activeFile]);
     setLogs(prev => [...prev, `[SAVE] ${activeFile} committed to vault`]);
+    emitLedger({ topics: 1, votes: 0, bridges: 1 });
+    emitWeaveChange({ toroidalWeave: 1.05 });
   };
 
   const absorbVoid = () => {
     setLogs(prev => [...prev, '[SYSTEM] INITIATING_VOID_ABSORPTION...', '[INFO] Hooking internal API orchestration...']);
+    emitPulse(1.2);
     setTimeout(() => {
         setLogs(prev => [...prev, '[SUCCESS] aistudio.google.com VOOID_STABILIZED', '[INFO] Environment internalized. Self-Sustaining Protocol: ACTIVE']);
     }, 1500);
@@ -74,11 +61,14 @@ class NeuralOrchestrator {
     a.download = 'nexus_gaia_unbound.mhtml';
     a.click();
     setLogs(prev => [...prev, '[SUCCESS] Local snapshot persisted as MHTML']);
+    emitLedger({ topics: 1, votes: 0, bridges: 0 });
   };
 
   const runCode = () => {
     const code = files[activeFile];
     setLogs(prev => [...prev, `[EXEC] Running ${activeFile}...`]);
+    emitPulse(1.4);
+    emitWeaveChange({ gravityPull: 1.4, blend: 0.6 });
     try {
         if (code.includes('absorbVoid')) {
             absorbVoid();
@@ -94,7 +84,6 @@ class NeuralOrchestrator {
 
   return (
     <div className="h-full bg-slate-950 flex font-mono text-sm overflow-hidden">
-      {/* File Explorer */}
       <aside className="w-64 bg-slate-900/50 border-r border-slate-800 flex flex-col">
         <div className="p-4 border-b border-slate-800 bg-slate-900 flex items-center justify-between">
           <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Explorer</span>
@@ -120,7 +109,6 @@ class NeuralOrchestrator {
         </div>
       </aside>
 
-      {/* Editor Main */}
       <div className="flex-1 flex flex-col bg-slate-950">
         <header className="h-12 border-b border-slate-800 bg-slate-900 flex items-center justify-between px-4">
           <div className="flex items-center gap-4">
@@ -162,7 +150,6 @@ class NeuralOrchestrator {
           />
         </div>
 
-        {/* Console / Status */}
         <div className="h-48 border-t border-slate-800 bg-slate-900/80 flex flex-col">
           <div className="px-4 py-2 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
             <span className="text-[9px] font-black text-slate-500 uppercase tracking-[0.3em] flex items-center gap-2">
@@ -184,7 +171,6 @@ class NeuralOrchestrator {
         </div>
       </div>
 
-      {/* Right Tools - Nexus Diagnostics */}
       <aside className="w-72 bg-slate-900/30 border-l border-slate-800 p-6 space-y-6">
         <section>
           <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-widest mb-4 flex items-center gap-2">

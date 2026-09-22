@@ -3,8 +3,16 @@
  * Keep this the single source of truth for targetState shape inside The-Hive.
  * Stage-18: chat-kernel source + evaluateChatKernel pinned in chatKernel.ts.
  * Stage-46: every postGaiaContract dispatch carries STAGE + living sourceHash.
+ * Stage-238: postGaiaContract also fans out through weaveEmitter (19-panels).
  */
 import { CHAT_KERNEL_LERP, CHAT_KERNEL_SOURCE_HASH, STAGE } from './chatKernel';
+import {
+  emitBlend,
+  emitGeometry,
+  emitPulse,
+  emitWeaveChange,
+  type GeometryName,
+} from './weaveEmitter';
 
 export type GeometryKind =
   | 'torus'
@@ -109,6 +117,23 @@ export function parseTargetGeometry(raw: unknown): GeometryKind {
   return GEOMETRIES.includes(value) ? value : 'torus';
 }
 
+function asWeaveGeometry(kind: GeometryKind): GeometryName {
+  switch (kind) {
+    case 'infinity':
+    case 'hamiltonian':
+    case 'triangular':
+    case 'torus':
+    case 'klein':
+    case 'hopf':
+    case 'figure8':
+    case 'trefoil':
+    case 'blend':
+      return kind;
+    default:
+      return 'torus';
+  }
+}
+
 export function emitGaiaContract(partial: Partial<GaiaContract>): GaiaContract {
   const num = (v: unknown, fallback: number) =>
     Number.isFinite(v as number) ? Number(v) : fallback;
@@ -137,6 +162,16 @@ export function postGaiaContract(partial: Partial<GaiaContract>): GaiaContract {
     } catch {
       /* ignore */
     }
+    const weaveGeom = asWeaveGeometry(contract.geometry);
+    emitGeometry(weaveGeom);
+    emitBlend(contract.blend);
+    emitPulse(contract.gravityPull, contract.token);
+    emitWeaveChange({
+      gravityPull: contract.gravityPull,
+      toroidalWeave: contract.toroidalWeave,
+      blend: contract.blend,
+      geometry: weaveGeom,
+    });
   }
   return contract;
 }
