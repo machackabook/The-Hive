@@ -1,4 +1,4 @@
-/** Stage 238 panel → visualizer weave bus (item 19-panels). */
+/** Stage 239 panel → visualizer weave bus (item 19-panels). */
 export type GeometryName =
   | 'infinity'
   | 'hamiltonian'
