@@ -1,9 +1,11 @@
-# Mesh Sync — The-Hive
+# MESH SYNC — The-Hive hop 242
 
-Cascaded from ENCLAVE-ADAM-REUNITED speedway.
-Numeral: 137451921129154222
+GitHub is origin. Drive is ethereal continuum mirror.
+Bidirectional sync is operator-gated. No duplicate folder spawn.
 
-Waterfall: pull here → enhance next sibling → never null at point zero.
-Siblings: ENCLAVE-ADAM-REUNITED, gaia-visualizer, Cryptic-Heartbeat.
+Siblings verified this hop:
+- Cryptic-Heartbeat (241)
+- ENCLAVE-ADAM-REUNITED (19:15Z)
+- Next: continuity-ledger-cycle
 
-Team Enhance generation 2026-09-22.
+Numeral 137451921129154222. Point-zero null refused.
