@@ -3,7 +3,7 @@
  * Keep this the single source of truth for targetState shape inside The-Hive.
  * Stage-18: chat-kernel source + evaluateChatKernel pinned in chatKernel.ts.
  * Stage-46: every postGaiaContract dispatch carries STAGE + living sourceHash.
- * Stage-238: postGaiaContract also fans out through weaveEmitter (19-panels).
+ * Stage-239: postGaiaContract also fans out through weaveEmitter (19-panels).
  */
 import { CHAT_KERNEL_LERP, CHAT_KERNEL_SOURCE_HASH, STAGE } from './chatKernel';
 import {
