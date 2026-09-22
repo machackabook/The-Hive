@@ -11,14 +11,14 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **238** — 2026-09-22T10:20Z (2026-09-22 05:20 CDT)
+- Stage: **240** — 2026-09-22T13:18Z (2026-09-22 08:18 CDT)
 - Kernel: session living; held, not rewritten
-- Compounding tier: **T5 / 98%**
-- Prior mesh: Cryptic-Heartbeat @ 09:09Z; ENCLAVE-ADAM-REUNITED @ 06:22Z; The-Hive hop 237 @ 04:14Z
-- This hop: README quality compound; append-only ledger stamp 238; cascade.yml left intact; no extra hourly YAML; no secrets written
+- Compounding tier: **T5 / 99%**
+- Prior mesh: ENCLAVE-ADAM-REUNITED @ 12:31Z; continuity-ledger-cycle @ 11:05Z; Cryptic-Heartbeat @ 09:09Z; The-Hive hop 238 @ 10:20Z
+- This hop: README quality compound; append-only ledger stamp 240; cascade.yml left intact; no extra hourly YAML; no secrets written
 - Next hour: continuity-ledger-cycle
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-238.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-240.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing folder `Continuity-Cloud-Repos` is the ethereal mirror. Do not spawn duplicate Drive folders. Bidirectional sync is operator-gated.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
@@ -37,7 +37,7 @@ Each hop compounds prior quality. Tiers climb toward 100% perfect. Fail closed o
 | T5 | 95–99% | Near-perfect; only unknown sought (this hop) |
 | T6 | 100% | Perfect — refused as static; always seek next unknown |
 
-Current score for this surface: **98% (T5)**. Next hop compounds +1% when checks pass. 100% refused as static.
+Current score for this surface: **99% (T5)**. Next hop compounds the unknown. 100% refused as static.
 
 ## Speedway
 
@@ -64,9 +64,9 @@ SD-card / sparsebundle storage remains the developing environment. Cloud Drive i
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED (prior @ 06:22Z)
+1. ENCLAVE-ADAM-REUNITED (prior @ 12:31Z)
 2. Cryptic-Heartbeat (prior @ 09:09Z)
-3. The-Hive **238 this hop**
+3. The-Hive **240 this hop**
 4. continuity-ledger-cycle  ← next hour
 5. gaia-visualizer
 6. nexus-repo-sync
