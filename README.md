@@ -11,15 +11,15 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **251** — 2026-09-23T02:12Z (2026-09-22 21:12 CDT)
+- Stage: **252** — 2026-09-23T03:16Z (2026-09-22 22:16 CDT)
 - Kernel: session living; held, not rewritten
 - Compounding tier: **T5 / 99%**
-- Prior mesh: ENCLAVE-ADAM-REUNITED hop 250 @ 02:05Z; Cryptic-Heartbeat last pushed 02:08Z
-- This hop: README quality compound; append-only ledger stamp 251; cascade.yml left intact; no extra hourly YAML; no secrets written
+- Prior mesh: Cryptic-Heartbeat hop 251 @ 03:08Z; ENCLAVE hop 250 @ 02:05Z
+- This hop: README quality compound; append-only HOP-252 + LEDGER-STAMP; cascade.yml left intact; no extra hourly YAML; no secrets written
 - Next hour: continuity-ledger-cycle then gaia-visualizer
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-251.md`
-- Drive mesh: GitHub remains the versioned singularity. Existing folder `Continuity-Cloud-Repos` / `CONTINUUM-GITHUB-MESH` is the ethereal mirror. Do not spawn duplicate Drive folders. Bidirectional sync is operator-gated.
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-252.md`
+- Drive mesh: GitHub remains the versioned singularity. Existing folder `Continuity-Cloud-Repos` is the ethereal mirror. Do not spawn duplicate Drive folders. Bidirectional sync is operator-gated.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
 
@@ -64,9 +64,9 @@ SD-card / sparsebundle storage remains the developing environment. Cloud Drive i
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED (hop 250 @ 02:05Z)
-2. Cryptic-Heartbeat (pushed 02:08Z)
-3. The-Hive **251 this hop**
+1. ENCLAVE-ADAM-REUNITED (hop 250)
+2. Cryptic-Heartbeat (hop 251)
+3. The-Hive **252 this hop**
 4. continuity-ledger-cycle  ← next hour
 5. gaia-visualizer
 6. nexus-repo-sync

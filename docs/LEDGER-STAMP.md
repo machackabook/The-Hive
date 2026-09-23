@@ -1,19 +1,8 @@
 # LEDGER-STAMP
 
-Append-only. Last hop wins the header. Prior hops live as HOP-*.md.
+Append-only. Last hop **252** on The-Hive at 2026-09-23T03:16Z.
 
-```
-hop=251
-surface=The-Hive
-owner=machackabook
-numeral=137451921129154222
-uts=2026-09-23T02:12Z
-cdt=2026-09-22T21:12-05:00
-tier=T5
-score=99
-cascade=intact
-secrets=none_in_tree
-next=continuity-ledger-cycle
-```
+GitHub is the versioned singularity. Drive is the ethereal mirror.
+CASCADE_TOKEN stays in Actions secrets. Never committed.
 
-Preserve. Enhance. Synthesize.
+Numeral 137451921129154222. Preserve. Enhance. Synthesize.
