@@ -1,4 +1,4 @@
-/** Pinned session paste (beec41f1) and living runtime source (7cd81012). Stage 253. */
+/** Pinned session paste (beec41f1) and living runtime source (7cd81012). Stage 254. */
 export const CHAT_KERNEL_SESSION_SOURCE = `update(t) {
     this.material.uniforms.uTime.value = t;
     this.material.uniforms.uGravity.value = state.gravityPull;
@@ -40,7 +40,7 @@ export const CHAT_KERNEL_SESSION_SOURCE = `update(t) {
         default:
             // Standard Toroidal Math
             x = (major + minor * Math.cos(this.phi)) * Math.cos(this.theta);
-            z = (major + minor * Math.cos(this.phi)) * Math.sin(this.theta);
+            z = (major + minor * Math.sin(this.phi)) * Math.sin(this.theta);
             y = minor * Math.sin(this.phi) * Math.sin(t * 0.5 + this.idx);
             break;
     }
