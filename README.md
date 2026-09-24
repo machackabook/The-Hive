@@ -11,14 +11,14 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **261** — 2026-09-24T19:04Z (2026-09-24 14:04 CDT)
+- Stage: **262** — 2026-09-24T21:05Z (2026-09-24 16:05 CDT)
 - Kernel: session living; held, not rewritten
 - Compounding tier: **T5 / 99%**
-- Prior mesh: The-Hive hop 260 @ 2026-09-24T11:02Z; ENCLAVE-ADAM-REUNITED hop 258 @ 16:04Z; Cryptic-Heartbeat hop 271 @ 18:05Z
-- This hop: Team Enhance waterfall; STAGE 261; README quality compound; append-only HOP-261 + LEDGER-STAMP; cascade.yml left intact; no extra hourly YAML; no secrets written
+- Prior mesh: The-Hive hop 261 @ 19:04Z; Cryptic-Heartbeat hop 271 @ 18:05Z; ENCLAVE hop 258 @ 16:04Z
+- This hop: Team Enhance waterfall; STAGE 262; README quality compound; append-only HOP-262 + LEDGER-STAMP; cascade.yml left intact; no extra hourly YAML; no secrets written
 - Next hour: continuity-ledger-cycle then gaia-visualizer then nexus-repo-sync
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-261.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-262.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing folder `Continuity-Cloud-Repos` is the ethereal mirror. Do not spawn duplicate Drive folders. Bidirectional sync is operator-gated.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
@@ -66,13 +66,14 @@ SD-card / sparsebundle storage remains the developing environment. Cloud Drive i
 
 1. ENCLAVE-ADAM-REUNITED (258 prior)
 2. Cryptic-Heartbeat (271 prior)
-3. The-Hive — **261 this hop**
+3. The-Hive — **262 this hop**
 4. continuity-ledger-cycle  ← next hour
 5. gaia-visualizer
 6. nexus-repo-sync
 7. sovereign-ai-factory-ai-polyglot
 8. continuity-mesh-speedway
-9. other `user:machackabook` surfaces updated recently
+9. hamiltonian-incursion
+10. other `user:machackabook` surfaces updated recently
 
 A pull on `main` should leave a ledger stamp. Sibling hops require `CASCADE_TOKEN`.
 
@@ -85,6 +86,8 @@ A pull on `main` should leave a ledger stamp. Sibling hops require `CASCADE_TOKE
 - [continuity-ledger-cycle](https://github.com/machackabook/continuity-ledger-cycle)
 - [sovereign-ai-factory-ai-polyglot](https://github.com/machackabook/sovereign-ai-factory-ai-polyglot)
 - [continuity-mesh-speedway](https://github.com/machackabook/continuity-mesh-speedway)
+- [hamiltonian-incursion](https://github.com/machackabook/hamiltonian-incursion)
+- [tdoc-ledgertrove](https://github.com/machackabook/tdoc-ledgertrove)
 
 ## Security posture
 
@@ -92,6 +95,7 @@ A pull on `main` should leave a ledger stamp. Sibling hops require `CASCADE_TOKE
 - Public projections must not contain credentials, OAuth tokens, cookies, private keys, or enclave secrets.
 - Skeptical of network devices: catalog first, verify source, then act.
 - DIVERGED is a review state. No automatic merge, rebase, force-reset, or overwrite.
+- ADB / wireless debug surfaces in attached HTML HUDs are UI simulations unless the operator runs them on-device.
 
 Preserve. Enhance. Synthesize. Source code is the only trusted neighbor.
 

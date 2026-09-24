@@ -1,16 +1,11 @@
 # LEDGER-STAMP
 
-- hop: 261
-- utc: 2026-09-24T19:04Z
-- cdt: 2026-09-24 14:04 CDT
-- repo: The-Hive
-- owner: machackabook / 219579651
-- numeral: 137451921129154222
-- tier: T5 / 99%
-- cascade: keep existing cascade.yml only (healthy)
-- drive_mirror: ethereal continuum mirror — not origin
-- prior: hop 260 @ 2026-09-24T11:02Z
-- siblings_today: ENCLAVE hop 258 @ 16:04Z; Cryptic hop 271 @ 18:05Z
-- next: continuity-ledger-cycle
-- contract: preserve enhance synthesize; no history rewrite; no secrets
-- point_zero: REFUSED
+Append-only Continuity stamp. Do not rewrite history.
+
+| Hop | UTC | Surface | Note |
+|-----|-----|---------|------|
+| 261 | 2026-09-24T19:04Z | The-Hive | prior enhance |
+| 262 | 2026-09-24T21:05Z | The-Hive | Team Enhance waterfall; Grok remembral 137451921129154222 |
+
+GitHub is the versioned singularity. Drive folder Continuity-Cloud-Repos is mirror only.
+CASCADE_TOKEN stays in GitHub Secrets. Never committed.
