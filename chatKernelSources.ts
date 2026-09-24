@@ -1,4 +1,4 @@
-/** Pinned session paste (beec41f1) and living runtime source (7cd81012). Stage 272. */
+/** Pinned session paste (beec41f1) and living runtime source (7cd81012). Stage 273. */
 export const CHAT_KERNEL_SESSION_SOURCE = `update(t) {
     this.material.uniforms.uTime.value = t;
     this.material.uniforms.uGravity.value = state.gravityPull;
@@ -40,7 +40,7 @@ export const CHAT_KERNEL_SESSION_SOURCE = `update(t) {
         default:
             // Standard Toroidal Math
             x = (major + minor * Math.cos(this.phi)) * Math.cos(this.theta);
-            z = (major + minor * Math.cos(this.phi)) * Math.sin(this.theta);
+            z = (major + minor * Math.sin(this.phi)) * Math.sin(this.theta);
             y = minor * Math.sin(this.phi) * Math.sin(t * 0.5 + this.idx);
             break;
     }
@@ -50,18 +50,21 @@ export const CHAT_KERNEL_SESSION_SOURCE = `update(t) {
 }`;
 
 export const CHAT_KERNEL_SOURCE = `update(t) {
+    const pull = Number.isFinite(state.gravityPull) ? state.gravityPull : 1;
+    const weave = Number.isFinite(state.toroidalWeave) ? state.toroidalWeave : 1;
+
     if (this.material && this.material.uniforms) {
         if (this.material.uniforms.uTime) this.material.uniforms.uTime.value = t;
-        if (this.material.uniforms.uGravity) this.material.uniforms.uGravity.value = state.gravityPull;
-        if (this.material.uniforms.uWeave) this.material.uniforms.uWeave.value = state.toroidalWeave;
+        if (this.material.uniforms.uGravity) this.material.uniforms.uGravity.value = pull;
+        if (this.material.uniforms.uWeave) this.material.uniforms.uWeave.value = weave;
     }
 
-    this.theta += (0.01 + this.idx * 0.002) * state.gravityPull;
-    this.phi += 0.007 * state.toroidalWeave;
+    this.theta += (0.01 + this.idx * 0.002) * pull;
+    this.phi += 0.007 * weave;
     
     let x, y, z;
     let major = 10 + (this.idx * 2);
-    let minor = 3 + (state.toroidalWeave * 2);
+    let minor = 3 + (weave * 2);
 
     // Evaluate the target geometric state assigned by the LLM
     switch(targetState.geometry) {
@@ -99,8 +102,13 @@ export const CHAT_KERNEL_SOURCE = `update(t) {
             break;
     }
 
-    // Smoothly interpolate current position to the new geometric state target
+    if (!Number.isFinite(x)) x = 0;
+    if (!Number.isFinite(y)) y = 0;
+    if (!Number.isFinite(z)) z = 0;
+
+    // Smoothly interpolate; lerp rate tracks gravityPull (stage 273)
     if (!this._kernelTarget) this._kernelTarget = new THREE.Vector3();
     this._kernelTarget.set(x, y, z);
-    this.mesh.position.lerp(this._kernelTarget, 0.05);
+    const alpha = Math.min(0.12, Math.max(0.02, 0.05 * Math.max(0.4, pull)));
+    this.mesh.position.lerp(this._kernelTarget, alpha);
 }`;
