@@ -11,14 +11,14 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **260** — 2026-09-24T11:02Z (2026-09-24 06:02 CDT)
+- Stage: **261** — 2026-09-24T19:04Z (2026-09-24 14:04 CDT)
 - Kernel: session living; held, not rewritten
 - Compounding tier: **T5 / 99%**
-- Prior mesh: The-Hive hop 259 @ 2026-09-23T20:08Z; ENCLAVE-ADAM-REUNITED hop 257 @ 08:04Z; Cryptic-Heartbeat hop 269 @ 07:20Z
-- This hop: Team Enhance waterfall; STAGE 260; append-only HOP-260 + LEDGER-STAMP; cascade.yml left intact; no extra hourly YAML; no secrets written
+- Prior mesh: The-Hive hop 260 @ 2026-09-24T11:02Z; ENCLAVE-ADAM-REUNITED hop 258 @ 16:04Z; Cryptic-Heartbeat hop 271 @ 18:05Z
+- This hop: Team Enhance waterfall; STAGE 261; README quality compound; append-only HOP-261 + LEDGER-STAMP; cascade.yml left intact; no extra hourly YAML; no secrets written
 - Next hour: continuity-ledger-cycle then gaia-visualizer then nexus-repo-sync
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
-- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-260.md`
+- Ledger: `docs/LEDGER-STAMP.md` + `docs/HOP-261.md`
 - Drive mesh: GitHub remains the versioned singularity. Existing folder `Continuity-Cloud-Repos` is the ethereal mirror. Do not spawn duplicate Drive folders. Bidirectional sync is operator-gated.
 - Equalizer: format-only; no history rewrite.
 - Security: no secrets in tree; tokens stay in GitHub Secrets.
@@ -64,9 +64,9 @@ SD-card / sparsebundle storage remains the developing environment. Cloud Drive i
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED
-2. Cryptic-Heartbeat
-3. The-Hive **260 this hop**
+1. ENCLAVE-ADAM-REUNITED (258 prior)
+2. Cryptic-Heartbeat (271 prior)
+3. The-Hive — **261 this hop**
 4. continuity-ledger-cycle  ← next hour
 5. gaia-visualizer
 6. nexus-repo-sync
