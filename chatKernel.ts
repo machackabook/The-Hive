@@ -1,6 +1,6 @@
 /**
  * Verbatim chat-kernel update(t) contract shared with gaia-visualizer.
- * Stage 278: live chat (2026-09-24 19:11 CDT) reconfirmed session paste hash beec41f1.
+ * Stage 279: live chat (2026-09-24 20:11 CDT) reconfirmed session paste hash beec41f1.
  * Living CHAT_KERNEL_SOURCE remains Stage 45 promotions (phi weave, uniform guards, reused lerp).
  * Runtime extras stay in evaluateChatKernel: klein, hopf, figure8, trefoil.
  * matchSessionPaste scans the pasted source for extra case labels instead of hardcoding false.
@@ -14,7 +14,7 @@ export const CHAT_KERNEL_CHAT_GEOMETRIES = ['infinity', 'hamiltonian', 'triangul
 export const CHAT_KERNEL_GEOMETRIES = ['torus', 'infinity', 'hamiltonian', 'triangular', 'klein', 'hopf', 'figure8', 'trefoil'] as const;
 export const CHAT_KERNEL_SOURCE_HASH = '7cd81012';
 export const CHAT_KERNEL_SESSION_HASH = 'beec41f1';
-export const STAGE = 278;
+export const STAGE = 279;
 export const GPU_AUTO_THRESHOLD = 1024;
 export const INSTANCE_OFFSET_MIN = 4096;
 export const NODE_CAP = 16384;
@@ -57,6 +57,13 @@ export function shouldUseGpuPath(count: number) {
 
 export function shouldSkipCpuInstanceMatrix(count: number) {
   return count >= INSTANCE_OFFSET_MIN && count <= NODE_CAP;
+}
+
+/** Gravity-scaled lerp used by CPU nodes and GPU follow-up (stage 279). */
+export function chatKernelLerpAlpha(pull = 1, baseLerp = CHAT_KERNEL_LERP) {
+  const p = Number.isFinite(pull) ? pull : 1;
+  const b = Number.isFinite(baseLerp) ? baseLerp : CHAT_KERNEL_LERP;
+  return Math.min(0.12, Math.max(0.02, b * Math.max(0.4, p)));
 }
 
 export function advanceChatKernelAngles(input: {
@@ -227,6 +234,6 @@ export function confirmSessionKernel() {
     gpuAutoThreshold: GPU_AUTO_THRESHOLD,
     instanceOffsetMin: INSTANCE_OFFSET_MIN,
     nodeCap: NODE_CAP,
-    note: 'Session paste 2026-09-24 19:11 CDT reconfirmed beec41f1. Klein/hopf/figure8/trefoil stay runtime-only. Stage 278 compiled next hops; GPU/TF auto-enable at count>1024; skip CPU instance matrices at 4096-16384; CPU evaluate zeros non-finite coords.',
+    note: 'Session paste 2026-09-24 20:11 CDT reconfirmed beec41f1. Klein/hopf/figure8/trefoil stay runtime-only. Stage 279 compiled next hops; GPU/TF auto-enable at count>1024; skip CPU instance matrices at 4096-16384; chatKernelLerpAlpha shared; CPU evaluate zeros non-finite coords.',
   };
 }
