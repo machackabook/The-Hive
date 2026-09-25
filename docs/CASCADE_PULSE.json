@@ -1,9 +1,9 @@
 {
-  "stage": 285,
+  "stage": 286,
+  "hop": 286,
   "sessionHash": "beec41f1",
   "livingHash": "7cd81012",
-  "hop": 285,
-  "at": "2026-09-25T18:08:00Z",
-  "source": "live-chat-update(t)",
-  "geometries": ["infinity", "hamiltonian", "triangular", "torus"]
+  "geometries": ["infinity", "hamiltonian", "triangular", "torus"],
+  "when": "2026-09-25T19:05:00Z",
+  "route": ["The-Hive", "gaia-visualizer", "Cryptic-Heartbeat", "continuity-mesh-speedway"]
 }
