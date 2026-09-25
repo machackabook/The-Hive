@@ -1,4 +1,4 @@
-# Next stages after 277
+# Next stages after 280
 
 1. Keep the four-geometry session paste verbatim. Do not add case labels until a future chat paste includes them.
 2. Continue CPU/GPU parity on torus / infinity / hamiltonian / triangular (lerp 0.05 session, living lerp tracks gravityPull, theta step `0.01 + idx*0.002`, minor `3 + weave*2`).
