@@ -11,11 +11,11 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **287** — 2026-09-25T19:05Z (2026-09-25 14:05 CDT)
+- Stage: **289** — 2026-09-25T20:07Z (2026-09-25 15:07 CDT)
 - Kernel: session living; held, not rewritten
 - Compounding tier: **T5 / 99%**
-- This hop: speedway STAGE_287 paired; tdoc-ledgertrove genesis seeded; cascade.yml left intact; no extra hourly YAML; no secrets written
-- Next hour: gaia-visualizer then Cryptic-Heartbeat then continuity-ledger-cycle
+- This hop: README quality compound; append-only docs/HOP-289.md; cascade.yml left intact; no extra hourly YAML; no secrets written
+- Next hour: gaia-visualizer then continuity-ledger-cycle then nexus-repo-sync
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
 - Drive mesh: GitHub remains the versioned singularity. Existing folder `Continuity-Cloud-Repos` is the ethereal mirror. Do not spawn duplicate Drive folders. Bidirectional sync is operator-gated.
 - Equalizer: format-only; no history rewrite.
@@ -63,14 +63,14 @@ SD-card / sparsebundle storage remains the developing environment. Cloud Drive i
 
 1. ENCLAVE-ADAM-REUNITED
 2. Cryptic-Heartbeat
-3. The-Hive — **287 this hop**
+3. The-Hive — **289 this hop**
 4. gaia-visualizer  ← next hour
 5. continuity-ledger-cycle
 6. nexus-repo-sync
 7. sovereign-ai-factory-ai-polyglot
 8. continuity-mesh-speedway
 9. hamiltonian-incursion
-10. tdoc-ledgertrove (genesis seeded 287)
+10. tdoc-ledgertrove
 
 A pull on `main` should leave a ledger stamp. Sibling hops require `CASCADE_TOKEN`.
 
