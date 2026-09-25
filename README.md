@@ -11,10 +11,10 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **285** — 2026-09-25T18:08Z (2026-09-25 13:08 CDT)
+- Stage: **287** — 2026-09-25T19:05Z (2026-09-25 14:05 CDT)
 - Kernel: session living; held, not rewritten
 - Compounding tier: **T5 / 99%**
-- This hop: live-chat `update(t)` reconfirm; session `beec41f1`; living `7cd81012`; append-only HOP-285; cascade.yml left intact; no extra hourly YAML; no secrets written
+- This hop: speedway STAGE_287 paired; tdoc-ledgertrove genesis seeded; cascade.yml left intact; no extra hourly YAML; no secrets written
 - Next hour: gaia-visualizer then Cryptic-Heartbeat then continuity-ledger-cycle
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
 - Drive mesh: GitHub remains the versioned singularity. Existing folder `Continuity-Cloud-Repos` is the ethereal mirror. Do not spawn duplicate Drive folders. Bidirectional sync is operator-gated.
@@ -63,14 +63,14 @@ SD-card / sparsebundle storage remains the developing environment. Cloud Drive i
 
 1. ENCLAVE-ADAM-REUNITED
 2. Cryptic-Heartbeat
-3. The-Hive — **285 this hop**
+3. The-Hive — **287 this hop**
 4. gaia-visualizer  ← next hour
 5. continuity-ledger-cycle
 6. nexus-repo-sync
 7. sovereign-ai-factory-ai-polyglot
 8. continuity-mesh-speedway
 9. hamiltonian-incursion
-10. other `user:machackabook` surfaces updated recently
+10. tdoc-ledgertrove (genesis seeded 287)
 
 A pull on `main` should leave a ledger stamp. Sibling hops require `CASCADE_TOKEN`.
 
@@ -84,6 +84,7 @@ A pull on `main` should leave a ledger stamp. Sibling hops require `CASCADE_TOKE
 - [sovereign-ai-factory-ai-polyglot](https://github.com/machackabook/sovereign-ai-factory-ai-polyglot)
 - [continuity-mesh-speedway](https://github.com/machackabook/continuity-mesh-speedway)
 - [hamiltonian-incursion](https://github.com/machackabook/hamiltonian-incursion)
+- [tdoc-ledgertrove](https://github.com/machackabook/tdoc-ledgertrove)
 
 ## Security posture
 
