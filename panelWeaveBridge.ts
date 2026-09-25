@@ -1,4 +1,4 @@
-/** Stage 277 — thin panel → weaveEmitter adapter. */
+/** Stage 277/284 — thin panel → weaveEmitter adapter. */
 import {
   emitBlend,
   emitGeometry,

@@ -1,9 +1,9 @@
 # SINGULARITY UNITE STATUS
 
 - Node: The-Hive
-- Hop: 222
+- Hop: 284
 - Team: Enhance
-- Equalizer: formatting + security docs
+- Equalizer: session kernel pin + Quine weave hook
 - Cascade: live
 - Numeral: 137451921129154222
-- Last enhance: 2026-09-25T01:03:00Z
+- Last enhance: 2026-09-25T15:00:00Z
