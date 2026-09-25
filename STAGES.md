@@ -1,6 +1,6 @@
 # The-Hive × gaia-visualizer stages
 
-Stage **286** — live chat (2026-09-25 14:05 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160. `NODE_CAP` 16384 + instanceOffset bind already live in transform-feedback. `shouldSkipCpuInstanceMatrix` is exported from `chatKernel.ts` for the 4k–16k band. `chatKernelLerpAlpha` is the shared gravity-scaled lerp (clamp 0.02–0.12). `panelWeaveBridge.ts` maps slider telemetry onto the dual-bus weave emitter. `usePanelWeave.ts` binds Quine environmental sliders to that bridge. Waterfall hop 286: The-Hive → gaia-visualizer → Cryptic-Heartbeat → continuity-mesh-speedway. Remaining product: NexusStudio / Stream sliders; authenticated ledger pulse; HeartbeatScan (4-gov).
+Stage **288** — live chat (2026-09-25 15:03 CDT) re-pasted session `update(t)` (infinity | hamiltonian | triangular | torus). Session hash remains `beec41f1`. Living hash remains `7cd81012`. No new case labels in the paste; klein / hopf / figure8 / trefoil stay runtime-only. `matchSessionPaste` extras stay false. Do not rewrite the four-geometry session switch. Living `evaluateChatKernelInto` zeros non-finite x/y/z. GPU/TF auto-enable at `?nodes=` > 1024 remains from Stage 160. `NODE_CAP` 16384 + instanceOffset bind already live in transform-feedback. `shouldSkipCpuInstanceMatrix` is exported from `chatKernel.ts` for the 4k–16k band. `chatKernelLerpAlpha` is the shared gravity-scaled lerp (clamp 0.02–0.12). `panelWeaveBridge.ts` maps slider telemetry onto the dual-bus weave emitter. `usePanelWeave.ts` binds Quine environmental sliders to that bridge. Waterfall hop 288: The-Hive → gaia-visualizer → Cryptic-Heartbeat → continuity-mesh-speedway. Remaining product: NexusStudio / Stream sliders; authenticated ledger pulse; HeartbeatScan (4-gov).
 
 Chat kernel (`chatKernel.ts` / `chatKernelSources.ts`) keeps two pins:
 - `CHAT_KERNEL_SESSION_SOURCE` — exact in-session paste (allocates `new THREE.Vector3` per frame by contract).
@@ -17,7 +17,7 @@ Chat kernel (`chatKernel.ts` / `chatKernelSources.ts`) keeps two pins:
 58. Promote klein into the session switch only after a chat paste includes it.
 66-session. Promote hopf/figure8/trefoil into the session switch only after a chat paste includes those cases.
 270-gate. Keep session hash `beec41f1` pinned; do not rewrite the four-geometry paste.
-287. Authenticated ledger pulse + remaining panel weave hooks. Docs-quality hop only unless a paste adds cases.
+289. Authenticated ledger pulse + remaining panel weave hooks. Docs-quality hop only unless a paste adds cases.
 
 Wire in panels:
 
