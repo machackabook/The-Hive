@@ -1,12 +1,23 @@
-# MESH SYNC — The-Hive hop 273
+# MESH SYNC
 
-GitHub is origin. Drive is ethereal continuum mirror.
-Bidirectional sync is operator-gated. No duplicate folder spawn.
+Bidirectional waterfall for `machackabook` public surface.
 
-Siblings verified this hop:
-- gaia-visualizer (living 7cd81012, STAGE 273, session pin beec41f1)
-- Cryptic-Heartbeat (STAGE 273)
-- Session paste still four geometries only; extras stay runtime-only
-- Next: ledger pulse (13), Drive engrams (14), remaining panels (19), HeartbeatScan (4-gov)
+## Cascade order (pull then push)
 
-Numeral 137451921129154222. Point-zero null refused.
+1. The-Hive (this node)
+2. ENCLAVE-ADAM-REUNITED
+3. gaia-visualizer
+4. Cryptic-Heartbeat
+
+A pull on any node should trigger a no-secret stamp push on the next node.
+Hourly GitHub Actions already exist under `.github/workflows/`.
+Do not add duplicate cron files that fight each other; prefer one stamp per hour.
+
+## Numeral
+
+`137451921129154222`
+
+## Drive mesh
+
+Google Drive remains the ethereal continuum cache. Repo contents stay on GitHub.
+Never commit tokens, ADB pair codes, or private keys.
