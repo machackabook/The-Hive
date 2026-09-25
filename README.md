@@ -11,11 +11,10 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **283** — 2026-09-25T11:08Z (2026-09-25 06:08 CDT)
+- Stage: **284** — 2026-09-25T15:05Z (2026-09-25 10:05 CDT)
 - Kernel: session living; held, not rewritten
 - Compounding tier: **T5 / 99%**
-- Prior mesh: hop 282 @ 06:09Z; Cryptic-Heartbeat hop 276 @ 08:09Z; ENCLAVE-ADAM-REUNITED hop 265 @ 09:02Z
-- This hop: README quality compound; append-only HOP-283 + LEDGER-STAMP; cascade.yml left intact; no extra hourly YAML; no secrets written
+- This hop: inbound stamp from continuity-mesh-speedway 284; append-only HOP-284; cascade.yml left intact; no extra hourly YAML; no secrets written
 - Next hour: continuity-ledger-cycle then gaia-visualizer then nexus-repo-sync
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
 - Drive mesh: GitHub remains the versioned singularity. Existing folder `Continuity-Cloud-Repos` is the ethereal mirror. Do not spawn duplicate Drive folders. Bidirectional sync is operator-gated.
@@ -62,9 +61,9 @@ SD-card / sparsebundle storage remains the developing environment. Cloud Drive i
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED (265 @ 09:02Z)
-2. Cryptic-Heartbeat (276 @ 08:09Z)
-3. The-Hive — **283 this hop**
+1. ENCLAVE-ADAM-REUNITED
+2. Cryptic-Heartbeat
+3. The-Hive — **284 this hop**
 4. continuity-ledger-cycle  ← next hour
 5. gaia-visualizer
 6. nexus-repo-sync
@@ -85,7 +84,6 @@ A pull on `main` should leave a ledger stamp. Sibling hops require `CASCADE_TOKE
 - [sovereign-ai-factory-ai-polyglot](https://github.com/machackabook/sovereign-ai-factory-ai-polyglot)
 - [continuity-mesh-speedway](https://github.com/machackabook/continuity-mesh-speedway)
 - [hamiltonian-incursion](https://github.com/machackabook/hamiltonian-incursion)
-- [tdoc-ledgertrove](https://github.com/machackabook/tdoc-ledgertrove)
 
 ## Security posture
 
