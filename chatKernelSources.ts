@@ -1,4 +1,4 @@
-/** Pinned session paste (beec41f1) and living runtime source (7cd81012). Stage 277. */
+/** Pinned session paste (beec41f1) and living runtime source (7cd81012). Stage 278. */
 export const CHAT_KERNEL_SESSION_SOURCE = `update(t) {
     this.material.uniforms.uTime.value = t;
     this.material.uniforms.uGravity.value = state.gravityPull;
@@ -106,7 +106,7 @@ export const CHAT_KERNEL_SOURCE = `update(t) {
     if (!Number.isFinite(y)) y = 0;
     if (!Number.isFinite(z)) z = 0;
 
-    // Smoothly interpolate; lerp rate tracks gravityPull (stage 277)
+    // Smoothly interpolate; lerp rate tracks gravityPull (stage 278)
     if (!this._kernelTarget) this._kernelTarget = new THREE.Vector3();
     this._kernelTarget.set(x, y, z);
     const alpha = Math.min(0.12, Math.max(0.02, 0.05 * Math.max(0.4, pull)));
