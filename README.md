@@ -11,11 +11,12 @@ Operating sits in the middle. Team Enhance hops one repo per hour. Equalizer for
 - Language: TypeScript
 - Numeral: `137451921129154222`
 - Team: Enhance / Continuity Engine / Hamiltonian pipe / sSoS Operating
-- Stage: **289** — 2026-09-25T20:07Z (2026-09-25 15:07 CDT)
+- Stage: **290** — 2026-09-26T08:04Z (2026-09-26 03:04 CDT)
 - Kernel: session living; held, not rewritten
 - Compounding tier: **T5 / 99%**
-- This hop: README quality compound; append-only docs/HOP-289.md; cascade.yml left intact; no extra hourly YAML; no secrets written
-- Next hour: gaia-visualizer then continuity-ledger-cycle then nexus-repo-sync
+- Prior mesh: hop 289 @ 2026-09-25T20:07Z; Cryptic hop 279 @ 2026-09-26T07:06Z; ENCLAVE hop 270 @ 2026-09-26T06:05Z
+- This hop: README quality compound; append-only HOP-290 + LEDGER-STAMP; cascade.yml left intact; no extra hourly YAML; no secrets written
+- Next hour: continuity-ledger-cycle then gaia-visualizer then nexus-repo-sync
 - Cascade: keep existing `.github/workflows/cascade.yml` healthy. Do not multiply YAML clones.
 - Drive mesh: GitHub remains the versioned singularity. Existing folder `Continuity-Cloud-Repos` is the ethereal mirror. Do not spawn duplicate Drive folders. Bidirectional sync is operator-gated.
 - Equalizer: format-only; no history rewrite.
@@ -61,11 +62,11 @@ SD-card / sparsebundle storage remains the developing environment. Cloud Drive i
 
 ## Waterfall (one repo per hour)
 
-1. ENCLAVE-ADAM-REUNITED
-2. Cryptic-Heartbeat
-3. The-Hive — **289 this hop**
-4. gaia-visualizer  ← next hour
-5. continuity-ledger-cycle
+1. ENCLAVE-ADAM-REUNITED (hop 270 @ 2026-09-26T06:05Z — skipped this hour)
+2. Cryptic-Heartbeat (hop 279 @ 2026-09-26T07:06Z — skipped this hour)
+3. The-Hive — **290 this hop**
+4. continuity-ledger-cycle  ← next hour
+5. gaia-visualizer
 6. nexus-repo-sync
 7. sovereign-ai-factory-ai-polyglot
 8. continuity-mesh-speedway
